@@ -10,6 +10,9 @@ import (
 // U1 is an 1-bit unsigned integer.
 type U1 uint8
 
+// AsU1 returns a U1 representing v reduced to 1 bits.
+func AsU1[T Unsigned](v T) U1 { return U1.cast(U1(v)) }
+
 func (U1) nbits() int { return 1 }
 func (u U1) mask() U1 { return 0x1 }
 func (u U1) cast() U1 { return u & u.mask() }
@@ -144,6 +147,9 @@ func (u *U1) Byteref(index int) Range[U1] { return byte(u, index) }
 
 // I1 is an 1-bit signed integer in two's complement.
 type I1 int8
+
+// AsI1 returns a I1 representing v reduced to 1 bits.
+func AsI1[T Signed](v T) I1 { return I1.cast(I1(v)) }
 
 func (I1) nbits() int { return 1 }
 func (i I1) mask() I1 { return 0x1 }
@@ -282,6 +288,9 @@ func (i *I1) Byteref(index int) Range[I1] { return byte(i, index) }
 // U2 is an 2-bit unsigned integer.
 type U2 uint8
 
+// AsU2 returns a U2 representing v reduced to 2 bits.
+func AsU2[T Unsigned](v T) U2 { return U2.cast(U2(v)) }
+
 func (U2) nbits() int { return 2 }
 func (u U2) mask() U2 { return 0x3 }
 func (u U2) cast() U2 { return u & u.mask() }
@@ -416,6 +425,9 @@ func (u *U2) Byteref(index int) Range[U2] { return byte(u, index) }
 
 // I2 is an 2-bit signed integer in two's complement.
 type I2 int8
+
+// AsI2 returns a I2 representing v reduced to 2 bits.
+func AsI2[T Signed](v T) I2 { return I2.cast(I2(v)) }
 
 func (I2) nbits() int { return 2 }
 func (i I2) mask() I2 { return 0x3 }
@@ -554,6 +566,9 @@ func (i *I2) Byteref(index int) Range[I2] { return byte(i, index) }
 // U3 is an 3-bit unsigned integer.
 type U3 uint8
 
+// AsU3 returns a U3 representing v reduced to 3 bits.
+func AsU3[T Unsigned](v T) U3 { return U3.cast(U3(v)) }
+
 func (U3) nbits() int { return 3 }
 func (u U3) mask() U3 { return 0x7 }
 func (u U3) cast() U3 { return u & u.mask() }
@@ -688,6 +703,9 @@ func (u *U3) Byteref(index int) Range[U3] { return byte(u, index) }
 
 // I3 is an 3-bit signed integer in two's complement.
 type I3 int8
+
+// AsI3 returns a I3 representing v reduced to 3 bits.
+func AsI3[T Signed](v T) I3 { return I3.cast(I3(v)) }
 
 func (I3) nbits() int { return 3 }
 func (i I3) mask() I3 { return 0x7 }
@@ -826,6 +844,9 @@ func (i *I3) Byteref(index int) Range[I3] { return byte(i, index) }
 // U4 is an 4-bit unsigned integer.
 type U4 uint8
 
+// AsU4 returns a U4 representing v reduced to 4 bits.
+func AsU4[T Unsigned](v T) U4 { return U4.cast(U4(v)) }
+
 func (U4) nbits() int { return 4 }
 func (u U4) mask() U4 { return 0xf }
 func (u U4) cast() U4 { return u & u.mask() }
@@ -960,6 +981,9 @@ func (u *U4) Byteref(index int) Range[U4] { return byte(u, index) }
 
 // I4 is an 4-bit signed integer in two's complement.
 type I4 int8
+
+// AsI4 returns a I4 representing v reduced to 4 bits.
+func AsI4[T Signed](v T) I4 { return I4.cast(I4(v)) }
 
 func (I4) nbits() int { return 4 }
 func (i I4) mask() I4 { return 0xf }
@@ -1098,6 +1122,9 @@ func (i *I4) Byteref(index int) Range[I4] { return byte(i, index) }
 // U5 is an 5-bit unsigned integer.
 type U5 uint8
 
+// AsU5 returns a U5 representing v reduced to 5 bits.
+func AsU5[T Unsigned](v T) U5 { return U5.cast(U5(v)) }
+
 func (U5) nbits() int { return 5 }
 func (u U5) mask() U5 { return 0x1f }
 func (u U5) cast() U5 { return u & u.mask() }
@@ -1232,6 +1259,9 @@ func (u *U5) Byteref(index int) Range[U5] { return byte(u, index) }
 
 // I5 is an 5-bit signed integer in two's complement.
 type I5 int8
+
+// AsI5 returns a I5 representing v reduced to 5 bits.
+func AsI5[T Signed](v T) I5 { return I5.cast(I5(v)) }
 
 func (I5) nbits() int { return 5 }
 func (i I5) mask() I5 { return 0x1f }
@@ -1370,6 +1400,9 @@ func (i *I5) Byteref(index int) Range[I5] { return byte(i, index) }
 // U6 is an 6-bit unsigned integer.
 type U6 uint8
 
+// AsU6 returns a U6 representing v reduced to 6 bits.
+func AsU6[T Unsigned](v T) U6 { return U6.cast(U6(v)) }
+
 func (U6) nbits() int { return 6 }
 func (u U6) mask() U6 { return 0x3f }
 func (u U6) cast() U6 { return u & u.mask() }
@@ -1504,6 +1537,9 @@ func (u *U6) Byteref(index int) Range[U6] { return byte(u, index) }
 
 // I6 is an 6-bit signed integer in two's complement.
 type I6 int8
+
+// AsI6 returns a I6 representing v reduced to 6 bits.
+func AsI6[T Signed](v T) I6 { return I6.cast(I6(v)) }
 
 func (I6) nbits() int { return 6 }
 func (i I6) mask() I6 { return 0x3f }
@@ -1642,6 +1678,9 @@ func (i *I6) Byteref(index int) Range[I6] { return byte(i, index) }
 // U7 is an 7-bit unsigned integer.
 type U7 uint8
 
+// AsU7 returns a U7 representing v reduced to 7 bits.
+func AsU7[T Unsigned](v T) U7 { return U7.cast(U7(v)) }
+
 func (U7) nbits() int { return 7 }
 func (u U7) mask() U7 { return 0x7f }
 func (u U7) cast() U7 { return u & u.mask() }
@@ -1776,6 +1815,9 @@ func (u *U7) Byteref(index int) Range[U7] { return byte(u, index) }
 
 // I7 is an 7-bit signed integer in two's complement.
 type I7 int8
+
+// AsI7 returns a I7 representing v reduced to 7 bits.
+func AsI7[T Signed](v T) I7 { return I7.cast(I7(v)) }
 
 func (I7) nbits() int { return 7 }
 func (i I7) mask() I7 { return 0x7f }
@@ -1914,6 +1956,9 @@ func (i *I7) Byteref(index int) Range[I7] { return byte(i, index) }
 // U8 is an 8-bit unsigned integer.
 type U8 uint8
 
+// AsU8 returns a U8 representing v reduced to 8 bits.
+func AsU8[T Unsigned](v T) U8 { return U8.cast(U8(v)) }
+
 func (U8) nbits() int { return 8 }
 func (u U8) mask() U8 { return 0xff }
 func (u U8) cast() U8 { return u & u.mask() }
@@ -2048,6 +2093,9 @@ func (u *U8) Byteref(index int) Range[U8] { return byte(u, index) }
 
 // I8 is an 8-bit signed integer in two's complement.
 type I8 int8
+
+// AsI8 returns a I8 representing v reduced to 8 bits.
+func AsI8[T Signed](v T) I8 { return I8.cast(I8(v)) }
 
 func (I8) nbits() int { return 8 }
 func (i I8) mask() I8 { return -1 }
@@ -2186,6 +2234,9 @@ func (i *I8) Byteref(index int) Range[I8] { return byte(i, index) }
 // U9 is an 9-bit unsigned integer.
 type U9 uint16
 
+// AsU9 returns a U9 representing v reduced to 9 bits.
+func AsU9[T Unsigned](v T) U9 { return U9.cast(U9(v)) }
+
 func (U9) nbits() int { return 9 }
 func (u U9) mask() U9 { return 0x1ff }
 func (u U9) cast() U9 { return u & u.mask() }
@@ -2320,6 +2371,9 @@ func (u *U9) Byteref(index int) Range[U9] { return byte(u, index) }
 
 // I9 is an 9-bit signed integer in two's complement.
 type I9 int16
+
+// AsI9 returns a I9 representing v reduced to 9 bits.
+func AsI9[T Signed](v T) I9 { return I9.cast(I9(v)) }
 
 func (I9) nbits() int { return 9 }
 func (i I9) mask() I9 { return 0x1ff }
@@ -2458,6 +2512,9 @@ func (i *I9) Byteref(index int) Range[I9] { return byte(i, index) }
 // U10 is an 10-bit unsigned integer.
 type U10 uint16
 
+// AsU10 returns a U10 representing v reduced to 10 bits.
+func AsU10[T Unsigned](v T) U10 { return U10.cast(U10(v)) }
+
 func (U10) nbits() int  { return 10 }
 func (u U10) mask() U10 { return 0x3ff }
 func (u U10) cast() U10 { return u & u.mask() }
@@ -2592,6 +2649,9 @@ func (u *U10) Byteref(index int) Range[U10] { return byte(u, index) }
 
 // I10 is an 10-bit signed integer in two's complement.
 type I10 int16
+
+// AsI10 returns a I10 representing v reduced to 10 bits.
+func AsI10[T Signed](v T) I10 { return I10.cast(I10(v)) }
 
 func (I10) nbits() int  { return 10 }
 func (i I10) mask() I10 { return 0x3ff }
@@ -2730,6 +2790,9 @@ func (i *I10) Byteref(index int) Range[I10] { return byte(i, index) }
 // U11 is an 11-bit unsigned integer.
 type U11 uint16
 
+// AsU11 returns a U11 representing v reduced to 11 bits.
+func AsU11[T Unsigned](v T) U11 { return U11.cast(U11(v)) }
+
 func (U11) nbits() int  { return 11 }
 func (u U11) mask() U11 { return 0x7ff }
 func (u U11) cast() U11 { return u & u.mask() }
@@ -2864,6 +2927,9 @@ func (u *U11) Byteref(index int) Range[U11] { return byte(u, index) }
 
 // I11 is an 11-bit signed integer in two's complement.
 type I11 int16
+
+// AsI11 returns a I11 representing v reduced to 11 bits.
+func AsI11[T Signed](v T) I11 { return I11.cast(I11(v)) }
 
 func (I11) nbits() int  { return 11 }
 func (i I11) mask() I11 { return 0x7ff }
@@ -3002,6 +3068,9 @@ func (i *I11) Byteref(index int) Range[I11] { return byte(i, index) }
 // U12 is an 12-bit unsigned integer.
 type U12 uint16
 
+// AsU12 returns a U12 representing v reduced to 12 bits.
+func AsU12[T Unsigned](v T) U12 { return U12.cast(U12(v)) }
+
 func (U12) nbits() int  { return 12 }
 func (u U12) mask() U12 { return 0xfff }
 func (u U12) cast() U12 { return u & u.mask() }
@@ -3136,6 +3205,9 @@ func (u *U12) Byteref(index int) Range[U12] { return byte(u, index) }
 
 // I12 is an 12-bit signed integer in two's complement.
 type I12 int16
+
+// AsI12 returns a I12 representing v reduced to 12 bits.
+func AsI12[T Signed](v T) I12 { return I12.cast(I12(v)) }
 
 func (I12) nbits() int  { return 12 }
 func (i I12) mask() I12 { return 0xfff }
@@ -3274,6 +3346,9 @@ func (i *I12) Byteref(index int) Range[I12] { return byte(i, index) }
 // U13 is an 13-bit unsigned integer.
 type U13 uint16
 
+// AsU13 returns a U13 representing v reduced to 13 bits.
+func AsU13[T Unsigned](v T) U13 { return U13.cast(U13(v)) }
+
 func (U13) nbits() int  { return 13 }
 func (u U13) mask() U13 { return 0x1fff }
 func (u U13) cast() U13 { return u & u.mask() }
@@ -3408,6 +3483,9 @@ func (u *U13) Byteref(index int) Range[U13] { return byte(u, index) }
 
 // I13 is an 13-bit signed integer in two's complement.
 type I13 int16
+
+// AsI13 returns a I13 representing v reduced to 13 bits.
+func AsI13[T Signed](v T) I13 { return I13.cast(I13(v)) }
 
 func (I13) nbits() int  { return 13 }
 func (i I13) mask() I13 { return 0x1fff }
@@ -3546,6 +3624,9 @@ func (i *I13) Byteref(index int) Range[I13] { return byte(i, index) }
 // U14 is an 14-bit unsigned integer.
 type U14 uint16
 
+// AsU14 returns a U14 representing v reduced to 14 bits.
+func AsU14[T Unsigned](v T) U14 { return U14.cast(U14(v)) }
+
 func (U14) nbits() int  { return 14 }
 func (u U14) mask() U14 { return 0x3fff }
 func (u U14) cast() U14 { return u & u.mask() }
@@ -3680,6 +3761,9 @@ func (u *U14) Byteref(index int) Range[U14] { return byte(u, index) }
 
 // I14 is an 14-bit signed integer in two's complement.
 type I14 int16
+
+// AsI14 returns a I14 representing v reduced to 14 bits.
+func AsI14[T Signed](v T) I14 { return I14.cast(I14(v)) }
 
 func (I14) nbits() int  { return 14 }
 func (i I14) mask() I14 { return 0x3fff }
@@ -3818,6 +3902,9 @@ func (i *I14) Byteref(index int) Range[I14] { return byte(i, index) }
 // U15 is an 15-bit unsigned integer.
 type U15 uint16
 
+// AsU15 returns a U15 representing v reduced to 15 bits.
+func AsU15[T Unsigned](v T) U15 { return U15.cast(U15(v)) }
+
 func (U15) nbits() int  { return 15 }
 func (u U15) mask() U15 { return 0x7fff }
 func (u U15) cast() U15 { return u & u.mask() }
@@ -3952,6 +4039,9 @@ func (u *U15) Byteref(index int) Range[U15] { return byte(u, index) }
 
 // I15 is an 15-bit signed integer in two's complement.
 type I15 int16
+
+// AsI15 returns a I15 representing v reduced to 15 bits.
+func AsI15[T Signed](v T) I15 { return I15.cast(I15(v)) }
 
 func (I15) nbits() int  { return 15 }
 func (i I15) mask() I15 { return 0x7fff }
@@ -4090,6 +4180,9 @@ func (i *I15) Byteref(index int) Range[I15] { return byte(i, index) }
 // U16 is an 16-bit unsigned integer.
 type U16 uint16
 
+// AsU16 returns a U16 representing v reduced to 16 bits.
+func AsU16[T Unsigned](v T) U16 { return U16.cast(U16(v)) }
+
 func (U16) nbits() int  { return 16 }
 func (u U16) mask() U16 { return 0xffff }
 func (u U16) cast() U16 { return u & u.mask() }
@@ -4224,6 +4317,9 @@ func (u *U16) Byteref(index int) Range[U16] { return byte(u, index) }
 
 // I16 is an 16-bit signed integer in two's complement.
 type I16 int16
+
+// AsI16 returns a I16 representing v reduced to 16 bits.
+func AsI16[T Signed](v T) I16 { return I16.cast(I16(v)) }
 
 func (I16) nbits() int  { return 16 }
 func (i I16) mask() I16 { return -1 }
@@ -4362,6 +4458,9 @@ func (i *I16) Byteref(index int) Range[I16] { return byte(i, index) }
 // U17 is an 17-bit unsigned integer.
 type U17 uint32
 
+// AsU17 returns a U17 representing v reduced to 17 bits.
+func AsU17[T Unsigned](v T) U17 { return U17.cast(U17(v)) }
+
 func (U17) nbits() int  { return 17 }
 func (u U17) mask() U17 { return 0x1ffff }
 func (u U17) cast() U17 { return u & u.mask() }
@@ -4496,6 +4595,9 @@ func (u *U17) Byteref(index int) Range[U17] { return byte(u, index) }
 
 // I17 is an 17-bit signed integer in two's complement.
 type I17 int32
+
+// AsI17 returns a I17 representing v reduced to 17 bits.
+func AsI17[T Signed](v T) I17 { return I17.cast(I17(v)) }
 
 func (I17) nbits() int  { return 17 }
 func (i I17) mask() I17 { return 0x1ffff }
@@ -4634,6 +4736,9 @@ func (i *I17) Byteref(index int) Range[I17] { return byte(i, index) }
 // U18 is an 18-bit unsigned integer.
 type U18 uint32
 
+// AsU18 returns a U18 representing v reduced to 18 bits.
+func AsU18[T Unsigned](v T) U18 { return U18.cast(U18(v)) }
+
 func (U18) nbits() int  { return 18 }
 func (u U18) mask() U18 { return 0x3ffff }
 func (u U18) cast() U18 { return u & u.mask() }
@@ -4768,6 +4873,9 @@ func (u *U18) Byteref(index int) Range[U18] { return byte(u, index) }
 
 // I18 is an 18-bit signed integer in two's complement.
 type I18 int32
+
+// AsI18 returns a I18 representing v reduced to 18 bits.
+func AsI18[T Signed](v T) I18 { return I18.cast(I18(v)) }
 
 func (I18) nbits() int  { return 18 }
 func (i I18) mask() I18 { return 0x3ffff }
@@ -4906,6 +5014,9 @@ func (i *I18) Byteref(index int) Range[I18] { return byte(i, index) }
 // U19 is an 19-bit unsigned integer.
 type U19 uint32
 
+// AsU19 returns a U19 representing v reduced to 19 bits.
+func AsU19[T Unsigned](v T) U19 { return U19.cast(U19(v)) }
+
 func (U19) nbits() int  { return 19 }
 func (u U19) mask() U19 { return 0x7ffff }
 func (u U19) cast() U19 { return u & u.mask() }
@@ -5040,6 +5151,9 @@ func (u *U19) Byteref(index int) Range[U19] { return byte(u, index) }
 
 // I19 is an 19-bit signed integer in two's complement.
 type I19 int32
+
+// AsI19 returns a I19 representing v reduced to 19 bits.
+func AsI19[T Signed](v T) I19 { return I19.cast(I19(v)) }
 
 func (I19) nbits() int  { return 19 }
 func (i I19) mask() I19 { return 0x7ffff }
@@ -5178,6 +5292,9 @@ func (i *I19) Byteref(index int) Range[I19] { return byte(i, index) }
 // U20 is an 20-bit unsigned integer.
 type U20 uint32
 
+// AsU20 returns a U20 representing v reduced to 20 bits.
+func AsU20[T Unsigned](v T) U20 { return U20.cast(U20(v)) }
+
 func (U20) nbits() int  { return 20 }
 func (u U20) mask() U20 { return 0xfffff }
 func (u U20) cast() U20 { return u & u.mask() }
@@ -5312,6 +5429,9 @@ func (u *U20) Byteref(index int) Range[U20] { return byte(u, index) }
 
 // I20 is an 20-bit signed integer in two's complement.
 type I20 int32
+
+// AsI20 returns a I20 representing v reduced to 20 bits.
+func AsI20[T Signed](v T) I20 { return I20.cast(I20(v)) }
 
 func (I20) nbits() int  { return 20 }
 func (i I20) mask() I20 { return 0xfffff }
@@ -5450,6 +5570,9 @@ func (i *I20) Byteref(index int) Range[I20] { return byte(i, index) }
 // U21 is an 21-bit unsigned integer.
 type U21 uint32
 
+// AsU21 returns a U21 representing v reduced to 21 bits.
+func AsU21[T Unsigned](v T) U21 { return U21.cast(U21(v)) }
+
 func (U21) nbits() int  { return 21 }
 func (u U21) mask() U21 { return 0x1fffff }
 func (u U21) cast() U21 { return u & u.mask() }
@@ -5584,6 +5707,9 @@ func (u *U21) Byteref(index int) Range[U21] { return byte(u, index) }
 
 // I21 is an 21-bit signed integer in two's complement.
 type I21 int32
+
+// AsI21 returns a I21 representing v reduced to 21 bits.
+func AsI21[T Signed](v T) I21 { return I21.cast(I21(v)) }
 
 func (I21) nbits() int  { return 21 }
 func (i I21) mask() I21 { return 0x1fffff }
@@ -5722,6 +5848,9 @@ func (i *I21) Byteref(index int) Range[I21] { return byte(i, index) }
 // U22 is an 22-bit unsigned integer.
 type U22 uint32
 
+// AsU22 returns a U22 representing v reduced to 22 bits.
+func AsU22[T Unsigned](v T) U22 { return U22.cast(U22(v)) }
+
 func (U22) nbits() int  { return 22 }
 func (u U22) mask() U22 { return 0x3fffff }
 func (u U22) cast() U22 { return u & u.mask() }
@@ -5856,6 +5985,9 @@ func (u *U22) Byteref(index int) Range[U22] { return byte(u, index) }
 
 // I22 is an 22-bit signed integer in two's complement.
 type I22 int32
+
+// AsI22 returns a I22 representing v reduced to 22 bits.
+func AsI22[T Signed](v T) I22 { return I22.cast(I22(v)) }
 
 func (I22) nbits() int  { return 22 }
 func (i I22) mask() I22 { return 0x3fffff }
@@ -5994,6 +6126,9 @@ func (i *I22) Byteref(index int) Range[I22] { return byte(i, index) }
 // U23 is an 23-bit unsigned integer.
 type U23 uint32
 
+// AsU23 returns a U23 representing v reduced to 23 bits.
+func AsU23[T Unsigned](v T) U23 { return U23.cast(U23(v)) }
+
 func (U23) nbits() int  { return 23 }
 func (u U23) mask() U23 { return 0x7fffff }
 func (u U23) cast() U23 { return u & u.mask() }
@@ -6128,6 +6263,9 @@ func (u *U23) Byteref(index int) Range[U23] { return byte(u, index) }
 
 // I23 is an 23-bit signed integer in two's complement.
 type I23 int32
+
+// AsI23 returns a I23 representing v reduced to 23 bits.
+func AsI23[T Signed](v T) I23 { return I23.cast(I23(v)) }
 
 func (I23) nbits() int  { return 23 }
 func (i I23) mask() I23 { return 0x7fffff }
@@ -6266,6 +6404,9 @@ func (i *I23) Byteref(index int) Range[I23] { return byte(i, index) }
 // U24 is an 24-bit unsigned integer.
 type U24 uint32
 
+// AsU24 returns a U24 representing v reduced to 24 bits.
+func AsU24[T Unsigned](v T) U24 { return U24.cast(U24(v)) }
+
 func (U24) nbits() int  { return 24 }
 func (u U24) mask() U24 { return 0xffffff }
 func (u U24) cast() U24 { return u & u.mask() }
@@ -6400,6 +6541,9 @@ func (u *U24) Byteref(index int) Range[U24] { return byte(u, index) }
 
 // I24 is an 24-bit signed integer in two's complement.
 type I24 int32
+
+// AsI24 returns a I24 representing v reduced to 24 bits.
+func AsI24[T Signed](v T) I24 { return I24.cast(I24(v)) }
 
 func (I24) nbits() int  { return 24 }
 func (i I24) mask() I24 { return 0xffffff }
@@ -6538,6 +6682,9 @@ func (i *I24) Byteref(index int) Range[I24] { return byte(i, index) }
 // U25 is an 25-bit unsigned integer.
 type U25 uint32
 
+// AsU25 returns a U25 representing v reduced to 25 bits.
+func AsU25[T Unsigned](v T) U25 { return U25.cast(U25(v)) }
+
 func (U25) nbits() int  { return 25 }
 func (u U25) mask() U25 { return 0x1ffffff }
 func (u U25) cast() U25 { return u & u.mask() }
@@ -6672,6 +6819,9 @@ func (u *U25) Byteref(index int) Range[U25] { return byte(u, index) }
 
 // I25 is an 25-bit signed integer in two's complement.
 type I25 int32
+
+// AsI25 returns a I25 representing v reduced to 25 bits.
+func AsI25[T Signed](v T) I25 { return I25.cast(I25(v)) }
 
 func (I25) nbits() int  { return 25 }
 func (i I25) mask() I25 { return 0x1ffffff }
@@ -6810,6 +6960,9 @@ func (i *I25) Byteref(index int) Range[I25] { return byte(i, index) }
 // U26 is an 26-bit unsigned integer.
 type U26 uint32
 
+// AsU26 returns a U26 representing v reduced to 26 bits.
+func AsU26[T Unsigned](v T) U26 { return U26.cast(U26(v)) }
+
 func (U26) nbits() int  { return 26 }
 func (u U26) mask() U26 { return 0x3ffffff }
 func (u U26) cast() U26 { return u & u.mask() }
@@ -6944,6 +7097,9 @@ func (u *U26) Byteref(index int) Range[U26] { return byte(u, index) }
 
 // I26 is an 26-bit signed integer in two's complement.
 type I26 int32
+
+// AsI26 returns a I26 representing v reduced to 26 bits.
+func AsI26[T Signed](v T) I26 { return I26.cast(I26(v)) }
 
 func (I26) nbits() int  { return 26 }
 func (i I26) mask() I26 { return 0x3ffffff }
@@ -7082,6 +7238,9 @@ func (i *I26) Byteref(index int) Range[I26] { return byte(i, index) }
 // U27 is an 27-bit unsigned integer.
 type U27 uint32
 
+// AsU27 returns a U27 representing v reduced to 27 bits.
+func AsU27[T Unsigned](v T) U27 { return U27.cast(U27(v)) }
+
 func (U27) nbits() int  { return 27 }
 func (u U27) mask() U27 { return 0x7ffffff }
 func (u U27) cast() U27 { return u & u.mask() }
@@ -7216,6 +7375,9 @@ func (u *U27) Byteref(index int) Range[U27] { return byte(u, index) }
 
 // I27 is an 27-bit signed integer in two's complement.
 type I27 int32
+
+// AsI27 returns a I27 representing v reduced to 27 bits.
+func AsI27[T Signed](v T) I27 { return I27.cast(I27(v)) }
 
 func (I27) nbits() int  { return 27 }
 func (i I27) mask() I27 { return 0x7ffffff }
@@ -7354,6 +7516,9 @@ func (i *I27) Byteref(index int) Range[I27] { return byte(i, index) }
 // U28 is an 28-bit unsigned integer.
 type U28 uint32
 
+// AsU28 returns a U28 representing v reduced to 28 bits.
+func AsU28[T Unsigned](v T) U28 { return U28.cast(U28(v)) }
+
 func (U28) nbits() int  { return 28 }
 func (u U28) mask() U28 { return 0xfffffff }
 func (u U28) cast() U28 { return u & u.mask() }
@@ -7488,6 +7653,9 @@ func (u *U28) Byteref(index int) Range[U28] { return byte(u, index) }
 
 // I28 is an 28-bit signed integer in two's complement.
 type I28 int32
+
+// AsI28 returns a I28 representing v reduced to 28 bits.
+func AsI28[T Signed](v T) I28 { return I28.cast(I28(v)) }
 
 func (I28) nbits() int  { return 28 }
 func (i I28) mask() I28 { return 0xfffffff }
@@ -7626,6 +7794,9 @@ func (i *I28) Byteref(index int) Range[I28] { return byte(i, index) }
 // U29 is an 29-bit unsigned integer.
 type U29 uint32
 
+// AsU29 returns a U29 representing v reduced to 29 bits.
+func AsU29[T Unsigned](v T) U29 { return U29.cast(U29(v)) }
+
 func (U29) nbits() int  { return 29 }
 func (u U29) mask() U29 { return 0x1fffffff }
 func (u U29) cast() U29 { return u & u.mask() }
@@ -7760,6 +7931,9 @@ func (u *U29) Byteref(index int) Range[U29] { return byte(u, index) }
 
 // I29 is an 29-bit signed integer in two's complement.
 type I29 int32
+
+// AsI29 returns a I29 representing v reduced to 29 bits.
+func AsI29[T Signed](v T) I29 { return I29.cast(I29(v)) }
 
 func (I29) nbits() int  { return 29 }
 func (i I29) mask() I29 { return 0x1fffffff }
@@ -7898,6 +8072,9 @@ func (i *I29) Byteref(index int) Range[I29] { return byte(i, index) }
 // U30 is an 30-bit unsigned integer.
 type U30 uint32
 
+// AsU30 returns a U30 representing v reduced to 30 bits.
+func AsU30[T Unsigned](v T) U30 { return U30.cast(U30(v)) }
+
 func (U30) nbits() int  { return 30 }
 func (u U30) mask() U30 { return 0x3fffffff }
 func (u U30) cast() U30 { return u & u.mask() }
@@ -8032,6 +8209,9 @@ func (u *U30) Byteref(index int) Range[U30] { return byte(u, index) }
 
 // I30 is an 30-bit signed integer in two's complement.
 type I30 int32
+
+// AsI30 returns a I30 representing v reduced to 30 bits.
+func AsI30[T Signed](v T) I30 { return I30.cast(I30(v)) }
 
 func (I30) nbits() int  { return 30 }
 func (i I30) mask() I30 { return 0x3fffffff }
@@ -8170,6 +8350,9 @@ func (i *I30) Byteref(index int) Range[I30] { return byte(i, index) }
 // U31 is an 31-bit unsigned integer.
 type U31 uint32
 
+// AsU31 returns a U31 representing v reduced to 31 bits.
+func AsU31[T Unsigned](v T) U31 { return U31.cast(U31(v)) }
+
 func (U31) nbits() int  { return 31 }
 func (u U31) mask() U31 { return 0x7fffffff }
 func (u U31) cast() U31 { return u & u.mask() }
@@ -8304,6 +8487,9 @@ func (u *U31) Byteref(index int) Range[U31] { return byte(u, index) }
 
 // I31 is an 31-bit signed integer in two's complement.
 type I31 int32
+
+// AsI31 returns a I31 representing v reduced to 31 bits.
+func AsI31[T Signed](v T) I31 { return I31.cast(I31(v)) }
 
 func (I31) nbits() int  { return 31 }
 func (i I31) mask() I31 { return 0x7fffffff }
@@ -8442,6 +8628,9 @@ func (i *I31) Byteref(index int) Range[I31] { return byte(i, index) }
 // U32 is an 32-bit unsigned integer.
 type U32 uint32
 
+// AsU32 returns a U32 representing v reduced to 32 bits.
+func AsU32[T Unsigned](v T) U32 { return U32.cast(U32(v)) }
+
 func (U32) nbits() int  { return 32 }
 func (u U32) mask() U32 { return 0xffffffff }
 func (u U32) cast() U32 { return u & u.mask() }
@@ -8576,6 +8765,9 @@ func (u *U32) Byteref(index int) Range[U32] { return byte(u, index) }
 
 // I32 is an 32-bit signed integer in two's complement.
 type I32 int32
+
+// AsI32 returns a I32 representing v reduced to 32 bits.
+func AsI32[T Signed](v T) I32 { return I32.cast(I32(v)) }
 
 func (I32) nbits() int  { return 32 }
 func (i I32) mask() I32 { return -1 }
@@ -8714,6 +8906,9 @@ func (i *I32) Byteref(index int) Range[I32] { return byte(i, index) }
 // U33 is an 33-bit unsigned integer.
 type U33 uint64
 
+// AsU33 returns a U33 representing v reduced to 33 bits.
+func AsU33[T Unsigned](v T) U33 { return U33.cast(U33(v)) }
+
 func (U33) nbits() int  { return 33 }
 func (u U33) mask() U33 { return 0x1ffffffff }
 func (u U33) cast() U33 { return u & u.mask() }
@@ -8848,6 +9043,9 @@ func (u *U33) Byteref(index int) Range[U33] { return byte(u, index) }
 
 // I33 is an 33-bit signed integer in two's complement.
 type I33 int64
+
+// AsI33 returns a I33 representing v reduced to 33 bits.
+func AsI33[T Signed](v T) I33 { return I33.cast(I33(v)) }
 
 func (I33) nbits() int  { return 33 }
 func (i I33) mask() I33 { return 0x1ffffffff }
@@ -8986,6 +9184,9 @@ func (i *I33) Byteref(index int) Range[I33] { return byte(i, index) }
 // U34 is an 34-bit unsigned integer.
 type U34 uint64
 
+// AsU34 returns a U34 representing v reduced to 34 bits.
+func AsU34[T Unsigned](v T) U34 { return U34.cast(U34(v)) }
+
 func (U34) nbits() int  { return 34 }
 func (u U34) mask() U34 { return 0x3ffffffff }
 func (u U34) cast() U34 { return u & u.mask() }
@@ -9120,6 +9321,9 @@ func (u *U34) Byteref(index int) Range[U34] { return byte(u, index) }
 
 // I34 is an 34-bit signed integer in two's complement.
 type I34 int64
+
+// AsI34 returns a I34 representing v reduced to 34 bits.
+func AsI34[T Signed](v T) I34 { return I34.cast(I34(v)) }
 
 func (I34) nbits() int  { return 34 }
 func (i I34) mask() I34 { return 0x3ffffffff }
@@ -9258,6 +9462,9 @@ func (i *I34) Byteref(index int) Range[I34] { return byte(i, index) }
 // U35 is an 35-bit unsigned integer.
 type U35 uint64
 
+// AsU35 returns a U35 representing v reduced to 35 bits.
+func AsU35[T Unsigned](v T) U35 { return U35.cast(U35(v)) }
+
 func (U35) nbits() int  { return 35 }
 func (u U35) mask() U35 { return 0x7ffffffff }
 func (u U35) cast() U35 { return u & u.mask() }
@@ -9392,6 +9599,9 @@ func (u *U35) Byteref(index int) Range[U35] { return byte(u, index) }
 
 // I35 is an 35-bit signed integer in two's complement.
 type I35 int64
+
+// AsI35 returns a I35 representing v reduced to 35 bits.
+func AsI35[T Signed](v T) I35 { return I35.cast(I35(v)) }
 
 func (I35) nbits() int  { return 35 }
 func (i I35) mask() I35 { return 0x7ffffffff }
@@ -9530,6 +9740,9 @@ func (i *I35) Byteref(index int) Range[I35] { return byte(i, index) }
 // U36 is an 36-bit unsigned integer.
 type U36 uint64
 
+// AsU36 returns a U36 representing v reduced to 36 bits.
+func AsU36[T Unsigned](v T) U36 { return U36.cast(U36(v)) }
+
 func (U36) nbits() int  { return 36 }
 func (u U36) mask() U36 { return 0xfffffffff }
 func (u U36) cast() U36 { return u & u.mask() }
@@ -9664,6 +9877,9 @@ func (u *U36) Byteref(index int) Range[U36] { return byte(u, index) }
 
 // I36 is an 36-bit signed integer in two's complement.
 type I36 int64
+
+// AsI36 returns a I36 representing v reduced to 36 bits.
+func AsI36[T Signed](v T) I36 { return I36.cast(I36(v)) }
 
 func (I36) nbits() int  { return 36 }
 func (i I36) mask() I36 { return 0xfffffffff }
@@ -9802,6 +10018,9 @@ func (i *I36) Byteref(index int) Range[I36] { return byte(i, index) }
 // U37 is an 37-bit unsigned integer.
 type U37 uint64
 
+// AsU37 returns a U37 representing v reduced to 37 bits.
+func AsU37[T Unsigned](v T) U37 { return U37.cast(U37(v)) }
+
 func (U37) nbits() int  { return 37 }
 func (u U37) mask() U37 { return 0x1fffffffff }
 func (u U37) cast() U37 { return u & u.mask() }
@@ -9936,6 +10155,9 @@ func (u *U37) Byteref(index int) Range[U37] { return byte(u, index) }
 
 // I37 is an 37-bit signed integer in two's complement.
 type I37 int64
+
+// AsI37 returns a I37 representing v reduced to 37 bits.
+func AsI37[T Signed](v T) I37 { return I37.cast(I37(v)) }
 
 func (I37) nbits() int  { return 37 }
 func (i I37) mask() I37 { return 0x1fffffffff }
@@ -10074,6 +10296,9 @@ func (i *I37) Byteref(index int) Range[I37] { return byte(i, index) }
 // U38 is an 38-bit unsigned integer.
 type U38 uint64
 
+// AsU38 returns a U38 representing v reduced to 38 bits.
+func AsU38[T Unsigned](v T) U38 { return U38.cast(U38(v)) }
+
 func (U38) nbits() int  { return 38 }
 func (u U38) mask() U38 { return 0x3fffffffff }
 func (u U38) cast() U38 { return u & u.mask() }
@@ -10208,6 +10433,9 @@ func (u *U38) Byteref(index int) Range[U38] { return byte(u, index) }
 
 // I38 is an 38-bit signed integer in two's complement.
 type I38 int64
+
+// AsI38 returns a I38 representing v reduced to 38 bits.
+func AsI38[T Signed](v T) I38 { return I38.cast(I38(v)) }
 
 func (I38) nbits() int  { return 38 }
 func (i I38) mask() I38 { return 0x3fffffffff }
@@ -10346,6 +10574,9 @@ func (i *I38) Byteref(index int) Range[I38] { return byte(i, index) }
 // U39 is an 39-bit unsigned integer.
 type U39 uint64
 
+// AsU39 returns a U39 representing v reduced to 39 bits.
+func AsU39[T Unsigned](v T) U39 { return U39.cast(U39(v)) }
+
 func (U39) nbits() int  { return 39 }
 func (u U39) mask() U39 { return 0x7fffffffff }
 func (u U39) cast() U39 { return u & u.mask() }
@@ -10480,6 +10711,9 @@ func (u *U39) Byteref(index int) Range[U39] { return byte(u, index) }
 
 // I39 is an 39-bit signed integer in two's complement.
 type I39 int64
+
+// AsI39 returns a I39 representing v reduced to 39 bits.
+func AsI39[T Signed](v T) I39 { return I39.cast(I39(v)) }
 
 func (I39) nbits() int  { return 39 }
 func (i I39) mask() I39 { return 0x7fffffffff }
@@ -10618,6 +10852,9 @@ func (i *I39) Byteref(index int) Range[I39] { return byte(i, index) }
 // U40 is an 40-bit unsigned integer.
 type U40 uint64
 
+// AsU40 returns a U40 representing v reduced to 40 bits.
+func AsU40[T Unsigned](v T) U40 { return U40.cast(U40(v)) }
+
 func (U40) nbits() int  { return 40 }
 func (u U40) mask() U40 { return 0xffffffffff }
 func (u U40) cast() U40 { return u & u.mask() }
@@ -10752,6 +10989,9 @@ func (u *U40) Byteref(index int) Range[U40] { return byte(u, index) }
 
 // I40 is an 40-bit signed integer in two's complement.
 type I40 int64
+
+// AsI40 returns a I40 representing v reduced to 40 bits.
+func AsI40[T Signed](v T) I40 { return I40.cast(I40(v)) }
 
 func (I40) nbits() int  { return 40 }
 func (i I40) mask() I40 { return 0xffffffffff }
@@ -10890,6 +11130,9 @@ func (i *I40) Byteref(index int) Range[I40] { return byte(i, index) }
 // U41 is an 41-bit unsigned integer.
 type U41 uint64
 
+// AsU41 returns a U41 representing v reduced to 41 bits.
+func AsU41[T Unsigned](v T) U41 { return U41.cast(U41(v)) }
+
 func (U41) nbits() int  { return 41 }
 func (u U41) mask() U41 { return 0x1ffffffffff }
 func (u U41) cast() U41 { return u & u.mask() }
@@ -11024,6 +11267,9 @@ func (u *U41) Byteref(index int) Range[U41] { return byte(u, index) }
 
 // I41 is an 41-bit signed integer in two's complement.
 type I41 int64
+
+// AsI41 returns a I41 representing v reduced to 41 bits.
+func AsI41[T Signed](v T) I41 { return I41.cast(I41(v)) }
 
 func (I41) nbits() int  { return 41 }
 func (i I41) mask() I41 { return 0x1ffffffffff }
@@ -11162,6 +11408,9 @@ func (i *I41) Byteref(index int) Range[I41] { return byte(i, index) }
 // U42 is an 42-bit unsigned integer.
 type U42 uint64
 
+// AsU42 returns a U42 representing v reduced to 42 bits.
+func AsU42[T Unsigned](v T) U42 { return U42.cast(U42(v)) }
+
 func (U42) nbits() int  { return 42 }
 func (u U42) mask() U42 { return 0x3ffffffffff }
 func (u U42) cast() U42 { return u & u.mask() }
@@ -11296,6 +11545,9 @@ func (u *U42) Byteref(index int) Range[U42] { return byte(u, index) }
 
 // I42 is an 42-bit signed integer in two's complement.
 type I42 int64
+
+// AsI42 returns a I42 representing v reduced to 42 bits.
+func AsI42[T Signed](v T) I42 { return I42.cast(I42(v)) }
 
 func (I42) nbits() int  { return 42 }
 func (i I42) mask() I42 { return 0x3ffffffffff }
@@ -11434,6 +11686,9 @@ func (i *I42) Byteref(index int) Range[I42] { return byte(i, index) }
 // U43 is an 43-bit unsigned integer.
 type U43 uint64
 
+// AsU43 returns a U43 representing v reduced to 43 bits.
+func AsU43[T Unsigned](v T) U43 { return U43.cast(U43(v)) }
+
 func (U43) nbits() int  { return 43 }
 func (u U43) mask() U43 { return 0x7ffffffffff }
 func (u U43) cast() U43 { return u & u.mask() }
@@ -11568,6 +11823,9 @@ func (u *U43) Byteref(index int) Range[U43] { return byte(u, index) }
 
 // I43 is an 43-bit signed integer in two's complement.
 type I43 int64
+
+// AsI43 returns a I43 representing v reduced to 43 bits.
+func AsI43[T Signed](v T) I43 { return I43.cast(I43(v)) }
 
 func (I43) nbits() int  { return 43 }
 func (i I43) mask() I43 { return 0x7ffffffffff }
@@ -11706,6 +11964,9 @@ func (i *I43) Byteref(index int) Range[I43] { return byte(i, index) }
 // U44 is an 44-bit unsigned integer.
 type U44 uint64
 
+// AsU44 returns a U44 representing v reduced to 44 bits.
+func AsU44[T Unsigned](v T) U44 { return U44.cast(U44(v)) }
+
 func (U44) nbits() int  { return 44 }
 func (u U44) mask() U44 { return 0xfffffffffff }
 func (u U44) cast() U44 { return u & u.mask() }
@@ -11840,6 +12101,9 @@ func (u *U44) Byteref(index int) Range[U44] { return byte(u, index) }
 
 // I44 is an 44-bit signed integer in two's complement.
 type I44 int64
+
+// AsI44 returns a I44 representing v reduced to 44 bits.
+func AsI44[T Signed](v T) I44 { return I44.cast(I44(v)) }
 
 func (I44) nbits() int  { return 44 }
 func (i I44) mask() I44 { return 0xfffffffffff }
@@ -11978,6 +12242,9 @@ func (i *I44) Byteref(index int) Range[I44] { return byte(i, index) }
 // U45 is an 45-bit unsigned integer.
 type U45 uint64
 
+// AsU45 returns a U45 representing v reduced to 45 bits.
+func AsU45[T Unsigned](v T) U45 { return U45.cast(U45(v)) }
+
 func (U45) nbits() int  { return 45 }
 func (u U45) mask() U45 { return 0x1fffffffffff }
 func (u U45) cast() U45 { return u & u.mask() }
@@ -12112,6 +12379,9 @@ func (u *U45) Byteref(index int) Range[U45] { return byte(u, index) }
 
 // I45 is an 45-bit signed integer in two's complement.
 type I45 int64
+
+// AsI45 returns a I45 representing v reduced to 45 bits.
+func AsI45[T Signed](v T) I45 { return I45.cast(I45(v)) }
 
 func (I45) nbits() int  { return 45 }
 func (i I45) mask() I45 { return 0x1fffffffffff }
@@ -12250,6 +12520,9 @@ func (i *I45) Byteref(index int) Range[I45] { return byte(i, index) }
 // U46 is an 46-bit unsigned integer.
 type U46 uint64
 
+// AsU46 returns a U46 representing v reduced to 46 bits.
+func AsU46[T Unsigned](v T) U46 { return U46.cast(U46(v)) }
+
 func (U46) nbits() int  { return 46 }
 func (u U46) mask() U46 { return 0x3fffffffffff }
 func (u U46) cast() U46 { return u & u.mask() }
@@ -12384,6 +12657,9 @@ func (u *U46) Byteref(index int) Range[U46] { return byte(u, index) }
 
 // I46 is an 46-bit signed integer in two's complement.
 type I46 int64
+
+// AsI46 returns a I46 representing v reduced to 46 bits.
+func AsI46[T Signed](v T) I46 { return I46.cast(I46(v)) }
 
 func (I46) nbits() int  { return 46 }
 func (i I46) mask() I46 { return 0x3fffffffffff }
@@ -12522,6 +12798,9 @@ func (i *I46) Byteref(index int) Range[I46] { return byte(i, index) }
 // U47 is an 47-bit unsigned integer.
 type U47 uint64
 
+// AsU47 returns a U47 representing v reduced to 47 bits.
+func AsU47[T Unsigned](v T) U47 { return U47.cast(U47(v)) }
+
 func (U47) nbits() int  { return 47 }
 func (u U47) mask() U47 { return 0x7fffffffffff }
 func (u U47) cast() U47 { return u & u.mask() }
@@ -12656,6 +12935,9 @@ func (u *U47) Byteref(index int) Range[U47] { return byte(u, index) }
 
 // I47 is an 47-bit signed integer in two's complement.
 type I47 int64
+
+// AsI47 returns a I47 representing v reduced to 47 bits.
+func AsI47[T Signed](v T) I47 { return I47.cast(I47(v)) }
 
 func (I47) nbits() int  { return 47 }
 func (i I47) mask() I47 { return 0x7fffffffffff }
@@ -12794,6 +13076,9 @@ func (i *I47) Byteref(index int) Range[I47] { return byte(i, index) }
 // U48 is an 48-bit unsigned integer.
 type U48 uint64
 
+// AsU48 returns a U48 representing v reduced to 48 bits.
+func AsU48[T Unsigned](v T) U48 { return U48.cast(U48(v)) }
+
 func (U48) nbits() int  { return 48 }
 func (u U48) mask() U48 { return 0xffffffffffff }
 func (u U48) cast() U48 { return u & u.mask() }
@@ -12928,6 +13213,9 @@ func (u *U48) Byteref(index int) Range[U48] { return byte(u, index) }
 
 // I48 is an 48-bit signed integer in two's complement.
 type I48 int64
+
+// AsI48 returns a I48 representing v reduced to 48 bits.
+func AsI48[T Signed](v T) I48 { return I48.cast(I48(v)) }
 
 func (I48) nbits() int  { return 48 }
 func (i I48) mask() I48 { return 0xffffffffffff }
@@ -13066,6 +13354,9 @@ func (i *I48) Byteref(index int) Range[I48] { return byte(i, index) }
 // U49 is an 49-bit unsigned integer.
 type U49 uint64
 
+// AsU49 returns a U49 representing v reduced to 49 bits.
+func AsU49[T Unsigned](v T) U49 { return U49.cast(U49(v)) }
+
 func (U49) nbits() int  { return 49 }
 func (u U49) mask() U49 { return 0x1ffffffffffff }
 func (u U49) cast() U49 { return u & u.mask() }
@@ -13200,6 +13491,9 @@ func (u *U49) Byteref(index int) Range[U49] { return byte(u, index) }
 
 // I49 is an 49-bit signed integer in two's complement.
 type I49 int64
+
+// AsI49 returns a I49 representing v reduced to 49 bits.
+func AsI49[T Signed](v T) I49 { return I49.cast(I49(v)) }
 
 func (I49) nbits() int  { return 49 }
 func (i I49) mask() I49 { return 0x1ffffffffffff }
@@ -13338,6 +13632,9 @@ func (i *I49) Byteref(index int) Range[I49] { return byte(i, index) }
 // U50 is an 50-bit unsigned integer.
 type U50 uint64
 
+// AsU50 returns a U50 representing v reduced to 50 bits.
+func AsU50[T Unsigned](v T) U50 { return U50.cast(U50(v)) }
+
 func (U50) nbits() int  { return 50 }
 func (u U50) mask() U50 { return 0x3ffffffffffff }
 func (u U50) cast() U50 { return u & u.mask() }
@@ -13472,6 +13769,9 @@ func (u *U50) Byteref(index int) Range[U50] { return byte(u, index) }
 
 // I50 is an 50-bit signed integer in two's complement.
 type I50 int64
+
+// AsI50 returns a I50 representing v reduced to 50 bits.
+func AsI50[T Signed](v T) I50 { return I50.cast(I50(v)) }
 
 func (I50) nbits() int  { return 50 }
 func (i I50) mask() I50 { return 0x3ffffffffffff }
@@ -13610,6 +13910,9 @@ func (i *I50) Byteref(index int) Range[I50] { return byte(i, index) }
 // U51 is an 51-bit unsigned integer.
 type U51 uint64
 
+// AsU51 returns a U51 representing v reduced to 51 bits.
+func AsU51[T Unsigned](v T) U51 { return U51.cast(U51(v)) }
+
 func (U51) nbits() int  { return 51 }
 func (u U51) mask() U51 { return 0x7ffffffffffff }
 func (u U51) cast() U51 { return u & u.mask() }
@@ -13744,6 +14047,9 @@ func (u *U51) Byteref(index int) Range[U51] { return byte(u, index) }
 
 // I51 is an 51-bit signed integer in two's complement.
 type I51 int64
+
+// AsI51 returns a I51 representing v reduced to 51 bits.
+func AsI51[T Signed](v T) I51 { return I51.cast(I51(v)) }
 
 func (I51) nbits() int  { return 51 }
 func (i I51) mask() I51 { return 0x7ffffffffffff }
@@ -13882,6 +14188,9 @@ func (i *I51) Byteref(index int) Range[I51] { return byte(i, index) }
 // U52 is an 52-bit unsigned integer.
 type U52 uint64
 
+// AsU52 returns a U52 representing v reduced to 52 bits.
+func AsU52[T Unsigned](v T) U52 { return U52.cast(U52(v)) }
+
 func (U52) nbits() int  { return 52 }
 func (u U52) mask() U52 { return 0xfffffffffffff }
 func (u U52) cast() U52 { return u & u.mask() }
@@ -14016,6 +14325,9 @@ func (u *U52) Byteref(index int) Range[U52] { return byte(u, index) }
 
 // I52 is an 52-bit signed integer in two's complement.
 type I52 int64
+
+// AsI52 returns a I52 representing v reduced to 52 bits.
+func AsI52[T Signed](v T) I52 { return I52.cast(I52(v)) }
 
 func (I52) nbits() int  { return 52 }
 func (i I52) mask() I52 { return 0xfffffffffffff }
@@ -14154,6 +14466,9 @@ func (i *I52) Byteref(index int) Range[I52] { return byte(i, index) }
 // U53 is an 53-bit unsigned integer.
 type U53 uint64
 
+// AsU53 returns a U53 representing v reduced to 53 bits.
+func AsU53[T Unsigned](v T) U53 { return U53.cast(U53(v)) }
+
 func (U53) nbits() int  { return 53 }
 func (u U53) mask() U53 { return 0x1fffffffffffff }
 func (u U53) cast() U53 { return u & u.mask() }
@@ -14288,6 +14603,9 @@ func (u *U53) Byteref(index int) Range[U53] { return byte(u, index) }
 
 // I53 is an 53-bit signed integer in two's complement.
 type I53 int64
+
+// AsI53 returns a I53 representing v reduced to 53 bits.
+func AsI53[T Signed](v T) I53 { return I53.cast(I53(v)) }
 
 func (I53) nbits() int  { return 53 }
 func (i I53) mask() I53 { return 0x1fffffffffffff }
@@ -14426,6 +14744,9 @@ func (i *I53) Byteref(index int) Range[I53] { return byte(i, index) }
 // U54 is an 54-bit unsigned integer.
 type U54 uint64
 
+// AsU54 returns a U54 representing v reduced to 54 bits.
+func AsU54[T Unsigned](v T) U54 { return U54.cast(U54(v)) }
+
 func (U54) nbits() int  { return 54 }
 func (u U54) mask() U54 { return 0x3fffffffffffff }
 func (u U54) cast() U54 { return u & u.mask() }
@@ -14560,6 +14881,9 @@ func (u *U54) Byteref(index int) Range[U54] { return byte(u, index) }
 
 // I54 is an 54-bit signed integer in two's complement.
 type I54 int64
+
+// AsI54 returns a I54 representing v reduced to 54 bits.
+func AsI54[T Signed](v T) I54 { return I54.cast(I54(v)) }
 
 func (I54) nbits() int  { return 54 }
 func (i I54) mask() I54 { return 0x3fffffffffffff }
@@ -14698,6 +15022,9 @@ func (i *I54) Byteref(index int) Range[I54] { return byte(i, index) }
 // U55 is an 55-bit unsigned integer.
 type U55 uint64
 
+// AsU55 returns a U55 representing v reduced to 55 bits.
+func AsU55[T Unsigned](v T) U55 { return U55.cast(U55(v)) }
+
 func (U55) nbits() int  { return 55 }
 func (u U55) mask() U55 { return 0x7fffffffffffff }
 func (u U55) cast() U55 { return u & u.mask() }
@@ -14832,6 +15159,9 @@ func (u *U55) Byteref(index int) Range[U55] { return byte(u, index) }
 
 // I55 is an 55-bit signed integer in two's complement.
 type I55 int64
+
+// AsI55 returns a I55 representing v reduced to 55 bits.
+func AsI55[T Signed](v T) I55 { return I55.cast(I55(v)) }
 
 func (I55) nbits() int  { return 55 }
 func (i I55) mask() I55 { return 0x7fffffffffffff }
@@ -14970,6 +15300,9 @@ func (i *I55) Byteref(index int) Range[I55] { return byte(i, index) }
 // U56 is an 56-bit unsigned integer.
 type U56 uint64
 
+// AsU56 returns a U56 representing v reduced to 56 bits.
+func AsU56[T Unsigned](v T) U56 { return U56.cast(U56(v)) }
+
 func (U56) nbits() int  { return 56 }
 func (u U56) mask() U56 { return 0xffffffffffffff }
 func (u U56) cast() U56 { return u & u.mask() }
@@ -15104,6 +15437,9 @@ func (u *U56) Byteref(index int) Range[U56] { return byte(u, index) }
 
 // I56 is an 56-bit signed integer in two's complement.
 type I56 int64
+
+// AsI56 returns a I56 representing v reduced to 56 bits.
+func AsI56[T Signed](v T) I56 { return I56.cast(I56(v)) }
 
 func (I56) nbits() int  { return 56 }
 func (i I56) mask() I56 { return 0xffffffffffffff }
@@ -15242,6 +15578,9 @@ func (i *I56) Byteref(index int) Range[I56] { return byte(i, index) }
 // U57 is an 57-bit unsigned integer.
 type U57 uint64
 
+// AsU57 returns a U57 representing v reduced to 57 bits.
+func AsU57[T Unsigned](v T) U57 { return U57.cast(U57(v)) }
+
 func (U57) nbits() int  { return 57 }
 func (u U57) mask() U57 { return 0x1ffffffffffffff }
 func (u U57) cast() U57 { return u & u.mask() }
@@ -15376,6 +15715,9 @@ func (u *U57) Byteref(index int) Range[U57] { return byte(u, index) }
 
 // I57 is an 57-bit signed integer in two's complement.
 type I57 int64
+
+// AsI57 returns a I57 representing v reduced to 57 bits.
+func AsI57[T Signed](v T) I57 { return I57.cast(I57(v)) }
 
 func (I57) nbits() int  { return 57 }
 func (i I57) mask() I57 { return 0x1ffffffffffffff }
@@ -15514,6 +15856,9 @@ func (i *I57) Byteref(index int) Range[I57] { return byte(i, index) }
 // U58 is an 58-bit unsigned integer.
 type U58 uint64
 
+// AsU58 returns a U58 representing v reduced to 58 bits.
+func AsU58[T Unsigned](v T) U58 { return U58.cast(U58(v)) }
+
 func (U58) nbits() int  { return 58 }
 func (u U58) mask() U58 { return 0x3ffffffffffffff }
 func (u U58) cast() U58 { return u & u.mask() }
@@ -15648,6 +15993,9 @@ func (u *U58) Byteref(index int) Range[U58] { return byte(u, index) }
 
 // I58 is an 58-bit signed integer in two's complement.
 type I58 int64
+
+// AsI58 returns a I58 representing v reduced to 58 bits.
+func AsI58[T Signed](v T) I58 { return I58.cast(I58(v)) }
 
 func (I58) nbits() int  { return 58 }
 func (i I58) mask() I58 { return 0x3ffffffffffffff }
@@ -15786,6 +16134,9 @@ func (i *I58) Byteref(index int) Range[I58] { return byte(i, index) }
 // U59 is an 59-bit unsigned integer.
 type U59 uint64
 
+// AsU59 returns a U59 representing v reduced to 59 bits.
+func AsU59[T Unsigned](v T) U59 { return U59.cast(U59(v)) }
+
 func (U59) nbits() int  { return 59 }
 func (u U59) mask() U59 { return 0x7ffffffffffffff }
 func (u U59) cast() U59 { return u & u.mask() }
@@ -15920,6 +16271,9 @@ func (u *U59) Byteref(index int) Range[U59] { return byte(u, index) }
 
 // I59 is an 59-bit signed integer in two's complement.
 type I59 int64
+
+// AsI59 returns a I59 representing v reduced to 59 bits.
+func AsI59[T Signed](v T) I59 { return I59.cast(I59(v)) }
 
 func (I59) nbits() int  { return 59 }
 func (i I59) mask() I59 { return 0x7ffffffffffffff }
@@ -16058,6 +16412,9 @@ func (i *I59) Byteref(index int) Range[I59] { return byte(i, index) }
 // U60 is an 60-bit unsigned integer.
 type U60 uint64
 
+// AsU60 returns a U60 representing v reduced to 60 bits.
+func AsU60[T Unsigned](v T) U60 { return U60.cast(U60(v)) }
+
 func (U60) nbits() int  { return 60 }
 func (u U60) mask() U60 { return 0xfffffffffffffff }
 func (u U60) cast() U60 { return u & u.mask() }
@@ -16192,6 +16549,9 @@ func (u *U60) Byteref(index int) Range[U60] { return byte(u, index) }
 
 // I60 is an 60-bit signed integer in two's complement.
 type I60 int64
+
+// AsI60 returns a I60 representing v reduced to 60 bits.
+func AsI60[T Signed](v T) I60 { return I60.cast(I60(v)) }
 
 func (I60) nbits() int  { return 60 }
 func (i I60) mask() I60 { return 0xfffffffffffffff }
@@ -16330,6 +16690,9 @@ func (i *I60) Byteref(index int) Range[I60] { return byte(i, index) }
 // U61 is an 61-bit unsigned integer.
 type U61 uint64
 
+// AsU61 returns a U61 representing v reduced to 61 bits.
+func AsU61[T Unsigned](v T) U61 { return U61.cast(U61(v)) }
+
 func (U61) nbits() int  { return 61 }
 func (u U61) mask() U61 { return 0x1fffffffffffffff }
 func (u U61) cast() U61 { return u & u.mask() }
@@ -16464,6 +16827,9 @@ func (u *U61) Byteref(index int) Range[U61] { return byte(u, index) }
 
 // I61 is an 61-bit signed integer in two's complement.
 type I61 int64
+
+// AsI61 returns a I61 representing v reduced to 61 bits.
+func AsI61[T Signed](v T) I61 { return I61.cast(I61(v)) }
 
 func (I61) nbits() int  { return 61 }
 func (i I61) mask() I61 { return 0x1fffffffffffffff }
@@ -16602,6 +16968,9 @@ func (i *I61) Byteref(index int) Range[I61] { return byte(i, index) }
 // U62 is an 62-bit unsigned integer.
 type U62 uint64
 
+// AsU62 returns a U62 representing v reduced to 62 bits.
+func AsU62[T Unsigned](v T) U62 { return U62.cast(U62(v)) }
+
 func (U62) nbits() int  { return 62 }
 func (u U62) mask() U62 { return 0x3fffffffffffffff }
 func (u U62) cast() U62 { return u & u.mask() }
@@ -16736,6 +17105,9 @@ func (u *U62) Byteref(index int) Range[U62] { return byte(u, index) }
 
 // I62 is an 62-bit signed integer in two's complement.
 type I62 int64
+
+// AsI62 returns a I62 representing v reduced to 62 bits.
+func AsI62[T Signed](v T) I62 { return I62.cast(I62(v)) }
 
 func (I62) nbits() int  { return 62 }
 func (i I62) mask() I62 { return 0x3fffffffffffffff }
@@ -16874,6 +17246,9 @@ func (i *I62) Byteref(index int) Range[I62] { return byte(i, index) }
 // U63 is an 63-bit unsigned integer.
 type U63 uint64
 
+// AsU63 returns a U63 representing v reduced to 63 bits.
+func AsU63[T Unsigned](v T) U63 { return U63.cast(U63(v)) }
+
 func (U63) nbits() int  { return 63 }
 func (u U63) mask() U63 { return 0x7fffffffffffffff }
 func (u U63) cast() U63 { return u & u.mask() }
@@ -17008,6 +17383,9 @@ func (u *U63) Byteref(index int) Range[U63] { return byte(u, index) }
 
 // I63 is an 63-bit signed integer in two's complement.
 type I63 int64
+
+// AsI63 returns a I63 representing v reduced to 63 bits.
+func AsI63[T Signed](v T) I63 { return I63.cast(I63(v)) }
 
 func (I63) nbits() int  { return 63 }
 func (i I63) mask() I63 { return 0x7fffffffffffffff }
@@ -17146,6 +17524,9 @@ func (i *I63) Byteref(index int) Range[I63] { return byte(i, index) }
 // U64 is an 64-bit unsigned integer.
 type U64 uint64
 
+// AsU64 returns a U64 representing v reduced to 64 bits.
+func AsU64[T Unsigned](v T) U64 { return U64.cast(U64(v)) }
+
 func (U64) nbits() int  { return 64 }
 func (u U64) mask() U64 { return 0xffffffffffffffff }
 func (u U64) cast() U64 { return u & u.mask() }
@@ -17280,6 +17661,9 @@ func (u *U64) Byteref(index int) Range[U64] { return byte(u, index) }
 
 // I64 is an 64-bit signed integer in two's complement.
 type I64 int64
+
+// AsI64 returns a I64 representing v reduced to 64 bits.
+func AsI64[T Signed](v T) I64 { return I64.cast(I64(v)) }
 
 func (I64) nbits() int  { return 64 }
 func (i I64) mask() I64 { return -1 }

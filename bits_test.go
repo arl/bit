@@ -50,6 +50,28 @@ func TestSet(t *testing.T) {
 	}
 }
 
+func TestAs(t *testing.T) {
+	{
+		want := []U3{0, 1, 2, 3, 4, 5, 6, 7, 0}
+		got := []U3{}
+		for i := range 9 {
+			got = append(got, AsU3(uint8(i)))
+		}
+		if !slices.Equal(want, got) {
+			t.Errorf("\n got:  %#v\n want: %#v\n", got, want)
+		}
+	}
+	{
+		want := []I3{-1, 0, 1, 2, 3, -4, -3, -2, -1}
+		got := []I3{}
+		for i := range 9 {
+			got = append(got, AsI3(int8(-9+i)))
+		}
+		if !slices.Equal(want, got) {
+			t.Errorf("\n got:  %#v\n want: %#v\n", got, want)
+		}
+	}
+}
 func TestU1_Arithmetic(t *testing.T) {
 	type row struct {
 		name    string
