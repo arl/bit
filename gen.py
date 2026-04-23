@@ -52,6 +52,10 @@ def write_unsigned(n: int) -> str:
     a(f"func (u {nm}) mask() {nm}         {{ return {mask} }}")
     a(f"func (u {nm}) cast() {nm}         {{ return u & u.mask() }}")
     a(f"")
+    a(f"// Set assigns v reduced to {n} bits to u.")
+    a(
+        f"func (u *{nm}) Set(v {nm}) {nm}    {{ *u = new({nm}(v)).cast(); return {nm}.cast(v) }}"
+    )
     a(f"// Add returns u+o reduced to {n} bits.")
     a(f"func (u {nm}) Add(o {nm}) {nm}    {{ return {nm}.cast(u + o) }}")
     a(f"// Sub returns u-o reduced to {n} bits.")
@@ -173,6 +177,10 @@ def write_signed(n: int) -> str:
     a(f"func (i {nm}) sign() {nm}      {{ return 1 << (i.nbits() - 1) }}")
     a(f"func (i {nm}) cast() {nm}      {{ return (i&i.mask() ^ i.sign()) - i.sign() }}")
     a(f"")
+    a(f"// Set assigns v reduced to {n} bits to u.")
+    a(
+        f"func (i *{nm}) Set(v {nm}) {nm}    {{ *i = new({nm}(v)).cast(); return {nm}.cast(v) }}"
+    )
     a(f"// Add returns i+o reduced to {n} bits.")
     a(f"func (i {nm}) Add(o {nm}) {nm} {{ return {nm}.cast(i + o) }}")
     a(f"// Sub returns i-o reduced to {n} bits.")

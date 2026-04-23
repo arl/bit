@@ -14,6 +14,9 @@ func (U1) nbits() int { return 1 }
 func (u U1) mask() U1 { return 0x1 }
 func (u U1) cast() U1 { return u & u.mask() }
 
+// Set assigns v reduced to 1 bits to u.
+func (u *U1) Set(v U1) U1 { *u = new(U1(v)).cast(); return U1.cast(v) }
+
 // Add returns u+o reduced to 1 bits.
 func (u U1) Add(o U1) U1 { return U1.cast(u + o) }
 
@@ -146,6 +149,9 @@ func (I1) nbits() int { return 1 }
 func (i I1) mask() I1 { return 0x1 }
 func (i I1) sign() I1 { return 1 << (i.nbits() - 1) }
 func (i I1) cast() I1 { return (i&i.mask() ^ i.sign()) - i.sign() }
+
+// Set assigns v reduced to 1 bits to u.
+func (i *I1) Set(v I1) I1 { *i = new(I1(v)).cast(); return I1.cast(v) }
 
 // Add returns i+o reduced to 1 bits.
 func (i I1) Add(o I1) I1 { return I1.cast(i + o) }
@@ -280,6 +286,9 @@ func (U2) nbits() int { return 2 }
 func (u U2) mask() U2 { return 0x3 }
 func (u U2) cast() U2 { return u & u.mask() }
 
+// Set assigns v reduced to 2 bits to u.
+func (u *U2) Set(v U2) U2 { *u = new(U2(v)).cast(); return U2.cast(v) }
+
 // Add returns u+o reduced to 2 bits.
 func (u U2) Add(o U2) U2 { return U2.cast(u + o) }
 
@@ -412,6 +421,9 @@ func (I2) nbits() int { return 2 }
 func (i I2) mask() I2 { return 0x3 }
 func (i I2) sign() I2 { return 1 << (i.nbits() - 1) }
 func (i I2) cast() I2 { return (i&i.mask() ^ i.sign()) - i.sign() }
+
+// Set assigns v reduced to 2 bits to u.
+func (i *I2) Set(v I2) I2 { *i = new(I2(v)).cast(); return I2.cast(v) }
 
 // Add returns i+o reduced to 2 bits.
 func (i I2) Add(o I2) I2 { return I2.cast(i + o) }
@@ -546,6 +558,9 @@ func (U3) nbits() int { return 3 }
 func (u U3) mask() U3 { return 0x7 }
 func (u U3) cast() U3 { return u & u.mask() }
 
+// Set assigns v reduced to 3 bits to u.
+func (u *U3) Set(v U3) U3 { *u = new(U3(v)).cast(); return U3.cast(v) }
+
 // Add returns u+o reduced to 3 bits.
 func (u U3) Add(o U3) U3 { return U3.cast(u + o) }
 
@@ -678,6 +693,9 @@ func (I3) nbits() int { return 3 }
 func (i I3) mask() I3 { return 0x7 }
 func (i I3) sign() I3 { return 1 << (i.nbits() - 1) }
 func (i I3) cast() I3 { return (i&i.mask() ^ i.sign()) - i.sign() }
+
+// Set assigns v reduced to 3 bits to u.
+func (i *I3) Set(v I3) I3 { *i = new(I3(v)).cast(); return I3.cast(v) }
 
 // Add returns i+o reduced to 3 bits.
 func (i I3) Add(o I3) I3 { return I3.cast(i + o) }
@@ -812,6 +830,9 @@ func (U4) nbits() int { return 4 }
 func (u U4) mask() U4 { return 0xf }
 func (u U4) cast() U4 { return u & u.mask() }
 
+// Set assigns v reduced to 4 bits to u.
+func (u *U4) Set(v U4) U4 { *u = new(U4(v)).cast(); return U4.cast(v) }
+
 // Add returns u+o reduced to 4 bits.
 func (u U4) Add(o U4) U4 { return U4.cast(u + o) }
 
@@ -944,6 +965,9 @@ func (I4) nbits() int { return 4 }
 func (i I4) mask() I4 { return 0xf }
 func (i I4) sign() I4 { return 1 << (i.nbits() - 1) }
 func (i I4) cast() I4 { return (i&i.mask() ^ i.sign()) - i.sign() }
+
+// Set assigns v reduced to 4 bits to u.
+func (i *I4) Set(v I4) I4 { *i = new(I4(v)).cast(); return I4.cast(v) }
 
 // Add returns i+o reduced to 4 bits.
 func (i I4) Add(o I4) I4 { return I4.cast(i + o) }
@@ -1078,6 +1102,9 @@ func (U5) nbits() int { return 5 }
 func (u U5) mask() U5 { return 0x1f }
 func (u U5) cast() U5 { return u & u.mask() }
 
+// Set assigns v reduced to 5 bits to u.
+func (u *U5) Set(v U5) U5 { *u = new(U5(v)).cast(); return U5.cast(v) }
+
 // Add returns u+o reduced to 5 bits.
 func (u U5) Add(o U5) U5 { return U5.cast(u + o) }
 
@@ -1210,6 +1237,9 @@ func (I5) nbits() int { return 5 }
 func (i I5) mask() I5 { return 0x1f }
 func (i I5) sign() I5 { return 1 << (i.nbits() - 1) }
 func (i I5) cast() I5 { return (i&i.mask() ^ i.sign()) - i.sign() }
+
+// Set assigns v reduced to 5 bits to u.
+func (i *I5) Set(v I5) I5 { *i = new(I5(v)).cast(); return I5.cast(v) }
 
 // Add returns i+o reduced to 5 bits.
 func (i I5) Add(o I5) I5 { return I5.cast(i + o) }
@@ -1344,6 +1374,9 @@ func (U6) nbits() int { return 6 }
 func (u U6) mask() U6 { return 0x3f }
 func (u U6) cast() U6 { return u & u.mask() }
 
+// Set assigns v reduced to 6 bits to u.
+func (u *U6) Set(v U6) U6 { *u = new(U6(v)).cast(); return U6.cast(v) }
+
 // Add returns u+o reduced to 6 bits.
 func (u U6) Add(o U6) U6 { return U6.cast(u + o) }
 
@@ -1476,6 +1509,9 @@ func (I6) nbits() int { return 6 }
 func (i I6) mask() I6 { return 0x3f }
 func (i I6) sign() I6 { return 1 << (i.nbits() - 1) }
 func (i I6) cast() I6 { return (i&i.mask() ^ i.sign()) - i.sign() }
+
+// Set assigns v reduced to 6 bits to u.
+func (i *I6) Set(v I6) I6 { *i = new(I6(v)).cast(); return I6.cast(v) }
 
 // Add returns i+o reduced to 6 bits.
 func (i I6) Add(o I6) I6 { return I6.cast(i + o) }
@@ -1610,6 +1646,9 @@ func (U7) nbits() int { return 7 }
 func (u U7) mask() U7 { return 0x7f }
 func (u U7) cast() U7 { return u & u.mask() }
 
+// Set assigns v reduced to 7 bits to u.
+func (u *U7) Set(v U7) U7 { *u = new(U7(v)).cast(); return U7.cast(v) }
+
 // Add returns u+o reduced to 7 bits.
 func (u U7) Add(o U7) U7 { return U7.cast(u + o) }
 
@@ -1742,6 +1781,9 @@ func (I7) nbits() int { return 7 }
 func (i I7) mask() I7 { return 0x7f }
 func (i I7) sign() I7 { return 1 << (i.nbits() - 1) }
 func (i I7) cast() I7 { return (i&i.mask() ^ i.sign()) - i.sign() }
+
+// Set assigns v reduced to 7 bits to u.
+func (i *I7) Set(v I7) I7 { *i = new(I7(v)).cast(); return I7.cast(v) }
 
 // Add returns i+o reduced to 7 bits.
 func (i I7) Add(o I7) I7 { return I7.cast(i + o) }
@@ -1876,6 +1918,9 @@ func (U8) nbits() int { return 8 }
 func (u U8) mask() U8 { return 0xff }
 func (u U8) cast() U8 { return u & u.mask() }
 
+// Set assigns v reduced to 8 bits to u.
+func (u *U8) Set(v U8) U8 { *u = new(U8(v)).cast(); return U8.cast(v) }
+
 // Add returns u+o reduced to 8 bits.
 func (u U8) Add(o U8) U8 { return U8.cast(u + o) }
 
@@ -2008,6 +2053,9 @@ func (I8) nbits() int { return 8 }
 func (i I8) mask() I8 { return -1 }
 func (i I8) sign() I8 { return 1 << (i.nbits() - 1) }
 func (i I8) cast() I8 { return (i&i.mask() ^ i.sign()) - i.sign() }
+
+// Set assigns v reduced to 8 bits to u.
+func (i *I8) Set(v I8) I8 { *i = new(I8(v)).cast(); return I8.cast(v) }
 
 // Add returns i+o reduced to 8 bits.
 func (i I8) Add(o I8) I8 { return I8.cast(i + o) }
@@ -2142,6 +2190,9 @@ func (U9) nbits() int { return 9 }
 func (u U9) mask() U9 { return 0x1ff }
 func (u U9) cast() U9 { return u & u.mask() }
 
+// Set assigns v reduced to 9 bits to u.
+func (u *U9) Set(v U9) U9 { *u = new(U9(v)).cast(); return U9.cast(v) }
+
 // Add returns u+o reduced to 9 bits.
 func (u U9) Add(o U9) U9 { return U9.cast(u + o) }
 
@@ -2274,6 +2325,9 @@ func (I9) nbits() int { return 9 }
 func (i I9) mask() I9 { return 0x1ff }
 func (i I9) sign() I9 { return 1 << (i.nbits() - 1) }
 func (i I9) cast() I9 { return (i&i.mask() ^ i.sign()) - i.sign() }
+
+// Set assigns v reduced to 9 bits to u.
+func (i *I9) Set(v I9) I9 { *i = new(I9(v)).cast(); return I9.cast(v) }
 
 // Add returns i+o reduced to 9 bits.
 func (i I9) Add(o I9) I9 { return I9.cast(i + o) }
@@ -2408,6 +2462,9 @@ func (U10) nbits() int  { return 10 }
 func (u U10) mask() U10 { return 0x3ff }
 func (u U10) cast() U10 { return u & u.mask() }
 
+// Set assigns v reduced to 10 bits to u.
+func (u *U10) Set(v U10) U10 { *u = new(U10(v)).cast(); return U10.cast(v) }
+
 // Add returns u+o reduced to 10 bits.
 func (u U10) Add(o U10) U10 { return U10.cast(u + o) }
 
@@ -2540,6 +2597,9 @@ func (I10) nbits() int  { return 10 }
 func (i I10) mask() I10 { return 0x3ff }
 func (i I10) sign() I10 { return 1 << (i.nbits() - 1) }
 func (i I10) cast() I10 { return (i&i.mask() ^ i.sign()) - i.sign() }
+
+// Set assigns v reduced to 10 bits to u.
+func (i *I10) Set(v I10) I10 { *i = new(I10(v)).cast(); return I10.cast(v) }
 
 // Add returns i+o reduced to 10 bits.
 func (i I10) Add(o I10) I10 { return I10.cast(i + o) }
@@ -2674,6 +2734,9 @@ func (U11) nbits() int  { return 11 }
 func (u U11) mask() U11 { return 0x7ff }
 func (u U11) cast() U11 { return u & u.mask() }
 
+// Set assigns v reduced to 11 bits to u.
+func (u *U11) Set(v U11) U11 { *u = new(U11(v)).cast(); return U11.cast(v) }
+
 // Add returns u+o reduced to 11 bits.
 func (u U11) Add(o U11) U11 { return U11.cast(u + o) }
 
@@ -2806,6 +2869,9 @@ func (I11) nbits() int  { return 11 }
 func (i I11) mask() I11 { return 0x7ff }
 func (i I11) sign() I11 { return 1 << (i.nbits() - 1) }
 func (i I11) cast() I11 { return (i&i.mask() ^ i.sign()) - i.sign() }
+
+// Set assigns v reduced to 11 bits to u.
+func (i *I11) Set(v I11) I11 { *i = new(I11(v)).cast(); return I11.cast(v) }
 
 // Add returns i+o reduced to 11 bits.
 func (i I11) Add(o I11) I11 { return I11.cast(i + o) }
@@ -2940,6 +3006,9 @@ func (U12) nbits() int  { return 12 }
 func (u U12) mask() U12 { return 0xfff }
 func (u U12) cast() U12 { return u & u.mask() }
 
+// Set assigns v reduced to 12 bits to u.
+func (u *U12) Set(v U12) U12 { *u = new(U12(v)).cast(); return U12.cast(v) }
+
 // Add returns u+o reduced to 12 bits.
 func (u U12) Add(o U12) U12 { return U12.cast(u + o) }
 
@@ -3072,6 +3141,9 @@ func (I12) nbits() int  { return 12 }
 func (i I12) mask() I12 { return 0xfff }
 func (i I12) sign() I12 { return 1 << (i.nbits() - 1) }
 func (i I12) cast() I12 { return (i&i.mask() ^ i.sign()) - i.sign() }
+
+// Set assigns v reduced to 12 bits to u.
+func (i *I12) Set(v I12) I12 { *i = new(I12(v)).cast(); return I12.cast(v) }
 
 // Add returns i+o reduced to 12 bits.
 func (i I12) Add(o I12) I12 { return I12.cast(i + o) }
@@ -3206,6 +3278,9 @@ func (U13) nbits() int  { return 13 }
 func (u U13) mask() U13 { return 0x1fff }
 func (u U13) cast() U13 { return u & u.mask() }
 
+// Set assigns v reduced to 13 bits to u.
+func (u *U13) Set(v U13) U13 { *u = new(U13(v)).cast(); return U13.cast(v) }
+
 // Add returns u+o reduced to 13 bits.
 func (u U13) Add(o U13) U13 { return U13.cast(u + o) }
 
@@ -3338,6 +3413,9 @@ func (I13) nbits() int  { return 13 }
 func (i I13) mask() I13 { return 0x1fff }
 func (i I13) sign() I13 { return 1 << (i.nbits() - 1) }
 func (i I13) cast() I13 { return (i&i.mask() ^ i.sign()) - i.sign() }
+
+// Set assigns v reduced to 13 bits to u.
+func (i *I13) Set(v I13) I13 { *i = new(I13(v)).cast(); return I13.cast(v) }
 
 // Add returns i+o reduced to 13 bits.
 func (i I13) Add(o I13) I13 { return I13.cast(i + o) }
@@ -3472,6 +3550,9 @@ func (U14) nbits() int  { return 14 }
 func (u U14) mask() U14 { return 0x3fff }
 func (u U14) cast() U14 { return u & u.mask() }
 
+// Set assigns v reduced to 14 bits to u.
+func (u *U14) Set(v U14) U14 { *u = new(U14(v)).cast(); return U14.cast(v) }
+
 // Add returns u+o reduced to 14 bits.
 func (u U14) Add(o U14) U14 { return U14.cast(u + o) }
 
@@ -3604,6 +3685,9 @@ func (I14) nbits() int  { return 14 }
 func (i I14) mask() I14 { return 0x3fff }
 func (i I14) sign() I14 { return 1 << (i.nbits() - 1) }
 func (i I14) cast() I14 { return (i&i.mask() ^ i.sign()) - i.sign() }
+
+// Set assigns v reduced to 14 bits to u.
+func (i *I14) Set(v I14) I14 { *i = new(I14(v)).cast(); return I14.cast(v) }
 
 // Add returns i+o reduced to 14 bits.
 func (i I14) Add(o I14) I14 { return I14.cast(i + o) }
@@ -3738,6 +3822,9 @@ func (U15) nbits() int  { return 15 }
 func (u U15) mask() U15 { return 0x7fff }
 func (u U15) cast() U15 { return u & u.mask() }
 
+// Set assigns v reduced to 15 bits to u.
+func (u *U15) Set(v U15) U15 { *u = new(U15(v)).cast(); return U15.cast(v) }
+
 // Add returns u+o reduced to 15 bits.
 func (u U15) Add(o U15) U15 { return U15.cast(u + o) }
 
@@ -3870,6 +3957,9 @@ func (I15) nbits() int  { return 15 }
 func (i I15) mask() I15 { return 0x7fff }
 func (i I15) sign() I15 { return 1 << (i.nbits() - 1) }
 func (i I15) cast() I15 { return (i&i.mask() ^ i.sign()) - i.sign() }
+
+// Set assigns v reduced to 15 bits to u.
+func (i *I15) Set(v I15) I15 { *i = new(I15(v)).cast(); return I15.cast(v) }
 
 // Add returns i+o reduced to 15 bits.
 func (i I15) Add(o I15) I15 { return I15.cast(i + o) }
@@ -4004,6 +4094,9 @@ func (U16) nbits() int  { return 16 }
 func (u U16) mask() U16 { return 0xffff }
 func (u U16) cast() U16 { return u & u.mask() }
 
+// Set assigns v reduced to 16 bits to u.
+func (u *U16) Set(v U16) U16 { *u = new(U16(v)).cast(); return U16.cast(v) }
+
 // Add returns u+o reduced to 16 bits.
 func (u U16) Add(o U16) U16 { return U16.cast(u + o) }
 
@@ -4136,6 +4229,9 @@ func (I16) nbits() int  { return 16 }
 func (i I16) mask() I16 { return -1 }
 func (i I16) sign() I16 { return 1 << (i.nbits() - 1) }
 func (i I16) cast() I16 { return (i&i.mask() ^ i.sign()) - i.sign() }
+
+// Set assigns v reduced to 16 bits to u.
+func (i *I16) Set(v I16) I16 { *i = new(I16(v)).cast(); return I16.cast(v) }
 
 // Add returns i+o reduced to 16 bits.
 func (i I16) Add(o I16) I16 { return I16.cast(i + o) }
@@ -4270,6 +4366,9 @@ func (U17) nbits() int  { return 17 }
 func (u U17) mask() U17 { return 0x1ffff }
 func (u U17) cast() U17 { return u & u.mask() }
 
+// Set assigns v reduced to 17 bits to u.
+func (u *U17) Set(v U17) U17 { *u = new(U17(v)).cast(); return U17.cast(v) }
+
 // Add returns u+o reduced to 17 bits.
 func (u U17) Add(o U17) U17 { return U17.cast(u + o) }
 
@@ -4402,6 +4501,9 @@ func (I17) nbits() int  { return 17 }
 func (i I17) mask() I17 { return 0x1ffff }
 func (i I17) sign() I17 { return 1 << (i.nbits() - 1) }
 func (i I17) cast() I17 { return (i&i.mask() ^ i.sign()) - i.sign() }
+
+// Set assigns v reduced to 17 bits to u.
+func (i *I17) Set(v I17) I17 { *i = new(I17(v)).cast(); return I17.cast(v) }
 
 // Add returns i+o reduced to 17 bits.
 func (i I17) Add(o I17) I17 { return I17.cast(i + o) }
@@ -4536,6 +4638,9 @@ func (U18) nbits() int  { return 18 }
 func (u U18) mask() U18 { return 0x3ffff }
 func (u U18) cast() U18 { return u & u.mask() }
 
+// Set assigns v reduced to 18 bits to u.
+func (u *U18) Set(v U18) U18 { *u = new(U18(v)).cast(); return U18.cast(v) }
+
 // Add returns u+o reduced to 18 bits.
 func (u U18) Add(o U18) U18 { return U18.cast(u + o) }
 
@@ -4668,6 +4773,9 @@ func (I18) nbits() int  { return 18 }
 func (i I18) mask() I18 { return 0x3ffff }
 func (i I18) sign() I18 { return 1 << (i.nbits() - 1) }
 func (i I18) cast() I18 { return (i&i.mask() ^ i.sign()) - i.sign() }
+
+// Set assigns v reduced to 18 bits to u.
+func (i *I18) Set(v I18) I18 { *i = new(I18(v)).cast(); return I18.cast(v) }
 
 // Add returns i+o reduced to 18 bits.
 func (i I18) Add(o I18) I18 { return I18.cast(i + o) }
@@ -4802,6 +4910,9 @@ func (U19) nbits() int  { return 19 }
 func (u U19) mask() U19 { return 0x7ffff }
 func (u U19) cast() U19 { return u & u.mask() }
 
+// Set assigns v reduced to 19 bits to u.
+func (u *U19) Set(v U19) U19 { *u = new(U19(v)).cast(); return U19.cast(v) }
+
 // Add returns u+o reduced to 19 bits.
 func (u U19) Add(o U19) U19 { return U19.cast(u + o) }
 
@@ -4934,6 +5045,9 @@ func (I19) nbits() int  { return 19 }
 func (i I19) mask() I19 { return 0x7ffff }
 func (i I19) sign() I19 { return 1 << (i.nbits() - 1) }
 func (i I19) cast() I19 { return (i&i.mask() ^ i.sign()) - i.sign() }
+
+// Set assigns v reduced to 19 bits to u.
+func (i *I19) Set(v I19) I19 { *i = new(I19(v)).cast(); return I19.cast(v) }
 
 // Add returns i+o reduced to 19 bits.
 func (i I19) Add(o I19) I19 { return I19.cast(i + o) }
@@ -5068,6 +5182,9 @@ func (U20) nbits() int  { return 20 }
 func (u U20) mask() U20 { return 0xfffff }
 func (u U20) cast() U20 { return u & u.mask() }
 
+// Set assigns v reduced to 20 bits to u.
+func (u *U20) Set(v U20) U20 { *u = new(U20(v)).cast(); return U20.cast(v) }
+
 // Add returns u+o reduced to 20 bits.
 func (u U20) Add(o U20) U20 { return U20.cast(u + o) }
 
@@ -5200,6 +5317,9 @@ func (I20) nbits() int  { return 20 }
 func (i I20) mask() I20 { return 0xfffff }
 func (i I20) sign() I20 { return 1 << (i.nbits() - 1) }
 func (i I20) cast() I20 { return (i&i.mask() ^ i.sign()) - i.sign() }
+
+// Set assigns v reduced to 20 bits to u.
+func (i *I20) Set(v I20) I20 { *i = new(I20(v)).cast(); return I20.cast(v) }
 
 // Add returns i+o reduced to 20 bits.
 func (i I20) Add(o I20) I20 { return I20.cast(i + o) }
@@ -5334,6 +5454,9 @@ func (U21) nbits() int  { return 21 }
 func (u U21) mask() U21 { return 0x1fffff }
 func (u U21) cast() U21 { return u & u.mask() }
 
+// Set assigns v reduced to 21 bits to u.
+func (u *U21) Set(v U21) U21 { *u = new(U21(v)).cast(); return U21.cast(v) }
+
 // Add returns u+o reduced to 21 bits.
 func (u U21) Add(o U21) U21 { return U21.cast(u + o) }
 
@@ -5466,6 +5589,9 @@ func (I21) nbits() int  { return 21 }
 func (i I21) mask() I21 { return 0x1fffff }
 func (i I21) sign() I21 { return 1 << (i.nbits() - 1) }
 func (i I21) cast() I21 { return (i&i.mask() ^ i.sign()) - i.sign() }
+
+// Set assigns v reduced to 21 bits to u.
+func (i *I21) Set(v I21) I21 { *i = new(I21(v)).cast(); return I21.cast(v) }
 
 // Add returns i+o reduced to 21 bits.
 func (i I21) Add(o I21) I21 { return I21.cast(i + o) }
@@ -5600,6 +5726,9 @@ func (U22) nbits() int  { return 22 }
 func (u U22) mask() U22 { return 0x3fffff }
 func (u U22) cast() U22 { return u & u.mask() }
 
+// Set assigns v reduced to 22 bits to u.
+func (u *U22) Set(v U22) U22 { *u = new(U22(v)).cast(); return U22.cast(v) }
+
 // Add returns u+o reduced to 22 bits.
 func (u U22) Add(o U22) U22 { return U22.cast(u + o) }
 
@@ -5732,6 +5861,9 @@ func (I22) nbits() int  { return 22 }
 func (i I22) mask() I22 { return 0x3fffff }
 func (i I22) sign() I22 { return 1 << (i.nbits() - 1) }
 func (i I22) cast() I22 { return (i&i.mask() ^ i.sign()) - i.sign() }
+
+// Set assigns v reduced to 22 bits to u.
+func (i *I22) Set(v I22) I22 { *i = new(I22(v)).cast(); return I22.cast(v) }
 
 // Add returns i+o reduced to 22 bits.
 func (i I22) Add(o I22) I22 { return I22.cast(i + o) }
@@ -5866,6 +5998,9 @@ func (U23) nbits() int  { return 23 }
 func (u U23) mask() U23 { return 0x7fffff }
 func (u U23) cast() U23 { return u & u.mask() }
 
+// Set assigns v reduced to 23 bits to u.
+func (u *U23) Set(v U23) U23 { *u = new(U23(v)).cast(); return U23.cast(v) }
+
 // Add returns u+o reduced to 23 bits.
 func (u U23) Add(o U23) U23 { return U23.cast(u + o) }
 
@@ -5998,6 +6133,9 @@ func (I23) nbits() int  { return 23 }
 func (i I23) mask() I23 { return 0x7fffff }
 func (i I23) sign() I23 { return 1 << (i.nbits() - 1) }
 func (i I23) cast() I23 { return (i&i.mask() ^ i.sign()) - i.sign() }
+
+// Set assigns v reduced to 23 bits to u.
+func (i *I23) Set(v I23) I23 { *i = new(I23(v)).cast(); return I23.cast(v) }
 
 // Add returns i+o reduced to 23 bits.
 func (i I23) Add(o I23) I23 { return I23.cast(i + o) }
@@ -6132,6 +6270,9 @@ func (U24) nbits() int  { return 24 }
 func (u U24) mask() U24 { return 0xffffff }
 func (u U24) cast() U24 { return u & u.mask() }
 
+// Set assigns v reduced to 24 bits to u.
+func (u *U24) Set(v U24) U24 { *u = new(U24(v)).cast(); return U24.cast(v) }
+
 // Add returns u+o reduced to 24 bits.
 func (u U24) Add(o U24) U24 { return U24.cast(u + o) }
 
@@ -6264,6 +6405,9 @@ func (I24) nbits() int  { return 24 }
 func (i I24) mask() I24 { return 0xffffff }
 func (i I24) sign() I24 { return 1 << (i.nbits() - 1) }
 func (i I24) cast() I24 { return (i&i.mask() ^ i.sign()) - i.sign() }
+
+// Set assigns v reduced to 24 bits to u.
+func (i *I24) Set(v I24) I24 { *i = new(I24(v)).cast(); return I24.cast(v) }
 
 // Add returns i+o reduced to 24 bits.
 func (i I24) Add(o I24) I24 { return I24.cast(i + o) }
@@ -6398,6 +6542,9 @@ func (U25) nbits() int  { return 25 }
 func (u U25) mask() U25 { return 0x1ffffff }
 func (u U25) cast() U25 { return u & u.mask() }
 
+// Set assigns v reduced to 25 bits to u.
+func (u *U25) Set(v U25) U25 { *u = new(U25(v)).cast(); return U25.cast(v) }
+
 // Add returns u+o reduced to 25 bits.
 func (u U25) Add(o U25) U25 { return U25.cast(u + o) }
 
@@ -6530,6 +6677,9 @@ func (I25) nbits() int  { return 25 }
 func (i I25) mask() I25 { return 0x1ffffff }
 func (i I25) sign() I25 { return 1 << (i.nbits() - 1) }
 func (i I25) cast() I25 { return (i&i.mask() ^ i.sign()) - i.sign() }
+
+// Set assigns v reduced to 25 bits to u.
+func (i *I25) Set(v I25) I25 { *i = new(I25(v)).cast(); return I25.cast(v) }
 
 // Add returns i+o reduced to 25 bits.
 func (i I25) Add(o I25) I25 { return I25.cast(i + o) }
@@ -6664,6 +6814,9 @@ func (U26) nbits() int  { return 26 }
 func (u U26) mask() U26 { return 0x3ffffff }
 func (u U26) cast() U26 { return u & u.mask() }
 
+// Set assigns v reduced to 26 bits to u.
+func (u *U26) Set(v U26) U26 { *u = new(U26(v)).cast(); return U26.cast(v) }
+
 // Add returns u+o reduced to 26 bits.
 func (u U26) Add(o U26) U26 { return U26.cast(u + o) }
 
@@ -6796,6 +6949,9 @@ func (I26) nbits() int  { return 26 }
 func (i I26) mask() I26 { return 0x3ffffff }
 func (i I26) sign() I26 { return 1 << (i.nbits() - 1) }
 func (i I26) cast() I26 { return (i&i.mask() ^ i.sign()) - i.sign() }
+
+// Set assigns v reduced to 26 bits to u.
+func (i *I26) Set(v I26) I26 { *i = new(I26(v)).cast(); return I26.cast(v) }
 
 // Add returns i+o reduced to 26 bits.
 func (i I26) Add(o I26) I26 { return I26.cast(i + o) }
@@ -6930,6 +7086,9 @@ func (U27) nbits() int  { return 27 }
 func (u U27) mask() U27 { return 0x7ffffff }
 func (u U27) cast() U27 { return u & u.mask() }
 
+// Set assigns v reduced to 27 bits to u.
+func (u *U27) Set(v U27) U27 { *u = new(U27(v)).cast(); return U27.cast(v) }
+
 // Add returns u+o reduced to 27 bits.
 func (u U27) Add(o U27) U27 { return U27.cast(u + o) }
 
@@ -7062,6 +7221,9 @@ func (I27) nbits() int  { return 27 }
 func (i I27) mask() I27 { return 0x7ffffff }
 func (i I27) sign() I27 { return 1 << (i.nbits() - 1) }
 func (i I27) cast() I27 { return (i&i.mask() ^ i.sign()) - i.sign() }
+
+// Set assigns v reduced to 27 bits to u.
+func (i *I27) Set(v I27) I27 { *i = new(I27(v)).cast(); return I27.cast(v) }
 
 // Add returns i+o reduced to 27 bits.
 func (i I27) Add(o I27) I27 { return I27.cast(i + o) }
@@ -7196,6 +7358,9 @@ func (U28) nbits() int  { return 28 }
 func (u U28) mask() U28 { return 0xfffffff }
 func (u U28) cast() U28 { return u & u.mask() }
 
+// Set assigns v reduced to 28 bits to u.
+func (u *U28) Set(v U28) U28 { *u = new(U28(v)).cast(); return U28.cast(v) }
+
 // Add returns u+o reduced to 28 bits.
 func (u U28) Add(o U28) U28 { return U28.cast(u + o) }
 
@@ -7328,6 +7493,9 @@ func (I28) nbits() int  { return 28 }
 func (i I28) mask() I28 { return 0xfffffff }
 func (i I28) sign() I28 { return 1 << (i.nbits() - 1) }
 func (i I28) cast() I28 { return (i&i.mask() ^ i.sign()) - i.sign() }
+
+// Set assigns v reduced to 28 bits to u.
+func (i *I28) Set(v I28) I28 { *i = new(I28(v)).cast(); return I28.cast(v) }
 
 // Add returns i+o reduced to 28 bits.
 func (i I28) Add(o I28) I28 { return I28.cast(i + o) }
@@ -7462,6 +7630,9 @@ func (U29) nbits() int  { return 29 }
 func (u U29) mask() U29 { return 0x1fffffff }
 func (u U29) cast() U29 { return u & u.mask() }
 
+// Set assigns v reduced to 29 bits to u.
+func (u *U29) Set(v U29) U29 { *u = new(U29(v)).cast(); return U29.cast(v) }
+
 // Add returns u+o reduced to 29 bits.
 func (u U29) Add(o U29) U29 { return U29.cast(u + o) }
 
@@ -7594,6 +7765,9 @@ func (I29) nbits() int  { return 29 }
 func (i I29) mask() I29 { return 0x1fffffff }
 func (i I29) sign() I29 { return 1 << (i.nbits() - 1) }
 func (i I29) cast() I29 { return (i&i.mask() ^ i.sign()) - i.sign() }
+
+// Set assigns v reduced to 29 bits to u.
+func (i *I29) Set(v I29) I29 { *i = new(I29(v)).cast(); return I29.cast(v) }
 
 // Add returns i+o reduced to 29 bits.
 func (i I29) Add(o I29) I29 { return I29.cast(i + o) }
@@ -7728,6 +7902,9 @@ func (U30) nbits() int  { return 30 }
 func (u U30) mask() U30 { return 0x3fffffff }
 func (u U30) cast() U30 { return u & u.mask() }
 
+// Set assigns v reduced to 30 bits to u.
+func (u *U30) Set(v U30) U30 { *u = new(U30(v)).cast(); return U30.cast(v) }
+
 // Add returns u+o reduced to 30 bits.
 func (u U30) Add(o U30) U30 { return U30.cast(u + o) }
 
@@ -7860,6 +8037,9 @@ func (I30) nbits() int  { return 30 }
 func (i I30) mask() I30 { return 0x3fffffff }
 func (i I30) sign() I30 { return 1 << (i.nbits() - 1) }
 func (i I30) cast() I30 { return (i&i.mask() ^ i.sign()) - i.sign() }
+
+// Set assigns v reduced to 30 bits to u.
+func (i *I30) Set(v I30) I30 { *i = new(I30(v)).cast(); return I30.cast(v) }
 
 // Add returns i+o reduced to 30 bits.
 func (i I30) Add(o I30) I30 { return I30.cast(i + o) }
@@ -7994,6 +8174,9 @@ func (U31) nbits() int  { return 31 }
 func (u U31) mask() U31 { return 0x7fffffff }
 func (u U31) cast() U31 { return u & u.mask() }
 
+// Set assigns v reduced to 31 bits to u.
+func (u *U31) Set(v U31) U31 { *u = new(U31(v)).cast(); return U31.cast(v) }
+
 // Add returns u+o reduced to 31 bits.
 func (u U31) Add(o U31) U31 { return U31.cast(u + o) }
 
@@ -8126,6 +8309,9 @@ func (I31) nbits() int  { return 31 }
 func (i I31) mask() I31 { return 0x7fffffff }
 func (i I31) sign() I31 { return 1 << (i.nbits() - 1) }
 func (i I31) cast() I31 { return (i&i.mask() ^ i.sign()) - i.sign() }
+
+// Set assigns v reduced to 31 bits to u.
+func (i *I31) Set(v I31) I31 { *i = new(I31(v)).cast(); return I31.cast(v) }
 
 // Add returns i+o reduced to 31 bits.
 func (i I31) Add(o I31) I31 { return I31.cast(i + o) }
@@ -8260,6 +8446,9 @@ func (U32) nbits() int  { return 32 }
 func (u U32) mask() U32 { return 0xffffffff }
 func (u U32) cast() U32 { return u & u.mask() }
 
+// Set assigns v reduced to 32 bits to u.
+func (u *U32) Set(v U32) U32 { *u = new(U32(v)).cast(); return U32.cast(v) }
+
 // Add returns u+o reduced to 32 bits.
 func (u U32) Add(o U32) U32 { return U32.cast(u + o) }
 
@@ -8392,6 +8581,9 @@ func (I32) nbits() int  { return 32 }
 func (i I32) mask() I32 { return -1 }
 func (i I32) sign() I32 { return 1 << (i.nbits() - 1) }
 func (i I32) cast() I32 { return (i&i.mask() ^ i.sign()) - i.sign() }
+
+// Set assigns v reduced to 32 bits to u.
+func (i *I32) Set(v I32) I32 { *i = new(I32(v)).cast(); return I32.cast(v) }
 
 // Add returns i+o reduced to 32 bits.
 func (i I32) Add(o I32) I32 { return I32.cast(i + o) }
@@ -8526,6 +8718,9 @@ func (U33) nbits() int  { return 33 }
 func (u U33) mask() U33 { return 0x1ffffffff }
 func (u U33) cast() U33 { return u & u.mask() }
 
+// Set assigns v reduced to 33 bits to u.
+func (u *U33) Set(v U33) U33 { *u = new(U33(v)).cast(); return U33.cast(v) }
+
 // Add returns u+o reduced to 33 bits.
 func (u U33) Add(o U33) U33 { return U33.cast(u + o) }
 
@@ -8658,6 +8853,9 @@ func (I33) nbits() int  { return 33 }
 func (i I33) mask() I33 { return 0x1ffffffff }
 func (i I33) sign() I33 { return 1 << (i.nbits() - 1) }
 func (i I33) cast() I33 { return (i&i.mask() ^ i.sign()) - i.sign() }
+
+// Set assigns v reduced to 33 bits to u.
+func (i *I33) Set(v I33) I33 { *i = new(I33(v)).cast(); return I33.cast(v) }
 
 // Add returns i+o reduced to 33 bits.
 func (i I33) Add(o I33) I33 { return I33.cast(i + o) }
@@ -8792,6 +8990,9 @@ func (U34) nbits() int  { return 34 }
 func (u U34) mask() U34 { return 0x3ffffffff }
 func (u U34) cast() U34 { return u & u.mask() }
 
+// Set assigns v reduced to 34 bits to u.
+func (u *U34) Set(v U34) U34 { *u = new(U34(v)).cast(); return U34.cast(v) }
+
 // Add returns u+o reduced to 34 bits.
 func (u U34) Add(o U34) U34 { return U34.cast(u + o) }
 
@@ -8924,6 +9125,9 @@ func (I34) nbits() int  { return 34 }
 func (i I34) mask() I34 { return 0x3ffffffff }
 func (i I34) sign() I34 { return 1 << (i.nbits() - 1) }
 func (i I34) cast() I34 { return (i&i.mask() ^ i.sign()) - i.sign() }
+
+// Set assigns v reduced to 34 bits to u.
+func (i *I34) Set(v I34) I34 { *i = new(I34(v)).cast(); return I34.cast(v) }
 
 // Add returns i+o reduced to 34 bits.
 func (i I34) Add(o I34) I34 { return I34.cast(i + o) }
@@ -9058,6 +9262,9 @@ func (U35) nbits() int  { return 35 }
 func (u U35) mask() U35 { return 0x7ffffffff }
 func (u U35) cast() U35 { return u & u.mask() }
 
+// Set assigns v reduced to 35 bits to u.
+func (u *U35) Set(v U35) U35 { *u = new(U35(v)).cast(); return U35.cast(v) }
+
 // Add returns u+o reduced to 35 bits.
 func (u U35) Add(o U35) U35 { return U35.cast(u + o) }
 
@@ -9190,6 +9397,9 @@ func (I35) nbits() int  { return 35 }
 func (i I35) mask() I35 { return 0x7ffffffff }
 func (i I35) sign() I35 { return 1 << (i.nbits() - 1) }
 func (i I35) cast() I35 { return (i&i.mask() ^ i.sign()) - i.sign() }
+
+// Set assigns v reduced to 35 bits to u.
+func (i *I35) Set(v I35) I35 { *i = new(I35(v)).cast(); return I35.cast(v) }
 
 // Add returns i+o reduced to 35 bits.
 func (i I35) Add(o I35) I35 { return I35.cast(i + o) }
@@ -9324,6 +9534,9 @@ func (U36) nbits() int  { return 36 }
 func (u U36) mask() U36 { return 0xfffffffff }
 func (u U36) cast() U36 { return u & u.mask() }
 
+// Set assigns v reduced to 36 bits to u.
+func (u *U36) Set(v U36) U36 { *u = new(U36(v)).cast(); return U36.cast(v) }
+
 // Add returns u+o reduced to 36 bits.
 func (u U36) Add(o U36) U36 { return U36.cast(u + o) }
 
@@ -9456,6 +9669,9 @@ func (I36) nbits() int  { return 36 }
 func (i I36) mask() I36 { return 0xfffffffff }
 func (i I36) sign() I36 { return 1 << (i.nbits() - 1) }
 func (i I36) cast() I36 { return (i&i.mask() ^ i.sign()) - i.sign() }
+
+// Set assigns v reduced to 36 bits to u.
+func (i *I36) Set(v I36) I36 { *i = new(I36(v)).cast(); return I36.cast(v) }
 
 // Add returns i+o reduced to 36 bits.
 func (i I36) Add(o I36) I36 { return I36.cast(i + o) }
@@ -9590,6 +9806,9 @@ func (U37) nbits() int  { return 37 }
 func (u U37) mask() U37 { return 0x1fffffffff }
 func (u U37) cast() U37 { return u & u.mask() }
 
+// Set assigns v reduced to 37 bits to u.
+func (u *U37) Set(v U37) U37 { *u = new(U37(v)).cast(); return U37.cast(v) }
+
 // Add returns u+o reduced to 37 bits.
 func (u U37) Add(o U37) U37 { return U37.cast(u + o) }
 
@@ -9722,6 +9941,9 @@ func (I37) nbits() int  { return 37 }
 func (i I37) mask() I37 { return 0x1fffffffff }
 func (i I37) sign() I37 { return 1 << (i.nbits() - 1) }
 func (i I37) cast() I37 { return (i&i.mask() ^ i.sign()) - i.sign() }
+
+// Set assigns v reduced to 37 bits to u.
+func (i *I37) Set(v I37) I37 { *i = new(I37(v)).cast(); return I37.cast(v) }
 
 // Add returns i+o reduced to 37 bits.
 func (i I37) Add(o I37) I37 { return I37.cast(i + o) }
@@ -9856,6 +10078,9 @@ func (U38) nbits() int  { return 38 }
 func (u U38) mask() U38 { return 0x3fffffffff }
 func (u U38) cast() U38 { return u & u.mask() }
 
+// Set assigns v reduced to 38 bits to u.
+func (u *U38) Set(v U38) U38 { *u = new(U38(v)).cast(); return U38.cast(v) }
+
 // Add returns u+o reduced to 38 bits.
 func (u U38) Add(o U38) U38 { return U38.cast(u + o) }
 
@@ -9988,6 +10213,9 @@ func (I38) nbits() int  { return 38 }
 func (i I38) mask() I38 { return 0x3fffffffff }
 func (i I38) sign() I38 { return 1 << (i.nbits() - 1) }
 func (i I38) cast() I38 { return (i&i.mask() ^ i.sign()) - i.sign() }
+
+// Set assigns v reduced to 38 bits to u.
+func (i *I38) Set(v I38) I38 { *i = new(I38(v)).cast(); return I38.cast(v) }
 
 // Add returns i+o reduced to 38 bits.
 func (i I38) Add(o I38) I38 { return I38.cast(i + o) }
@@ -10122,6 +10350,9 @@ func (U39) nbits() int  { return 39 }
 func (u U39) mask() U39 { return 0x7fffffffff }
 func (u U39) cast() U39 { return u & u.mask() }
 
+// Set assigns v reduced to 39 bits to u.
+func (u *U39) Set(v U39) U39 { *u = new(U39(v)).cast(); return U39.cast(v) }
+
 // Add returns u+o reduced to 39 bits.
 func (u U39) Add(o U39) U39 { return U39.cast(u + o) }
 
@@ -10254,6 +10485,9 @@ func (I39) nbits() int  { return 39 }
 func (i I39) mask() I39 { return 0x7fffffffff }
 func (i I39) sign() I39 { return 1 << (i.nbits() - 1) }
 func (i I39) cast() I39 { return (i&i.mask() ^ i.sign()) - i.sign() }
+
+// Set assigns v reduced to 39 bits to u.
+func (i *I39) Set(v I39) I39 { *i = new(I39(v)).cast(); return I39.cast(v) }
 
 // Add returns i+o reduced to 39 bits.
 func (i I39) Add(o I39) I39 { return I39.cast(i + o) }
@@ -10388,6 +10622,9 @@ func (U40) nbits() int  { return 40 }
 func (u U40) mask() U40 { return 0xffffffffff }
 func (u U40) cast() U40 { return u & u.mask() }
 
+// Set assigns v reduced to 40 bits to u.
+func (u *U40) Set(v U40) U40 { *u = new(U40(v)).cast(); return U40.cast(v) }
+
 // Add returns u+o reduced to 40 bits.
 func (u U40) Add(o U40) U40 { return U40.cast(u + o) }
 
@@ -10520,6 +10757,9 @@ func (I40) nbits() int  { return 40 }
 func (i I40) mask() I40 { return 0xffffffffff }
 func (i I40) sign() I40 { return 1 << (i.nbits() - 1) }
 func (i I40) cast() I40 { return (i&i.mask() ^ i.sign()) - i.sign() }
+
+// Set assigns v reduced to 40 bits to u.
+func (i *I40) Set(v I40) I40 { *i = new(I40(v)).cast(); return I40.cast(v) }
 
 // Add returns i+o reduced to 40 bits.
 func (i I40) Add(o I40) I40 { return I40.cast(i + o) }
@@ -10654,6 +10894,9 @@ func (U41) nbits() int  { return 41 }
 func (u U41) mask() U41 { return 0x1ffffffffff }
 func (u U41) cast() U41 { return u & u.mask() }
 
+// Set assigns v reduced to 41 bits to u.
+func (u *U41) Set(v U41) U41 { *u = new(U41(v)).cast(); return U41.cast(v) }
+
 // Add returns u+o reduced to 41 bits.
 func (u U41) Add(o U41) U41 { return U41.cast(u + o) }
 
@@ -10786,6 +11029,9 @@ func (I41) nbits() int  { return 41 }
 func (i I41) mask() I41 { return 0x1ffffffffff }
 func (i I41) sign() I41 { return 1 << (i.nbits() - 1) }
 func (i I41) cast() I41 { return (i&i.mask() ^ i.sign()) - i.sign() }
+
+// Set assigns v reduced to 41 bits to u.
+func (i *I41) Set(v I41) I41 { *i = new(I41(v)).cast(); return I41.cast(v) }
 
 // Add returns i+o reduced to 41 bits.
 func (i I41) Add(o I41) I41 { return I41.cast(i + o) }
@@ -10920,6 +11166,9 @@ func (U42) nbits() int  { return 42 }
 func (u U42) mask() U42 { return 0x3ffffffffff }
 func (u U42) cast() U42 { return u & u.mask() }
 
+// Set assigns v reduced to 42 bits to u.
+func (u *U42) Set(v U42) U42 { *u = new(U42(v)).cast(); return U42.cast(v) }
+
 // Add returns u+o reduced to 42 bits.
 func (u U42) Add(o U42) U42 { return U42.cast(u + o) }
 
@@ -11052,6 +11301,9 @@ func (I42) nbits() int  { return 42 }
 func (i I42) mask() I42 { return 0x3ffffffffff }
 func (i I42) sign() I42 { return 1 << (i.nbits() - 1) }
 func (i I42) cast() I42 { return (i&i.mask() ^ i.sign()) - i.sign() }
+
+// Set assigns v reduced to 42 bits to u.
+func (i *I42) Set(v I42) I42 { *i = new(I42(v)).cast(); return I42.cast(v) }
 
 // Add returns i+o reduced to 42 bits.
 func (i I42) Add(o I42) I42 { return I42.cast(i + o) }
@@ -11186,6 +11438,9 @@ func (U43) nbits() int  { return 43 }
 func (u U43) mask() U43 { return 0x7ffffffffff }
 func (u U43) cast() U43 { return u & u.mask() }
 
+// Set assigns v reduced to 43 bits to u.
+func (u *U43) Set(v U43) U43 { *u = new(U43(v)).cast(); return U43.cast(v) }
+
 // Add returns u+o reduced to 43 bits.
 func (u U43) Add(o U43) U43 { return U43.cast(u + o) }
 
@@ -11318,6 +11573,9 @@ func (I43) nbits() int  { return 43 }
 func (i I43) mask() I43 { return 0x7ffffffffff }
 func (i I43) sign() I43 { return 1 << (i.nbits() - 1) }
 func (i I43) cast() I43 { return (i&i.mask() ^ i.sign()) - i.sign() }
+
+// Set assigns v reduced to 43 bits to u.
+func (i *I43) Set(v I43) I43 { *i = new(I43(v)).cast(); return I43.cast(v) }
 
 // Add returns i+o reduced to 43 bits.
 func (i I43) Add(o I43) I43 { return I43.cast(i + o) }
@@ -11452,6 +11710,9 @@ func (U44) nbits() int  { return 44 }
 func (u U44) mask() U44 { return 0xfffffffffff }
 func (u U44) cast() U44 { return u & u.mask() }
 
+// Set assigns v reduced to 44 bits to u.
+func (u *U44) Set(v U44) U44 { *u = new(U44(v)).cast(); return U44.cast(v) }
+
 // Add returns u+o reduced to 44 bits.
 func (u U44) Add(o U44) U44 { return U44.cast(u + o) }
 
@@ -11584,6 +11845,9 @@ func (I44) nbits() int  { return 44 }
 func (i I44) mask() I44 { return 0xfffffffffff }
 func (i I44) sign() I44 { return 1 << (i.nbits() - 1) }
 func (i I44) cast() I44 { return (i&i.mask() ^ i.sign()) - i.sign() }
+
+// Set assigns v reduced to 44 bits to u.
+func (i *I44) Set(v I44) I44 { *i = new(I44(v)).cast(); return I44.cast(v) }
 
 // Add returns i+o reduced to 44 bits.
 func (i I44) Add(o I44) I44 { return I44.cast(i + o) }
@@ -11718,6 +11982,9 @@ func (U45) nbits() int  { return 45 }
 func (u U45) mask() U45 { return 0x1fffffffffff }
 func (u U45) cast() U45 { return u & u.mask() }
 
+// Set assigns v reduced to 45 bits to u.
+func (u *U45) Set(v U45) U45 { *u = new(U45(v)).cast(); return U45.cast(v) }
+
 // Add returns u+o reduced to 45 bits.
 func (u U45) Add(o U45) U45 { return U45.cast(u + o) }
 
@@ -11850,6 +12117,9 @@ func (I45) nbits() int  { return 45 }
 func (i I45) mask() I45 { return 0x1fffffffffff }
 func (i I45) sign() I45 { return 1 << (i.nbits() - 1) }
 func (i I45) cast() I45 { return (i&i.mask() ^ i.sign()) - i.sign() }
+
+// Set assigns v reduced to 45 bits to u.
+func (i *I45) Set(v I45) I45 { *i = new(I45(v)).cast(); return I45.cast(v) }
 
 // Add returns i+o reduced to 45 bits.
 func (i I45) Add(o I45) I45 { return I45.cast(i + o) }
@@ -11984,6 +12254,9 @@ func (U46) nbits() int  { return 46 }
 func (u U46) mask() U46 { return 0x3fffffffffff }
 func (u U46) cast() U46 { return u & u.mask() }
 
+// Set assigns v reduced to 46 bits to u.
+func (u *U46) Set(v U46) U46 { *u = new(U46(v)).cast(); return U46.cast(v) }
+
 // Add returns u+o reduced to 46 bits.
 func (u U46) Add(o U46) U46 { return U46.cast(u + o) }
 
@@ -12116,6 +12389,9 @@ func (I46) nbits() int  { return 46 }
 func (i I46) mask() I46 { return 0x3fffffffffff }
 func (i I46) sign() I46 { return 1 << (i.nbits() - 1) }
 func (i I46) cast() I46 { return (i&i.mask() ^ i.sign()) - i.sign() }
+
+// Set assigns v reduced to 46 bits to u.
+func (i *I46) Set(v I46) I46 { *i = new(I46(v)).cast(); return I46.cast(v) }
 
 // Add returns i+o reduced to 46 bits.
 func (i I46) Add(o I46) I46 { return I46.cast(i + o) }
@@ -12250,6 +12526,9 @@ func (U47) nbits() int  { return 47 }
 func (u U47) mask() U47 { return 0x7fffffffffff }
 func (u U47) cast() U47 { return u & u.mask() }
 
+// Set assigns v reduced to 47 bits to u.
+func (u *U47) Set(v U47) U47 { *u = new(U47(v)).cast(); return U47.cast(v) }
+
 // Add returns u+o reduced to 47 bits.
 func (u U47) Add(o U47) U47 { return U47.cast(u + o) }
 
@@ -12382,6 +12661,9 @@ func (I47) nbits() int  { return 47 }
 func (i I47) mask() I47 { return 0x7fffffffffff }
 func (i I47) sign() I47 { return 1 << (i.nbits() - 1) }
 func (i I47) cast() I47 { return (i&i.mask() ^ i.sign()) - i.sign() }
+
+// Set assigns v reduced to 47 bits to u.
+func (i *I47) Set(v I47) I47 { *i = new(I47(v)).cast(); return I47.cast(v) }
 
 // Add returns i+o reduced to 47 bits.
 func (i I47) Add(o I47) I47 { return I47.cast(i + o) }
@@ -12516,6 +12798,9 @@ func (U48) nbits() int  { return 48 }
 func (u U48) mask() U48 { return 0xffffffffffff }
 func (u U48) cast() U48 { return u & u.mask() }
 
+// Set assigns v reduced to 48 bits to u.
+func (u *U48) Set(v U48) U48 { *u = new(U48(v)).cast(); return U48.cast(v) }
+
 // Add returns u+o reduced to 48 bits.
 func (u U48) Add(o U48) U48 { return U48.cast(u + o) }
 
@@ -12648,6 +12933,9 @@ func (I48) nbits() int  { return 48 }
 func (i I48) mask() I48 { return 0xffffffffffff }
 func (i I48) sign() I48 { return 1 << (i.nbits() - 1) }
 func (i I48) cast() I48 { return (i&i.mask() ^ i.sign()) - i.sign() }
+
+// Set assigns v reduced to 48 bits to u.
+func (i *I48) Set(v I48) I48 { *i = new(I48(v)).cast(); return I48.cast(v) }
 
 // Add returns i+o reduced to 48 bits.
 func (i I48) Add(o I48) I48 { return I48.cast(i + o) }
@@ -12782,6 +13070,9 @@ func (U49) nbits() int  { return 49 }
 func (u U49) mask() U49 { return 0x1ffffffffffff }
 func (u U49) cast() U49 { return u & u.mask() }
 
+// Set assigns v reduced to 49 bits to u.
+func (u *U49) Set(v U49) U49 { *u = new(U49(v)).cast(); return U49.cast(v) }
+
 // Add returns u+o reduced to 49 bits.
 func (u U49) Add(o U49) U49 { return U49.cast(u + o) }
 
@@ -12914,6 +13205,9 @@ func (I49) nbits() int  { return 49 }
 func (i I49) mask() I49 { return 0x1ffffffffffff }
 func (i I49) sign() I49 { return 1 << (i.nbits() - 1) }
 func (i I49) cast() I49 { return (i&i.mask() ^ i.sign()) - i.sign() }
+
+// Set assigns v reduced to 49 bits to u.
+func (i *I49) Set(v I49) I49 { *i = new(I49(v)).cast(); return I49.cast(v) }
 
 // Add returns i+o reduced to 49 bits.
 func (i I49) Add(o I49) I49 { return I49.cast(i + o) }
@@ -13048,6 +13342,9 @@ func (U50) nbits() int  { return 50 }
 func (u U50) mask() U50 { return 0x3ffffffffffff }
 func (u U50) cast() U50 { return u & u.mask() }
 
+// Set assigns v reduced to 50 bits to u.
+func (u *U50) Set(v U50) U50 { *u = new(U50(v)).cast(); return U50.cast(v) }
+
 // Add returns u+o reduced to 50 bits.
 func (u U50) Add(o U50) U50 { return U50.cast(u + o) }
 
@@ -13180,6 +13477,9 @@ func (I50) nbits() int  { return 50 }
 func (i I50) mask() I50 { return 0x3ffffffffffff }
 func (i I50) sign() I50 { return 1 << (i.nbits() - 1) }
 func (i I50) cast() I50 { return (i&i.mask() ^ i.sign()) - i.sign() }
+
+// Set assigns v reduced to 50 bits to u.
+func (i *I50) Set(v I50) I50 { *i = new(I50(v)).cast(); return I50.cast(v) }
 
 // Add returns i+o reduced to 50 bits.
 func (i I50) Add(o I50) I50 { return I50.cast(i + o) }
@@ -13314,6 +13614,9 @@ func (U51) nbits() int  { return 51 }
 func (u U51) mask() U51 { return 0x7ffffffffffff }
 func (u U51) cast() U51 { return u & u.mask() }
 
+// Set assigns v reduced to 51 bits to u.
+func (u *U51) Set(v U51) U51 { *u = new(U51(v)).cast(); return U51.cast(v) }
+
 // Add returns u+o reduced to 51 bits.
 func (u U51) Add(o U51) U51 { return U51.cast(u + o) }
 
@@ -13446,6 +13749,9 @@ func (I51) nbits() int  { return 51 }
 func (i I51) mask() I51 { return 0x7ffffffffffff }
 func (i I51) sign() I51 { return 1 << (i.nbits() - 1) }
 func (i I51) cast() I51 { return (i&i.mask() ^ i.sign()) - i.sign() }
+
+// Set assigns v reduced to 51 bits to u.
+func (i *I51) Set(v I51) I51 { *i = new(I51(v)).cast(); return I51.cast(v) }
 
 // Add returns i+o reduced to 51 bits.
 func (i I51) Add(o I51) I51 { return I51.cast(i + o) }
@@ -13580,6 +13886,9 @@ func (U52) nbits() int  { return 52 }
 func (u U52) mask() U52 { return 0xfffffffffffff }
 func (u U52) cast() U52 { return u & u.mask() }
 
+// Set assigns v reduced to 52 bits to u.
+func (u *U52) Set(v U52) U52 { *u = new(U52(v)).cast(); return U52.cast(v) }
+
 // Add returns u+o reduced to 52 bits.
 func (u U52) Add(o U52) U52 { return U52.cast(u + o) }
 
@@ -13712,6 +14021,9 @@ func (I52) nbits() int  { return 52 }
 func (i I52) mask() I52 { return 0xfffffffffffff }
 func (i I52) sign() I52 { return 1 << (i.nbits() - 1) }
 func (i I52) cast() I52 { return (i&i.mask() ^ i.sign()) - i.sign() }
+
+// Set assigns v reduced to 52 bits to u.
+func (i *I52) Set(v I52) I52 { *i = new(I52(v)).cast(); return I52.cast(v) }
 
 // Add returns i+o reduced to 52 bits.
 func (i I52) Add(o I52) I52 { return I52.cast(i + o) }
@@ -13846,6 +14158,9 @@ func (U53) nbits() int  { return 53 }
 func (u U53) mask() U53 { return 0x1fffffffffffff }
 func (u U53) cast() U53 { return u & u.mask() }
 
+// Set assigns v reduced to 53 bits to u.
+func (u *U53) Set(v U53) U53 { *u = new(U53(v)).cast(); return U53.cast(v) }
+
 // Add returns u+o reduced to 53 bits.
 func (u U53) Add(o U53) U53 { return U53.cast(u + o) }
 
@@ -13978,6 +14293,9 @@ func (I53) nbits() int  { return 53 }
 func (i I53) mask() I53 { return 0x1fffffffffffff }
 func (i I53) sign() I53 { return 1 << (i.nbits() - 1) }
 func (i I53) cast() I53 { return (i&i.mask() ^ i.sign()) - i.sign() }
+
+// Set assigns v reduced to 53 bits to u.
+func (i *I53) Set(v I53) I53 { *i = new(I53(v)).cast(); return I53.cast(v) }
 
 // Add returns i+o reduced to 53 bits.
 func (i I53) Add(o I53) I53 { return I53.cast(i + o) }
@@ -14112,6 +14430,9 @@ func (U54) nbits() int  { return 54 }
 func (u U54) mask() U54 { return 0x3fffffffffffff }
 func (u U54) cast() U54 { return u & u.mask() }
 
+// Set assigns v reduced to 54 bits to u.
+func (u *U54) Set(v U54) U54 { *u = new(U54(v)).cast(); return U54.cast(v) }
+
 // Add returns u+o reduced to 54 bits.
 func (u U54) Add(o U54) U54 { return U54.cast(u + o) }
 
@@ -14244,6 +14565,9 @@ func (I54) nbits() int  { return 54 }
 func (i I54) mask() I54 { return 0x3fffffffffffff }
 func (i I54) sign() I54 { return 1 << (i.nbits() - 1) }
 func (i I54) cast() I54 { return (i&i.mask() ^ i.sign()) - i.sign() }
+
+// Set assigns v reduced to 54 bits to u.
+func (i *I54) Set(v I54) I54 { *i = new(I54(v)).cast(); return I54.cast(v) }
 
 // Add returns i+o reduced to 54 bits.
 func (i I54) Add(o I54) I54 { return I54.cast(i + o) }
@@ -14378,6 +14702,9 @@ func (U55) nbits() int  { return 55 }
 func (u U55) mask() U55 { return 0x7fffffffffffff }
 func (u U55) cast() U55 { return u & u.mask() }
 
+// Set assigns v reduced to 55 bits to u.
+func (u *U55) Set(v U55) U55 { *u = new(U55(v)).cast(); return U55.cast(v) }
+
 // Add returns u+o reduced to 55 bits.
 func (u U55) Add(o U55) U55 { return U55.cast(u + o) }
 
@@ -14510,6 +14837,9 @@ func (I55) nbits() int  { return 55 }
 func (i I55) mask() I55 { return 0x7fffffffffffff }
 func (i I55) sign() I55 { return 1 << (i.nbits() - 1) }
 func (i I55) cast() I55 { return (i&i.mask() ^ i.sign()) - i.sign() }
+
+// Set assigns v reduced to 55 bits to u.
+func (i *I55) Set(v I55) I55 { *i = new(I55(v)).cast(); return I55.cast(v) }
 
 // Add returns i+o reduced to 55 bits.
 func (i I55) Add(o I55) I55 { return I55.cast(i + o) }
@@ -14644,6 +14974,9 @@ func (U56) nbits() int  { return 56 }
 func (u U56) mask() U56 { return 0xffffffffffffff }
 func (u U56) cast() U56 { return u & u.mask() }
 
+// Set assigns v reduced to 56 bits to u.
+func (u *U56) Set(v U56) U56 { *u = new(U56(v)).cast(); return U56.cast(v) }
+
 // Add returns u+o reduced to 56 bits.
 func (u U56) Add(o U56) U56 { return U56.cast(u + o) }
 
@@ -14776,6 +15109,9 @@ func (I56) nbits() int  { return 56 }
 func (i I56) mask() I56 { return 0xffffffffffffff }
 func (i I56) sign() I56 { return 1 << (i.nbits() - 1) }
 func (i I56) cast() I56 { return (i&i.mask() ^ i.sign()) - i.sign() }
+
+// Set assigns v reduced to 56 bits to u.
+func (i *I56) Set(v I56) I56 { *i = new(I56(v)).cast(); return I56.cast(v) }
 
 // Add returns i+o reduced to 56 bits.
 func (i I56) Add(o I56) I56 { return I56.cast(i + o) }
@@ -14910,6 +15246,9 @@ func (U57) nbits() int  { return 57 }
 func (u U57) mask() U57 { return 0x1ffffffffffffff }
 func (u U57) cast() U57 { return u & u.mask() }
 
+// Set assigns v reduced to 57 bits to u.
+func (u *U57) Set(v U57) U57 { *u = new(U57(v)).cast(); return U57.cast(v) }
+
 // Add returns u+o reduced to 57 bits.
 func (u U57) Add(o U57) U57 { return U57.cast(u + o) }
 
@@ -15042,6 +15381,9 @@ func (I57) nbits() int  { return 57 }
 func (i I57) mask() I57 { return 0x1ffffffffffffff }
 func (i I57) sign() I57 { return 1 << (i.nbits() - 1) }
 func (i I57) cast() I57 { return (i&i.mask() ^ i.sign()) - i.sign() }
+
+// Set assigns v reduced to 57 bits to u.
+func (i *I57) Set(v I57) I57 { *i = new(I57(v)).cast(); return I57.cast(v) }
 
 // Add returns i+o reduced to 57 bits.
 func (i I57) Add(o I57) I57 { return I57.cast(i + o) }
@@ -15176,6 +15518,9 @@ func (U58) nbits() int  { return 58 }
 func (u U58) mask() U58 { return 0x3ffffffffffffff }
 func (u U58) cast() U58 { return u & u.mask() }
 
+// Set assigns v reduced to 58 bits to u.
+func (u *U58) Set(v U58) U58 { *u = new(U58(v)).cast(); return U58.cast(v) }
+
 // Add returns u+o reduced to 58 bits.
 func (u U58) Add(o U58) U58 { return U58.cast(u + o) }
 
@@ -15308,6 +15653,9 @@ func (I58) nbits() int  { return 58 }
 func (i I58) mask() I58 { return 0x3ffffffffffffff }
 func (i I58) sign() I58 { return 1 << (i.nbits() - 1) }
 func (i I58) cast() I58 { return (i&i.mask() ^ i.sign()) - i.sign() }
+
+// Set assigns v reduced to 58 bits to u.
+func (i *I58) Set(v I58) I58 { *i = new(I58(v)).cast(); return I58.cast(v) }
 
 // Add returns i+o reduced to 58 bits.
 func (i I58) Add(o I58) I58 { return I58.cast(i + o) }
@@ -15442,6 +15790,9 @@ func (U59) nbits() int  { return 59 }
 func (u U59) mask() U59 { return 0x7ffffffffffffff }
 func (u U59) cast() U59 { return u & u.mask() }
 
+// Set assigns v reduced to 59 bits to u.
+func (u *U59) Set(v U59) U59 { *u = new(U59(v)).cast(); return U59.cast(v) }
+
 // Add returns u+o reduced to 59 bits.
 func (u U59) Add(o U59) U59 { return U59.cast(u + o) }
 
@@ -15574,6 +15925,9 @@ func (I59) nbits() int  { return 59 }
 func (i I59) mask() I59 { return 0x7ffffffffffffff }
 func (i I59) sign() I59 { return 1 << (i.nbits() - 1) }
 func (i I59) cast() I59 { return (i&i.mask() ^ i.sign()) - i.sign() }
+
+// Set assigns v reduced to 59 bits to u.
+func (i *I59) Set(v I59) I59 { *i = new(I59(v)).cast(); return I59.cast(v) }
 
 // Add returns i+o reduced to 59 bits.
 func (i I59) Add(o I59) I59 { return I59.cast(i + o) }
@@ -15708,6 +16062,9 @@ func (U60) nbits() int  { return 60 }
 func (u U60) mask() U60 { return 0xfffffffffffffff }
 func (u U60) cast() U60 { return u & u.mask() }
 
+// Set assigns v reduced to 60 bits to u.
+func (u *U60) Set(v U60) U60 { *u = new(U60(v)).cast(); return U60.cast(v) }
+
 // Add returns u+o reduced to 60 bits.
 func (u U60) Add(o U60) U60 { return U60.cast(u + o) }
 
@@ -15840,6 +16197,9 @@ func (I60) nbits() int  { return 60 }
 func (i I60) mask() I60 { return 0xfffffffffffffff }
 func (i I60) sign() I60 { return 1 << (i.nbits() - 1) }
 func (i I60) cast() I60 { return (i&i.mask() ^ i.sign()) - i.sign() }
+
+// Set assigns v reduced to 60 bits to u.
+func (i *I60) Set(v I60) I60 { *i = new(I60(v)).cast(); return I60.cast(v) }
 
 // Add returns i+o reduced to 60 bits.
 func (i I60) Add(o I60) I60 { return I60.cast(i + o) }
@@ -15974,6 +16334,9 @@ func (U61) nbits() int  { return 61 }
 func (u U61) mask() U61 { return 0x1fffffffffffffff }
 func (u U61) cast() U61 { return u & u.mask() }
 
+// Set assigns v reduced to 61 bits to u.
+func (u *U61) Set(v U61) U61 { *u = new(U61(v)).cast(); return U61.cast(v) }
+
 // Add returns u+o reduced to 61 bits.
 func (u U61) Add(o U61) U61 { return U61.cast(u + o) }
 
@@ -16106,6 +16469,9 @@ func (I61) nbits() int  { return 61 }
 func (i I61) mask() I61 { return 0x1fffffffffffffff }
 func (i I61) sign() I61 { return 1 << (i.nbits() - 1) }
 func (i I61) cast() I61 { return (i&i.mask() ^ i.sign()) - i.sign() }
+
+// Set assigns v reduced to 61 bits to u.
+func (i *I61) Set(v I61) I61 { *i = new(I61(v)).cast(); return I61.cast(v) }
 
 // Add returns i+o reduced to 61 bits.
 func (i I61) Add(o I61) I61 { return I61.cast(i + o) }
@@ -16240,6 +16606,9 @@ func (U62) nbits() int  { return 62 }
 func (u U62) mask() U62 { return 0x3fffffffffffffff }
 func (u U62) cast() U62 { return u & u.mask() }
 
+// Set assigns v reduced to 62 bits to u.
+func (u *U62) Set(v U62) U62 { *u = new(U62(v)).cast(); return U62.cast(v) }
+
 // Add returns u+o reduced to 62 bits.
 func (u U62) Add(o U62) U62 { return U62.cast(u + o) }
 
@@ -16372,6 +16741,9 @@ func (I62) nbits() int  { return 62 }
 func (i I62) mask() I62 { return 0x3fffffffffffffff }
 func (i I62) sign() I62 { return 1 << (i.nbits() - 1) }
 func (i I62) cast() I62 { return (i&i.mask() ^ i.sign()) - i.sign() }
+
+// Set assigns v reduced to 62 bits to u.
+func (i *I62) Set(v I62) I62 { *i = new(I62(v)).cast(); return I62.cast(v) }
 
 // Add returns i+o reduced to 62 bits.
 func (i I62) Add(o I62) I62 { return I62.cast(i + o) }
@@ -16506,6 +16878,9 @@ func (U63) nbits() int  { return 63 }
 func (u U63) mask() U63 { return 0x7fffffffffffffff }
 func (u U63) cast() U63 { return u & u.mask() }
 
+// Set assigns v reduced to 63 bits to u.
+func (u *U63) Set(v U63) U63 { *u = new(U63(v)).cast(); return U63.cast(v) }
+
 // Add returns u+o reduced to 63 bits.
 func (u U63) Add(o U63) U63 { return U63.cast(u + o) }
 
@@ -16638,6 +17013,9 @@ func (I63) nbits() int  { return 63 }
 func (i I63) mask() I63 { return 0x7fffffffffffffff }
 func (i I63) sign() I63 { return 1 << (i.nbits() - 1) }
 func (i I63) cast() I63 { return (i&i.mask() ^ i.sign()) - i.sign() }
+
+// Set assigns v reduced to 63 bits to u.
+func (i *I63) Set(v I63) I63 { *i = new(I63(v)).cast(); return I63.cast(v) }
 
 // Add returns i+o reduced to 63 bits.
 func (i I63) Add(o I63) I63 { return I63.cast(i + o) }
@@ -16772,6 +17150,9 @@ func (U64) nbits() int  { return 64 }
 func (u U64) mask() U64 { return 0xffffffffffffffff }
 func (u U64) cast() U64 { return u & u.mask() }
 
+// Set assigns v reduced to 64 bits to u.
+func (u *U64) Set(v U64) U64 { *u = new(U64(v)).cast(); return U64.cast(v) }
+
 // Add returns u+o reduced to 64 bits.
 func (u U64) Add(o U64) U64 { return U64.cast(u + o) }
 
@@ -16904,6 +17285,9 @@ func (I64) nbits() int  { return 64 }
 func (i I64) mask() I64 { return -1 }
 func (i I64) sign() I64 { return 1 << (i.nbits() - 1) }
 func (i I64) cast() I64 { return (i&i.mask() ^ i.sign()) - i.sign() }
+
+// Set assigns v reduced to 64 bits to u.
+func (i *I64) Set(v I64) I64 { *i = new(I64(v)).cast(); return I64.cast(v) }
 
 // Add returns i+o reduced to 64 bits.
 func (i I64) Add(o I64) I64 { return I64.cast(i + o) }

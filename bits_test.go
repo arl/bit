@@ -2,6 +2,7 @@ package bit
 
 import (
 	"fmt"
+	"slices"
 	"testing"
 )
 
@@ -20,6 +21,33 @@ func wrapI(v, n int64) int64 {
 	mask := (int64(1) << n) - 1
 	sign := int64(1) << (n - 1)
 	return ((v & mask) ^ sign) - sign
+}
+
+func TestSet(t *testing.T) {
+	{
+		want := []U3{0, 1, 2, 3, 4, 5, 6, 7, 0}
+		got := []U3{}
+		for i := range 9 {
+			var u3 U3
+			u3.Set(U3(i))
+			got = append(got, u3)
+		}
+		if !slices.Equal(want, got) {
+			t.Errorf("\n got:  %#v\n want: %#v\n", got, want)
+		}
+	}
+	{
+		want := []I3{-1, 0, 1, 2, 3, -4, -3, -2, -1}
+		got := []I3{}
+		for i := range 9 {
+			var i3 I3
+			i3.Set(-9 + I3(i))
+			got = append(got, i3)
+		}
+		if !slices.Equal(want, got) {
+			t.Errorf("\n got:  %#v\n want: %#v\n", got, want)
+		}
+	}
 }
 
 func TestU1_Arithmetic(t *testing.T) {
