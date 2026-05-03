@@ -2,6 +2,7 @@
 """Generate types.go: u1..u64 and i1..i64 fixed-width integer types."""
 
 import sys
+from subprocess import call
 
 
 def backing_unsigned(n: int) -> str:
@@ -149,16 +150,16 @@ def write_unsigned(n: int) -> str:
     a(f"// Bitsref returns a Range for bits lo through hi.")
     a(f"func (u *{nm}) Bitsref(lo, hi int) Range[{nm}] {{ return bits(u, lo, hi) }}")
     a(f"")
-    a(f"// Byte returns byte index (0 = least significant) as a bit field read.")
-    a(f"func (u {nm}) Byte(index int) {nm} {{ return u.Bits(index*8, index*8+7) }}")
+    a(f"// Byte returns the byte at index idx.")
+    a(f"func (u {nm}) Byte(index int) U8 {{ return U8(u.Bits(index*8, index*8+7)) }}")
     a(f"")
     a(f"// SetByte sets byte index (0 = least significant) to v.")
     a(
-        f"func (u *{nm}) SetByte(index int, v {nm}) {{ u.SetBits(index*8, index*8+7, v) }}"
+        f"func (u *{nm}) SetByte(index int, v U8) {{ u.SetBits(index*8, index*8+7, {nm}(v)) }}"
     )
     a(f"")
-    a(f"// Byteref returns a Range for byte index.")
-    a(f"func (u *{nm}) Byteref(index int) Range[{nm}] {{ return byte(u, index) }}")
+    a(f"// Byteref returns a Range for the byte at index idx.")
+    a(f"func (u *{nm}) Byteref(idx int) Range[{nm}] {{ return byte(u, idx) }}")
 
     return "\n".join(lines)
 
@@ -276,16 +277,14 @@ def write_signed(n: int) -> str:
     a(f"// Bitsref returns a Range for bits lo through hi.")
     a(f"func (i *{nm}) Bitsref(lo, hi int) Range[{nm}] {{ return bits(i, lo, hi) }}")
     a(f"")
-    a(f"// Byte returns byte index (0 = least significant) as a bit field read.")
-    a(f"func (i {nm}) Byte(index int) {nm} {{ return i.Bits(index*8, index*8+7) }}")
+    a(f"// Byte returns the byte at index idx.")
+    a(f"func (i {nm}) Byte(idx int) U8 {{ return U8(i.Bits(idx*8, idx*8+7)) }}")
     a(f"")
-    a(f"// SetByte sets byte index (0 = least significant) to v.")
-    a(
-        f"func (i *{nm}) SetByte(index int, v {nm}) {{ i.SetBits(index*8, index*8+7, v) }}"
-    )
+    a(f"// SetByte sets the byte at index idx to v.")
+    a(f"func (i *{nm}) SetByte(idx int, v U8) {{ i.SetBits(idx*8, idx*8+7, {nm}(v)) }}")
     a(f"")
-    a(f"// Byteref returns a Range for byte index.")
-    a(f"func (i *{nm}) Byteref(index int) Range[{nm}] {{ return byte(i, index) }}")
+    a(f"// Byteref returns a Range for the byte at index idx.")
+    a(f"func (i *{nm}) Byteref(idx int) Range[{nm}] {{ return byte(i, idx) }}")
 
     return "\n".join(lines)
 
@@ -310,6 +309,7 @@ def main():
     with open(path, "w") as f:
         f.write(text)
     print(f"wrote {path} ({len(text):,} bytes, {text.count(chr(10))} lines)")
+    call(["go", "fmt", "types.go"])
 
 
 if __name__ == "__main__":

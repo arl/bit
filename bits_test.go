@@ -986,7 +986,7 @@ func TestU16_Byte(t *testing.T) {
 
 func TestU32_Byte(t *testing.T) {
 	v := U32(0xDEADBEEF)
-	wantBytes := [4]U32{0xEF, 0xBE, 0xAD, 0xDE}
+	wantBytes := [4]U8{0xEF, 0xBE, 0xAD, 0xDE}
 	for i, want := range wantBytes {
 		if got := v.Byte(i); got != want {
 			t.Errorf("u32(0xDEADBEEF).Byte(%d) = %#x, want %#x", i, got, want)
@@ -1000,7 +1000,7 @@ func TestU32_Byte(t *testing.T) {
 
 func TestU64_Byte(t *testing.T) {
 	v := U64(0x0102030405060708)
-	for i, want := range [8]U64{8, 7, 6, 5, 4, 3, 2, 1} {
+	for i, want := range [8]U8{8, 7, 6, 5, 4, 3, 2, 1} {
 		if got := v.Byte(i); got != want {
 			t.Errorf("u64.Byte(%d) = %#x, want %#x", i, got, want)
 		}
@@ -1013,16 +1013,16 @@ func TestU64_Byte(t *testing.T) {
 
 func TestI16_Byte(t *testing.T) {
 	v := I16(-1)
-	if got := v.Byte(0); got != 0x00FF {
-		t.Errorf("I16(-1).Byte(0) = %d, want 255", got)
+	if got := v.Byte(0); got != 0xFF {
+		t.Errorf("I16(-1).Byte(0) = 0x%x, want 0xff", got)
 	}
-	if got := v.Byte(1); got != -1 {
-		t.Errorf("I16(-1).Byte(1) = %d, want -1", got)
+	if got := v.Byte(1); got != 0xFF {
+		t.Errorf("I16(-1).Byte(1) = 0x%x, want 0xff", got)
 	}
 
 	v2 := I16(0x7F00)
 	if got := v2.Byte(1); got != 0x7F {
-		t.Errorf("I16(0x7F00).Byte(1) = %d, want 0x7F", got)
+		t.Errorf("I16(0x7F00).Byte(1) = 0x%x, want 0x7f", got)
 	}
 
 	v3 := I16(0)

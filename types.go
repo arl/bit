@@ -136,14 +136,14 @@ func (u *U1) SetBits(lo, hi int, v U1) {
 // Bitsref returns a Range for bits lo through hi.
 func (u *U1) Bitsref(lo, hi int) Range[U1] { return bits(u, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (u U1) Byte(index int) U1 { return u.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (u U1) Byte(index int) U8 { return U8(u.Bits(index*8, index*8+7)) }
 
 // SetByte sets byte index (0 = least significant) to v.
-func (u *U1) SetByte(index int, v U1) { u.SetBits(index*8, index*8+7, v) }
+func (u *U1) SetByte(index int, v U8) { u.SetBits(index*8, index*8+7, U1(v)) }
 
-// Byteref returns a Range for byte index.
-func (u *U1) Byteref(index int) Range[U1] { return byte(u, index) }
+// Byteref returns a Range for the byte at index idx.
+func (u *U1) Byteref(idx int) Range[U1] { return byte(u, idx) }
 
 // I1 is an 1-bit signed integer in two's complement.
 type I1 int8
@@ -276,14 +276,14 @@ func (i *I1) SetBits(lo, hi int, v I1) {
 // Bitsref returns a Range for bits lo through hi.
 func (i *I1) Bitsref(lo, hi int) Range[I1] { return bits(i, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (i I1) Byte(index int) I1 { return i.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (i I1) Byte(idx int) U8 { return U8(i.Bits(idx*8, idx*8+7)) }
 
-// SetByte sets byte index (0 = least significant) to v.
-func (i *I1) SetByte(index int, v I1) { i.SetBits(index*8, index*8+7, v) }
+// SetByte sets the byte at index idx to v.
+func (i *I1) SetByte(idx int, v U8) { i.SetBits(idx*8, idx*8+7, I1(v)) }
 
-// Byteref returns a Range for byte index.
-func (i *I1) Byteref(index int) Range[I1] { return byte(i, index) }
+// Byteref returns a Range for the byte at index idx.
+func (i *I1) Byteref(idx int) Range[I1] { return byte(i, idx) }
 
 // U2 is an 2-bit unsigned integer.
 type U2 uint8
@@ -414,14 +414,14 @@ func (u *U2) SetBits(lo, hi int, v U2) {
 // Bitsref returns a Range for bits lo through hi.
 func (u *U2) Bitsref(lo, hi int) Range[U2] { return bits(u, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (u U2) Byte(index int) U2 { return u.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (u U2) Byte(index int) U8 { return U8(u.Bits(index*8, index*8+7)) }
 
 // SetByte sets byte index (0 = least significant) to v.
-func (u *U2) SetByte(index int, v U2) { u.SetBits(index*8, index*8+7, v) }
+func (u *U2) SetByte(index int, v U8) { u.SetBits(index*8, index*8+7, U2(v)) }
 
-// Byteref returns a Range for byte index.
-func (u *U2) Byteref(index int) Range[U2] { return byte(u, index) }
+// Byteref returns a Range for the byte at index idx.
+func (u *U2) Byteref(idx int) Range[U2] { return byte(u, idx) }
 
 // I2 is an 2-bit signed integer in two's complement.
 type I2 int8
@@ -554,14 +554,14 @@ func (i *I2) SetBits(lo, hi int, v I2) {
 // Bitsref returns a Range for bits lo through hi.
 func (i *I2) Bitsref(lo, hi int) Range[I2] { return bits(i, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (i I2) Byte(index int) I2 { return i.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (i I2) Byte(idx int) U8 { return U8(i.Bits(idx*8, idx*8+7)) }
 
-// SetByte sets byte index (0 = least significant) to v.
-func (i *I2) SetByte(index int, v I2) { i.SetBits(index*8, index*8+7, v) }
+// SetByte sets the byte at index idx to v.
+func (i *I2) SetByte(idx int, v U8) { i.SetBits(idx*8, idx*8+7, I2(v)) }
 
-// Byteref returns a Range for byte index.
-func (i *I2) Byteref(index int) Range[I2] { return byte(i, index) }
+// Byteref returns a Range for the byte at index idx.
+func (i *I2) Byteref(idx int) Range[I2] { return byte(i, idx) }
 
 // U3 is an 3-bit unsigned integer.
 type U3 uint8
@@ -692,14 +692,14 @@ func (u *U3) SetBits(lo, hi int, v U3) {
 // Bitsref returns a Range for bits lo through hi.
 func (u *U3) Bitsref(lo, hi int) Range[U3] { return bits(u, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (u U3) Byte(index int) U3 { return u.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (u U3) Byte(index int) U8 { return U8(u.Bits(index*8, index*8+7)) }
 
 // SetByte sets byte index (0 = least significant) to v.
-func (u *U3) SetByte(index int, v U3) { u.SetBits(index*8, index*8+7, v) }
+func (u *U3) SetByte(index int, v U8) { u.SetBits(index*8, index*8+7, U3(v)) }
 
-// Byteref returns a Range for byte index.
-func (u *U3) Byteref(index int) Range[U3] { return byte(u, index) }
+// Byteref returns a Range for the byte at index idx.
+func (u *U3) Byteref(idx int) Range[U3] { return byte(u, idx) }
 
 // I3 is an 3-bit signed integer in two's complement.
 type I3 int8
@@ -832,14 +832,14 @@ func (i *I3) SetBits(lo, hi int, v I3) {
 // Bitsref returns a Range for bits lo through hi.
 func (i *I3) Bitsref(lo, hi int) Range[I3] { return bits(i, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (i I3) Byte(index int) I3 { return i.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (i I3) Byte(idx int) U8 { return U8(i.Bits(idx*8, idx*8+7)) }
 
-// SetByte sets byte index (0 = least significant) to v.
-func (i *I3) SetByte(index int, v I3) { i.SetBits(index*8, index*8+7, v) }
+// SetByte sets the byte at index idx to v.
+func (i *I3) SetByte(idx int, v U8) { i.SetBits(idx*8, idx*8+7, I3(v)) }
 
-// Byteref returns a Range for byte index.
-func (i *I3) Byteref(index int) Range[I3] { return byte(i, index) }
+// Byteref returns a Range for the byte at index idx.
+func (i *I3) Byteref(idx int) Range[I3] { return byte(i, idx) }
 
 // U4 is an 4-bit unsigned integer.
 type U4 uint8
@@ -970,14 +970,14 @@ func (u *U4) SetBits(lo, hi int, v U4) {
 // Bitsref returns a Range for bits lo through hi.
 func (u *U4) Bitsref(lo, hi int) Range[U4] { return bits(u, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (u U4) Byte(index int) U4 { return u.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (u U4) Byte(index int) U8 { return U8(u.Bits(index*8, index*8+7)) }
 
 // SetByte sets byte index (0 = least significant) to v.
-func (u *U4) SetByte(index int, v U4) { u.SetBits(index*8, index*8+7, v) }
+func (u *U4) SetByte(index int, v U8) { u.SetBits(index*8, index*8+7, U4(v)) }
 
-// Byteref returns a Range for byte index.
-func (u *U4) Byteref(index int) Range[U4] { return byte(u, index) }
+// Byteref returns a Range for the byte at index idx.
+func (u *U4) Byteref(idx int) Range[U4] { return byte(u, idx) }
 
 // I4 is an 4-bit signed integer in two's complement.
 type I4 int8
@@ -1110,14 +1110,14 @@ func (i *I4) SetBits(lo, hi int, v I4) {
 // Bitsref returns a Range for bits lo through hi.
 func (i *I4) Bitsref(lo, hi int) Range[I4] { return bits(i, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (i I4) Byte(index int) I4 { return i.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (i I4) Byte(idx int) U8 { return U8(i.Bits(idx*8, idx*8+7)) }
 
-// SetByte sets byte index (0 = least significant) to v.
-func (i *I4) SetByte(index int, v I4) { i.SetBits(index*8, index*8+7, v) }
+// SetByte sets the byte at index idx to v.
+func (i *I4) SetByte(idx int, v U8) { i.SetBits(idx*8, idx*8+7, I4(v)) }
 
-// Byteref returns a Range for byte index.
-func (i *I4) Byteref(index int) Range[I4] { return byte(i, index) }
+// Byteref returns a Range for the byte at index idx.
+func (i *I4) Byteref(idx int) Range[I4] { return byte(i, idx) }
 
 // U5 is an 5-bit unsigned integer.
 type U5 uint8
@@ -1248,14 +1248,14 @@ func (u *U5) SetBits(lo, hi int, v U5) {
 // Bitsref returns a Range for bits lo through hi.
 func (u *U5) Bitsref(lo, hi int) Range[U5] { return bits(u, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (u U5) Byte(index int) U5 { return u.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (u U5) Byte(index int) U8 { return U8(u.Bits(index*8, index*8+7)) }
 
 // SetByte sets byte index (0 = least significant) to v.
-func (u *U5) SetByte(index int, v U5) { u.SetBits(index*8, index*8+7, v) }
+func (u *U5) SetByte(index int, v U8) { u.SetBits(index*8, index*8+7, U5(v)) }
 
-// Byteref returns a Range for byte index.
-func (u *U5) Byteref(index int) Range[U5] { return byte(u, index) }
+// Byteref returns a Range for the byte at index idx.
+func (u *U5) Byteref(idx int) Range[U5] { return byte(u, idx) }
 
 // I5 is an 5-bit signed integer in two's complement.
 type I5 int8
@@ -1388,14 +1388,14 @@ func (i *I5) SetBits(lo, hi int, v I5) {
 // Bitsref returns a Range for bits lo through hi.
 func (i *I5) Bitsref(lo, hi int) Range[I5] { return bits(i, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (i I5) Byte(index int) I5 { return i.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (i I5) Byte(idx int) U8 { return U8(i.Bits(idx*8, idx*8+7)) }
 
-// SetByte sets byte index (0 = least significant) to v.
-func (i *I5) SetByte(index int, v I5) { i.SetBits(index*8, index*8+7, v) }
+// SetByte sets the byte at index idx to v.
+func (i *I5) SetByte(idx int, v U8) { i.SetBits(idx*8, idx*8+7, I5(v)) }
 
-// Byteref returns a Range for byte index.
-func (i *I5) Byteref(index int) Range[I5] { return byte(i, index) }
+// Byteref returns a Range for the byte at index idx.
+func (i *I5) Byteref(idx int) Range[I5] { return byte(i, idx) }
 
 // U6 is an 6-bit unsigned integer.
 type U6 uint8
@@ -1526,14 +1526,14 @@ func (u *U6) SetBits(lo, hi int, v U6) {
 // Bitsref returns a Range for bits lo through hi.
 func (u *U6) Bitsref(lo, hi int) Range[U6] { return bits(u, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (u U6) Byte(index int) U6 { return u.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (u U6) Byte(index int) U8 { return U8(u.Bits(index*8, index*8+7)) }
 
 // SetByte sets byte index (0 = least significant) to v.
-func (u *U6) SetByte(index int, v U6) { u.SetBits(index*8, index*8+7, v) }
+func (u *U6) SetByte(index int, v U8) { u.SetBits(index*8, index*8+7, U6(v)) }
 
-// Byteref returns a Range for byte index.
-func (u *U6) Byteref(index int) Range[U6] { return byte(u, index) }
+// Byteref returns a Range for the byte at index idx.
+func (u *U6) Byteref(idx int) Range[U6] { return byte(u, idx) }
 
 // I6 is an 6-bit signed integer in two's complement.
 type I6 int8
@@ -1666,14 +1666,14 @@ func (i *I6) SetBits(lo, hi int, v I6) {
 // Bitsref returns a Range for bits lo through hi.
 func (i *I6) Bitsref(lo, hi int) Range[I6] { return bits(i, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (i I6) Byte(index int) I6 { return i.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (i I6) Byte(idx int) U8 { return U8(i.Bits(idx*8, idx*8+7)) }
 
-// SetByte sets byte index (0 = least significant) to v.
-func (i *I6) SetByte(index int, v I6) { i.SetBits(index*8, index*8+7, v) }
+// SetByte sets the byte at index idx to v.
+func (i *I6) SetByte(idx int, v U8) { i.SetBits(idx*8, idx*8+7, I6(v)) }
 
-// Byteref returns a Range for byte index.
-func (i *I6) Byteref(index int) Range[I6] { return byte(i, index) }
+// Byteref returns a Range for the byte at index idx.
+func (i *I6) Byteref(idx int) Range[I6] { return byte(i, idx) }
 
 // U7 is an 7-bit unsigned integer.
 type U7 uint8
@@ -1804,14 +1804,14 @@ func (u *U7) SetBits(lo, hi int, v U7) {
 // Bitsref returns a Range for bits lo through hi.
 func (u *U7) Bitsref(lo, hi int) Range[U7] { return bits(u, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (u U7) Byte(index int) U7 { return u.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (u U7) Byte(index int) U8 { return U8(u.Bits(index*8, index*8+7)) }
 
 // SetByte sets byte index (0 = least significant) to v.
-func (u *U7) SetByte(index int, v U7) { u.SetBits(index*8, index*8+7, v) }
+func (u *U7) SetByte(index int, v U8) { u.SetBits(index*8, index*8+7, U7(v)) }
 
-// Byteref returns a Range for byte index.
-func (u *U7) Byteref(index int) Range[U7] { return byte(u, index) }
+// Byteref returns a Range for the byte at index idx.
+func (u *U7) Byteref(idx int) Range[U7] { return byte(u, idx) }
 
 // I7 is an 7-bit signed integer in two's complement.
 type I7 int8
@@ -1944,14 +1944,14 @@ func (i *I7) SetBits(lo, hi int, v I7) {
 // Bitsref returns a Range for bits lo through hi.
 func (i *I7) Bitsref(lo, hi int) Range[I7] { return bits(i, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (i I7) Byte(index int) I7 { return i.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (i I7) Byte(idx int) U8 { return U8(i.Bits(idx*8, idx*8+7)) }
 
-// SetByte sets byte index (0 = least significant) to v.
-func (i *I7) SetByte(index int, v I7) { i.SetBits(index*8, index*8+7, v) }
+// SetByte sets the byte at index idx to v.
+func (i *I7) SetByte(idx int, v U8) { i.SetBits(idx*8, idx*8+7, I7(v)) }
 
-// Byteref returns a Range for byte index.
-func (i *I7) Byteref(index int) Range[I7] { return byte(i, index) }
+// Byteref returns a Range for the byte at index idx.
+func (i *I7) Byteref(idx int) Range[I7] { return byte(i, idx) }
 
 // U8 is an 8-bit unsigned integer.
 type U8 uint8
@@ -2082,14 +2082,14 @@ func (u *U8) SetBits(lo, hi int, v U8) {
 // Bitsref returns a Range for bits lo through hi.
 func (u *U8) Bitsref(lo, hi int) Range[U8] { return bits(u, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (u U8) Byte(index int) U8 { return u.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (u U8) Byte(index int) U8 { return U8(u.Bits(index*8, index*8+7)) }
 
 // SetByte sets byte index (0 = least significant) to v.
-func (u *U8) SetByte(index int, v U8) { u.SetBits(index*8, index*8+7, v) }
+func (u *U8) SetByte(index int, v U8) { u.SetBits(index*8, index*8+7, U8(v)) }
 
-// Byteref returns a Range for byte index.
-func (u *U8) Byteref(index int) Range[U8] { return byte(u, index) }
+// Byteref returns a Range for the byte at index idx.
+func (u *U8) Byteref(idx int) Range[U8] { return byte(u, idx) }
 
 // I8 is an 8-bit signed integer in two's complement.
 type I8 int8
@@ -2222,14 +2222,14 @@ func (i *I8) SetBits(lo, hi int, v I8) {
 // Bitsref returns a Range for bits lo through hi.
 func (i *I8) Bitsref(lo, hi int) Range[I8] { return bits(i, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (i I8) Byte(index int) I8 { return i.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (i I8) Byte(idx int) U8 { return U8(i.Bits(idx*8, idx*8+7)) }
 
-// SetByte sets byte index (0 = least significant) to v.
-func (i *I8) SetByte(index int, v I8) { i.SetBits(index*8, index*8+7, v) }
+// SetByte sets the byte at index idx to v.
+func (i *I8) SetByte(idx int, v U8) { i.SetBits(idx*8, idx*8+7, I8(v)) }
 
-// Byteref returns a Range for byte index.
-func (i *I8) Byteref(index int) Range[I8] { return byte(i, index) }
+// Byteref returns a Range for the byte at index idx.
+func (i *I8) Byteref(idx int) Range[I8] { return byte(i, idx) }
 
 // U9 is an 9-bit unsigned integer.
 type U9 uint16
@@ -2360,14 +2360,14 @@ func (u *U9) SetBits(lo, hi int, v U9) {
 // Bitsref returns a Range for bits lo through hi.
 func (u *U9) Bitsref(lo, hi int) Range[U9] { return bits(u, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (u U9) Byte(index int) U9 { return u.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (u U9) Byte(index int) U8 { return U8(u.Bits(index*8, index*8+7)) }
 
 // SetByte sets byte index (0 = least significant) to v.
-func (u *U9) SetByte(index int, v U9) { u.SetBits(index*8, index*8+7, v) }
+func (u *U9) SetByte(index int, v U8) { u.SetBits(index*8, index*8+7, U9(v)) }
 
-// Byteref returns a Range for byte index.
-func (u *U9) Byteref(index int) Range[U9] { return byte(u, index) }
+// Byteref returns a Range for the byte at index idx.
+func (u *U9) Byteref(idx int) Range[U9] { return byte(u, idx) }
 
 // I9 is an 9-bit signed integer in two's complement.
 type I9 int16
@@ -2500,14 +2500,14 @@ func (i *I9) SetBits(lo, hi int, v I9) {
 // Bitsref returns a Range for bits lo through hi.
 func (i *I9) Bitsref(lo, hi int) Range[I9] { return bits(i, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (i I9) Byte(index int) I9 { return i.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (i I9) Byte(idx int) U8 { return U8(i.Bits(idx*8, idx*8+7)) }
 
-// SetByte sets byte index (0 = least significant) to v.
-func (i *I9) SetByte(index int, v I9) { i.SetBits(index*8, index*8+7, v) }
+// SetByte sets the byte at index idx to v.
+func (i *I9) SetByte(idx int, v U8) { i.SetBits(idx*8, idx*8+7, I9(v)) }
 
-// Byteref returns a Range for byte index.
-func (i *I9) Byteref(index int) Range[I9] { return byte(i, index) }
+// Byteref returns a Range for the byte at index idx.
+func (i *I9) Byteref(idx int) Range[I9] { return byte(i, idx) }
 
 // U10 is an 10-bit unsigned integer.
 type U10 uint16
@@ -2638,14 +2638,14 @@ func (u *U10) SetBits(lo, hi int, v U10) {
 // Bitsref returns a Range for bits lo through hi.
 func (u *U10) Bitsref(lo, hi int) Range[U10] { return bits(u, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (u U10) Byte(index int) U10 { return u.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (u U10) Byte(index int) U8 { return U8(u.Bits(index*8, index*8+7)) }
 
 // SetByte sets byte index (0 = least significant) to v.
-func (u *U10) SetByte(index int, v U10) { u.SetBits(index*8, index*8+7, v) }
+func (u *U10) SetByte(index int, v U8) { u.SetBits(index*8, index*8+7, U10(v)) }
 
-// Byteref returns a Range for byte index.
-func (u *U10) Byteref(index int) Range[U10] { return byte(u, index) }
+// Byteref returns a Range for the byte at index idx.
+func (u *U10) Byteref(idx int) Range[U10] { return byte(u, idx) }
 
 // I10 is an 10-bit signed integer in two's complement.
 type I10 int16
@@ -2778,14 +2778,14 @@ func (i *I10) SetBits(lo, hi int, v I10) {
 // Bitsref returns a Range for bits lo through hi.
 func (i *I10) Bitsref(lo, hi int) Range[I10] { return bits(i, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (i I10) Byte(index int) I10 { return i.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (i I10) Byte(idx int) U8 { return U8(i.Bits(idx*8, idx*8+7)) }
 
-// SetByte sets byte index (0 = least significant) to v.
-func (i *I10) SetByte(index int, v I10) { i.SetBits(index*8, index*8+7, v) }
+// SetByte sets the byte at index idx to v.
+func (i *I10) SetByte(idx int, v U8) { i.SetBits(idx*8, idx*8+7, I10(v)) }
 
-// Byteref returns a Range for byte index.
-func (i *I10) Byteref(index int) Range[I10] { return byte(i, index) }
+// Byteref returns a Range for the byte at index idx.
+func (i *I10) Byteref(idx int) Range[I10] { return byte(i, idx) }
 
 // U11 is an 11-bit unsigned integer.
 type U11 uint16
@@ -2916,14 +2916,14 @@ func (u *U11) SetBits(lo, hi int, v U11) {
 // Bitsref returns a Range for bits lo through hi.
 func (u *U11) Bitsref(lo, hi int) Range[U11] { return bits(u, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (u U11) Byte(index int) U11 { return u.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (u U11) Byte(index int) U8 { return U8(u.Bits(index*8, index*8+7)) }
 
 // SetByte sets byte index (0 = least significant) to v.
-func (u *U11) SetByte(index int, v U11) { u.SetBits(index*8, index*8+7, v) }
+func (u *U11) SetByte(index int, v U8) { u.SetBits(index*8, index*8+7, U11(v)) }
 
-// Byteref returns a Range for byte index.
-func (u *U11) Byteref(index int) Range[U11] { return byte(u, index) }
+// Byteref returns a Range for the byte at index idx.
+func (u *U11) Byteref(idx int) Range[U11] { return byte(u, idx) }
 
 // I11 is an 11-bit signed integer in two's complement.
 type I11 int16
@@ -3056,14 +3056,14 @@ func (i *I11) SetBits(lo, hi int, v I11) {
 // Bitsref returns a Range for bits lo through hi.
 func (i *I11) Bitsref(lo, hi int) Range[I11] { return bits(i, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (i I11) Byte(index int) I11 { return i.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (i I11) Byte(idx int) U8 { return U8(i.Bits(idx*8, idx*8+7)) }
 
-// SetByte sets byte index (0 = least significant) to v.
-func (i *I11) SetByte(index int, v I11) { i.SetBits(index*8, index*8+7, v) }
+// SetByte sets the byte at index idx to v.
+func (i *I11) SetByte(idx int, v U8) { i.SetBits(idx*8, idx*8+7, I11(v)) }
 
-// Byteref returns a Range for byte index.
-func (i *I11) Byteref(index int) Range[I11] { return byte(i, index) }
+// Byteref returns a Range for the byte at index idx.
+func (i *I11) Byteref(idx int) Range[I11] { return byte(i, idx) }
 
 // U12 is an 12-bit unsigned integer.
 type U12 uint16
@@ -3194,14 +3194,14 @@ func (u *U12) SetBits(lo, hi int, v U12) {
 // Bitsref returns a Range for bits lo through hi.
 func (u *U12) Bitsref(lo, hi int) Range[U12] { return bits(u, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (u U12) Byte(index int) U12 { return u.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (u U12) Byte(index int) U8 { return U8(u.Bits(index*8, index*8+7)) }
 
 // SetByte sets byte index (0 = least significant) to v.
-func (u *U12) SetByte(index int, v U12) { u.SetBits(index*8, index*8+7, v) }
+func (u *U12) SetByte(index int, v U8) { u.SetBits(index*8, index*8+7, U12(v)) }
 
-// Byteref returns a Range for byte index.
-func (u *U12) Byteref(index int) Range[U12] { return byte(u, index) }
+// Byteref returns a Range for the byte at index idx.
+func (u *U12) Byteref(idx int) Range[U12] { return byte(u, idx) }
 
 // I12 is an 12-bit signed integer in two's complement.
 type I12 int16
@@ -3334,14 +3334,14 @@ func (i *I12) SetBits(lo, hi int, v I12) {
 // Bitsref returns a Range for bits lo through hi.
 func (i *I12) Bitsref(lo, hi int) Range[I12] { return bits(i, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (i I12) Byte(index int) I12 { return i.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (i I12) Byte(idx int) U8 { return U8(i.Bits(idx*8, idx*8+7)) }
 
-// SetByte sets byte index (0 = least significant) to v.
-func (i *I12) SetByte(index int, v I12) { i.SetBits(index*8, index*8+7, v) }
+// SetByte sets the byte at index idx to v.
+func (i *I12) SetByte(idx int, v U8) { i.SetBits(idx*8, idx*8+7, I12(v)) }
 
-// Byteref returns a Range for byte index.
-func (i *I12) Byteref(index int) Range[I12] { return byte(i, index) }
+// Byteref returns a Range for the byte at index idx.
+func (i *I12) Byteref(idx int) Range[I12] { return byte(i, idx) }
 
 // U13 is an 13-bit unsigned integer.
 type U13 uint16
@@ -3472,14 +3472,14 @@ func (u *U13) SetBits(lo, hi int, v U13) {
 // Bitsref returns a Range for bits lo through hi.
 func (u *U13) Bitsref(lo, hi int) Range[U13] { return bits(u, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (u U13) Byte(index int) U13 { return u.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (u U13) Byte(index int) U8 { return U8(u.Bits(index*8, index*8+7)) }
 
 // SetByte sets byte index (0 = least significant) to v.
-func (u *U13) SetByte(index int, v U13) { u.SetBits(index*8, index*8+7, v) }
+func (u *U13) SetByte(index int, v U8) { u.SetBits(index*8, index*8+7, U13(v)) }
 
-// Byteref returns a Range for byte index.
-func (u *U13) Byteref(index int) Range[U13] { return byte(u, index) }
+// Byteref returns a Range for the byte at index idx.
+func (u *U13) Byteref(idx int) Range[U13] { return byte(u, idx) }
 
 // I13 is an 13-bit signed integer in two's complement.
 type I13 int16
@@ -3612,14 +3612,14 @@ func (i *I13) SetBits(lo, hi int, v I13) {
 // Bitsref returns a Range for bits lo through hi.
 func (i *I13) Bitsref(lo, hi int) Range[I13] { return bits(i, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (i I13) Byte(index int) I13 { return i.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (i I13) Byte(idx int) U8 { return U8(i.Bits(idx*8, idx*8+7)) }
 
-// SetByte sets byte index (0 = least significant) to v.
-func (i *I13) SetByte(index int, v I13) { i.SetBits(index*8, index*8+7, v) }
+// SetByte sets the byte at index idx to v.
+func (i *I13) SetByte(idx int, v U8) { i.SetBits(idx*8, idx*8+7, I13(v)) }
 
-// Byteref returns a Range for byte index.
-func (i *I13) Byteref(index int) Range[I13] { return byte(i, index) }
+// Byteref returns a Range for the byte at index idx.
+func (i *I13) Byteref(idx int) Range[I13] { return byte(i, idx) }
 
 // U14 is an 14-bit unsigned integer.
 type U14 uint16
@@ -3750,14 +3750,14 @@ func (u *U14) SetBits(lo, hi int, v U14) {
 // Bitsref returns a Range for bits lo through hi.
 func (u *U14) Bitsref(lo, hi int) Range[U14] { return bits(u, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (u U14) Byte(index int) U14 { return u.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (u U14) Byte(index int) U8 { return U8(u.Bits(index*8, index*8+7)) }
 
 // SetByte sets byte index (0 = least significant) to v.
-func (u *U14) SetByte(index int, v U14) { u.SetBits(index*8, index*8+7, v) }
+func (u *U14) SetByte(index int, v U8) { u.SetBits(index*8, index*8+7, U14(v)) }
 
-// Byteref returns a Range for byte index.
-func (u *U14) Byteref(index int) Range[U14] { return byte(u, index) }
+// Byteref returns a Range for the byte at index idx.
+func (u *U14) Byteref(idx int) Range[U14] { return byte(u, idx) }
 
 // I14 is an 14-bit signed integer in two's complement.
 type I14 int16
@@ -3890,14 +3890,14 @@ func (i *I14) SetBits(lo, hi int, v I14) {
 // Bitsref returns a Range for bits lo through hi.
 func (i *I14) Bitsref(lo, hi int) Range[I14] { return bits(i, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (i I14) Byte(index int) I14 { return i.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (i I14) Byte(idx int) U8 { return U8(i.Bits(idx*8, idx*8+7)) }
 
-// SetByte sets byte index (0 = least significant) to v.
-func (i *I14) SetByte(index int, v I14) { i.SetBits(index*8, index*8+7, v) }
+// SetByte sets the byte at index idx to v.
+func (i *I14) SetByte(idx int, v U8) { i.SetBits(idx*8, idx*8+7, I14(v)) }
 
-// Byteref returns a Range for byte index.
-func (i *I14) Byteref(index int) Range[I14] { return byte(i, index) }
+// Byteref returns a Range for the byte at index idx.
+func (i *I14) Byteref(idx int) Range[I14] { return byte(i, idx) }
 
 // U15 is an 15-bit unsigned integer.
 type U15 uint16
@@ -4028,14 +4028,14 @@ func (u *U15) SetBits(lo, hi int, v U15) {
 // Bitsref returns a Range for bits lo through hi.
 func (u *U15) Bitsref(lo, hi int) Range[U15] { return bits(u, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (u U15) Byte(index int) U15 { return u.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (u U15) Byte(index int) U8 { return U8(u.Bits(index*8, index*8+7)) }
 
 // SetByte sets byte index (0 = least significant) to v.
-func (u *U15) SetByte(index int, v U15) { u.SetBits(index*8, index*8+7, v) }
+func (u *U15) SetByte(index int, v U8) { u.SetBits(index*8, index*8+7, U15(v)) }
 
-// Byteref returns a Range for byte index.
-func (u *U15) Byteref(index int) Range[U15] { return byte(u, index) }
+// Byteref returns a Range for the byte at index idx.
+func (u *U15) Byteref(idx int) Range[U15] { return byte(u, idx) }
 
 // I15 is an 15-bit signed integer in two's complement.
 type I15 int16
@@ -4168,14 +4168,14 @@ func (i *I15) SetBits(lo, hi int, v I15) {
 // Bitsref returns a Range for bits lo through hi.
 func (i *I15) Bitsref(lo, hi int) Range[I15] { return bits(i, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (i I15) Byte(index int) I15 { return i.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (i I15) Byte(idx int) U8 { return U8(i.Bits(idx*8, idx*8+7)) }
 
-// SetByte sets byte index (0 = least significant) to v.
-func (i *I15) SetByte(index int, v I15) { i.SetBits(index*8, index*8+7, v) }
+// SetByte sets the byte at index idx to v.
+func (i *I15) SetByte(idx int, v U8) { i.SetBits(idx*8, idx*8+7, I15(v)) }
 
-// Byteref returns a Range for byte index.
-func (i *I15) Byteref(index int) Range[I15] { return byte(i, index) }
+// Byteref returns a Range for the byte at index idx.
+func (i *I15) Byteref(idx int) Range[I15] { return byte(i, idx) }
 
 // U16 is an 16-bit unsigned integer.
 type U16 uint16
@@ -4306,14 +4306,14 @@ func (u *U16) SetBits(lo, hi int, v U16) {
 // Bitsref returns a Range for bits lo through hi.
 func (u *U16) Bitsref(lo, hi int) Range[U16] { return bits(u, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (u U16) Byte(index int) U16 { return u.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (u U16) Byte(index int) U8 { return U8(u.Bits(index*8, index*8+7)) }
 
 // SetByte sets byte index (0 = least significant) to v.
-func (u *U16) SetByte(index int, v U16) { u.SetBits(index*8, index*8+7, v) }
+func (u *U16) SetByte(index int, v U8) { u.SetBits(index*8, index*8+7, U16(v)) }
 
-// Byteref returns a Range for byte index.
-func (u *U16) Byteref(index int) Range[U16] { return byte(u, index) }
+// Byteref returns a Range for the byte at index idx.
+func (u *U16) Byteref(idx int) Range[U16] { return byte(u, idx) }
 
 // I16 is an 16-bit signed integer in two's complement.
 type I16 int16
@@ -4446,14 +4446,14 @@ func (i *I16) SetBits(lo, hi int, v I16) {
 // Bitsref returns a Range for bits lo through hi.
 func (i *I16) Bitsref(lo, hi int) Range[I16] { return bits(i, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (i I16) Byte(index int) I16 { return i.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (i I16) Byte(idx int) U8 { return U8(i.Bits(idx*8, idx*8+7)) }
 
-// SetByte sets byte index (0 = least significant) to v.
-func (i *I16) SetByte(index int, v I16) { i.SetBits(index*8, index*8+7, v) }
+// SetByte sets the byte at index idx to v.
+func (i *I16) SetByte(idx int, v U8) { i.SetBits(idx*8, idx*8+7, I16(v)) }
 
-// Byteref returns a Range for byte index.
-func (i *I16) Byteref(index int) Range[I16] { return byte(i, index) }
+// Byteref returns a Range for the byte at index idx.
+func (i *I16) Byteref(idx int) Range[I16] { return byte(i, idx) }
 
 // U17 is an 17-bit unsigned integer.
 type U17 uint32
@@ -4584,14 +4584,14 @@ func (u *U17) SetBits(lo, hi int, v U17) {
 // Bitsref returns a Range for bits lo through hi.
 func (u *U17) Bitsref(lo, hi int) Range[U17] { return bits(u, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (u U17) Byte(index int) U17 { return u.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (u U17) Byte(index int) U8 { return U8(u.Bits(index*8, index*8+7)) }
 
 // SetByte sets byte index (0 = least significant) to v.
-func (u *U17) SetByte(index int, v U17) { u.SetBits(index*8, index*8+7, v) }
+func (u *U17) SetByte(index int, v U8) { u.SetBits(index*8, index*8+7, U17(v)) }
 
-// Byteref returns a Range for byte index.
-func (u *U17) Byteref(index int) Range[U17] { return byte(u, index) }
+// Byteref returns a Range for the byte at index idx.
+func (u *U17) Byteref(idx int) Range[U17] { return byte(u, idx) }
 
 // I17 is an 17-bit signed integer in two's complement.
 type I17 int32
@@ -4724,14 +4724,14 @@ func (i *I17) SetBits(lo, hi int, v I17) {
 // Bitsref returns a Range for bits lo through hi.
 func (i *I17) Bitsref(lo, hi int) Range[I17] { return bits(i, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (i I17) Byte(index int) I17 { return i.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (i I17) Byte(idx int) U8 { return U8(i.Bits(idx*8, idx*8+7)) }
 
-// SetByte sets byte index (0 = least significant) to v.
-func (i *I17) SetByte(index int, v I17) { i.SetBits(index*8, index*8+7, v) }
+// SetByte sets the byte at index idx to v.
+func (i *I17) SetByte(idx int, v U8) { i.SetBits(idx*8, idx*8+7, I17(v)) }
 
-// Byteref returns a Range for byte index.
-func (i *I17) Byteref(index int) Range[I17] { return byte(i, index) }
+// Byteref returns a Range for the byte at index idx.
+func (i *I17) Byteref(idx int) Range[I17] { return byte(i, idx) }
 
 // U18 is an 18-bit unsigned integer.
 type U18 uint32
@@ -4862,14 +4862,14 @@ func (u *U18) SetBits(lo, hi int, v U18) {
 // Bitsref returns a Range for bits lo through hi.
 func (u *U18) Bitsref(lo, hi int) Range[U18] { return bits(u, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (u U18) Byte(index int) U18 { return u.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (u U18) Byte(index int) U8 { return U8(u.Bits(index*8, index*8+7)) }
 
 // SetByte sets byte index (0 = least significant) to v.
-func (u *U18) SetByte(index int, v U18) { u.SetBits(index*8, index*8+7, v) }
+func (u *U18) SetByte(index int, v U8) { u.SetBits(index*8, index*8+7, U18(v)) }
 
-// Byteref returns a Range for byte index.
-func (u *U18) Byteref(index int) Range[U18] { return byte(u, index) }
+// Byteref returns a Range for the byte at index idx.
+func (u *U18) Byteref(idx int) Range[U18] { return byte(u, idx) }
 
 // I18 is an 18-bit signed integer in two's complement.
 type I18 int32
@@ -5002,14 +5002,14 @@ func (i *I18) SetBits(lo, hi int, v I18) {
 // Bitsref returns a Range for bits lo through hi.
 func (i *I18) Bitsref(lo, hi int) Range[I18] { return bits(i, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (i I18) Byte(index int) I18 { return i.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (i I18) Byte(idx int) U8 { return U8(i.Bits(idx*8, idx*8+7)) }
 
-// SetByte sets byte index (0 = least significant) to v.
-func (i *I18) SetByte(index int, v I18) { i.SetBits(index*8, index*8+7, v) }
+// SetByte sets the byte at index idx to v.
+func (i *I18) SetByte(idx int, v U8) { i.SetBits(idx*8, idx*8+7, I18(v)) }
 
-// Byteref returns a Range for byte index.
-func (i *I18) Byteref(index int) Range[I18] { return byte(i, index) }
+// Byteref returns a Range for the byte at index idx.
+func (i *I18) Byteref(idx int) Range[I18] { return byte(i, idx) }
 
 // U19 is an 19-bit unsigned integer.
 type U19 uint32
@@ -5140,14 +5140,14 @@ func (u *U19) SetBits(lo, hi int, v U19) {
 // Bitsref returns a Range for bits lo through hi.
 func (u *U19) Bitsref(lo, hi int) Range[U19] { return bits(u, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (u U19) Byte(index int) U19 { return u.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (u U19) Byte(index int) U8 { return U8(u.Bits(index*8, index*8+7)) }
 
 // SetByte sets byte index (0 = least significant) to v.
-func (u *U19) SetByte(index int, v U19) { u.SetBits(index*8, index*8+7, v) }
+func (u *U19) SetByte(index int, v U8) { u.SetBits(index*8, index*8+7, U19(v)) }
 
-// Byteref returns a Range for byte index.
-func (u *U19) Byteref(index int) Range[U19] { return byte(u, index) }
+// Byteref returns a Range for the byte at index idx.
+func (u *U19) Byteref(idx int) Range[U19] { return byte(u, idx) }
 
 // I19 is an 19-bit signed integer in two's complement.
 type I19 int32
@@ -5280,14 +5280,14 @@ func (i *I19) SetBits(lo, hi int, v I19) {
 // Bitsref returns a Range for bits lo through hi.
 func (i *I19) Bitsref(lo, hi int) Range[I19] { return bits(i, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (i I19) Byte(index int) I19 { return i.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (i I19) Byte(idx int) U8 { return U8(i.Bits(idx*8, idx*8+7)) }
 
-// SetByte sets byte index (0 = least significant) to v.
-func (i *I19) SetByte(index int, v I19) { i.SetBits(index*8, index*8+7, v) }
+// SetByte sets the byte at index idx to v.
+func (i *I19) SetByte(idx int, v U8) { i.SetBits(idx*8, idx*8+7, I19(v)) }
 
-// Byteref returns a Range for byte index.
-func (i *I19) Byteref(index int) Range[I19] { return byte(i, index) }
+// Byteref returns a Range for the byte at index idx.
+func (i *I19) Byteref(idx int) Range[I19] { return byte(i, idx) }
 
 // U20 is an 20-bit unsigned integer.
 type U20 uint32
@@ -5418,14 +5418,14 @@ func (u *U20) SetBits(lo, hi int, v U20) {
 // Bitsref returns a Range for bits lo through hi.
 func (u *U20) Bitsref(lo, hi int) Range[U20] { return bits(u, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (u U20) Byte(index int) U20 { return u.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (u U20) Byte(index int) U8 { return U8(u.Bits(index*8, index*8+7)) }
 
 // SetByte sets byte index (0 = least significant) to v.
-func (u *U20) SetByte(index int, v U20) { u.SetBits(index*8, index*8+7, v) }
+func (u *U20) SetByte(index int, v U8) { u.SetBits(index*8, index*8+7, U20(v)) }
 
-// Byteref returns a Range for byte index.
-func (u *U20) Byteref(index int) Range[U20] { return byte(u, index) }
+// Byteref returns a Range for the byte at index idx.
+func (u *U20) Byteref(idx int) Range[U20] { return byte(u, idx) }
 
 // I20 is an 20-bit signed integer in two's complement.
 type I20 int32
@@ -5558,14 +5558,14 @@ func (i *I20) SetBits(lo, hi int, v I20) {
 // Bitsref returns a Range for bits lo through hi.
 func (i *I20) Bitsref(lo, hi int) Range[I20] { return bits(i, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (i I20) Byte(index int) I20 { return i.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (i I20) Byte(idx int) U8 { return U8(i.Bits(idx*8, idx*8+7)) }
 
-// SetByte sets byte index (0 = least significant) to v.
-func (i *I20) SetByte(index int, v I20) { i.SetBits(index*8, index*8+7, v) }
+// SetByte sets the byte at index idx to v.
+func (i *I20) SetByte(idx int, v U8) { i.SetBits(idx*8, idx*8+7, I20(v)) }
 
-// Byteref returns a Range for byte index.
-func (i *I20) Byteref(index int) Range[I20] { return byte(i, index) }
+// Byteref returns a Range for the byte at index idx.
+func (i *I20) Byteref(idx int) Range[I20] { return byte(i, idx) }
 
 // U21 is an 21-bit unsigned integer.
 type U21 uint32
@@ -5696,14 +5696,14 @@ func (u *U21) SetBits(lo, hi int, v U21) {
 // Bitsref returns a Range for bits lo through hi.
 func (u *U21) Bitsref(lo, hi int) Range[U21] { return bits(u, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (u U21) Byte(index int) U21 { return u.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (u U21) Byte(index int) U8 { return U8(u.Bits(index*8, index*8+7)) }
 
 // SetByte sets byte index (0 = least significant) to v.
-func (u *U21) SetByte(index int, v U21) { u.SetBits(index*8, index*8+7, v) }
+func (u *U21) SetByte(index int, v U8) { u.SetBits(index*8, index*8+7, U21(v)) }
 
-// Byteref returns a Range for byte index.
-func (u *U21) Byteref(index int) Range[U21] { return byte(u, index) }
+// Byteref returns a Range for the byte at index idx.
+func (u *U21) Byteref(idx int) Range[U21] { return byte(u, idx) }
 
 // I21 is an 21-bit signed integer in two's complement.
 type I21 int32
@@ -5836,14 +5836,14 @@ func (i *I21) SetBits(lo, hi int, v I21) {
 // Bitsref returns a Range for bits lo through hi.
 func (i *I21) Bitsref(lo, hi int) Range[I21] { return bits(i, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (i I21) Byte(index int) I21 { return i.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (i I21) Byte(idx int) U8 { return U8(i.Bits(idx*8, idx*8+7)) }
 
-// SetByte sets byte index (0 = least significant) to v.
-func (i *I21) SetByte(index int, v I21) { i.SetBits(index*8, index*8+7, v) }
+// SetByte sets the byte at index idx to v.
+func (i *I21) SetByte(idx int, v U8) { i.SetBits(idx*8, idx*8+7, I21(v)) }
 
-// Byteref returns a Range for byte index.
-func (i *I21) Byteref(index int) Range[I21] { return byte(i, index) }
+// Byteref returns a Range for the byte at index idx.
+func (i *I21) Byteref(idx int) Range[I21] { return byte(i, idx) }
 
 // U22 is an 22-bit unsigned integer.
 type U22 uint32
@@ -5974,14 +5974,14 @@ func (u *U22) SetBits(lo, hi int, v U22) {
 // Bitsref returns a Range for bits lo through hi.
 func (u *U22) Bitsref(lo, hi int) Range[U22] { return bits(u, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (u U22) Byte(index int) U22 { return u.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (u U22) Byte(index int) U8 { return U8(u.Bits(index*8, index*8+7)) }
 
 // SetByte sets byte index (0 = least significant) to v.
-func (u *U22) SetByte(index int, v U22) { u.SetBits(index*8, index*8+7, v) }
+func (u *U22) SetByte(index int, v U8) { u.SetBits(index*8, index*8+7, U22(v)) }
 
-// Byteref returns a Range for byte index.
-func (u *U22) Byteref(index int) Range[U22] { return byte(u, index) }
+// Byteref returns a Range for the byte at index idx.
+func (u *U22) Byteref(idx int) Range[U22] { return byte(u, idx) }
 
 // I22 is an 22-bit signed integer in two's complement.
 type I22 int32
@@ -6114,14 +6114,14 @@ func (i *I22) SetBits(lo, hi int, v I22) {
 // Bitsref returns a Range for bits lo through hi.
 func (i *I22) Bitsref(lo, hi int) Range[I22] { return bits(i, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (i I22) Byte(index int) I22 { return i.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (i I22) Byte(idx int) U8 { return U8(i.Bits(idx*8, idx*8+7)) }
 
-// SetByte sets byte index (0 = least significant) to v.
-func (i *I22) SetByte(index int, v I22) { i.SetBits(index*8, index*8+7, v) }
+// SetByte sets the byte at index idx to v.
+func (i *I22) SetByte(idx int, v U8) { i.SetBits(idx*8, idx*8+7, I22(v)) }
 
-// Byteref returns a Range for byte index.
-func (i *I22) Byteref(index int) Range[I22] { return byte(i, index) }
+// Byteref returns a Range for the byte at index idx.
+func (i *I22) Byteref(idx int) Range[I22] { return byte(i, idx) }
 
 // U23 is an 23-bit unsigned integer.
 type U23 uint32
@@ -6252,14 +6252,14 @@ func (u *U23) SetBits(lo, hi int, v U23) {
 // Bitsref returns a Range for bits lo through hi.
 func (u *U23) Bitsref(lo, hi int) Range[U23] { return bits(u, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (u U23) Byte(index int) U23 { return u.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (u U23) Byte(index int) U8 { return U8(u.Bits(index*8, index*8+7)) }
 
 // SetByte sets byte index (0 = least significant) to v.
-func (u *U23) SetByte(index int, v U23) { u.SetBits(index*8, index*8+7, v) }
+func (u *U23) SetByte(index int, v U8) { u.SetBits(index*8, index*8+7, U23(v)) }
 
-// Byteref returns a Range for byte index.
-func (u *U23) Byteref(index int) Range[U23] { return byte(u, index) }
+// Byteref returns a Range for the byte at index idx.
+func (u *U23) Byteref(idx int) Range[U23] { return byte(u, idx) }
 
 // I23 is an 23-bit signed integer in two's complement.
 type I23 int32
@@ -6392,14 +6392,14 @@ func (i *I23) SetBits(lo, hi int, v I23) {
 // Bitsref returns a Range for bits lo through hi.
 func (i *I23) Bitsref(lo, hi int) Range[I23] { return bits(i, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (i I23) Byte(index int) I23 { return i.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (i I23) Byte(idx int) U8 { return U8(i.Bits(idx*8, idx*8+7)) }
 
-// SetByte sets byte index (0 = least significant) to v.
-func (i *I23) SetByte(index int, v I23) { i.SetBits(index*8, index*8+7, v) }
+// SetByte sets the byte at index idx to v.
+func (i *I23) SetByte(idx int, v U8) { i.SetBits(idx*8, idx*8+7, I23(v)) }
 
-// Byteref returns a Range for byte index.
-func (i *I23) Byteref(index int) Range[I23] { return byte(i, index) }
+// Byteref returns a Range for the byte at index idx.
+func (i *I23) Byteref(idx int) Range[I23] { return byte(i, idx) }
 
 // U24 is an 24-bit unsigned integer.
 type U24 uint32
@@ -6530,14 +6530,14 @@ func (u *U24) SetBits(lo, hi int, v U24) {
 // Bitsref returns a Range for bits lo through hi.
 func (u *U24) Bitsref(lo, hi int) Range[U24] { return bits(u, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (u U24) Byte(index int) U24 { return u.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (u U24) Byte(index int) U8 { return U8(u.Bits(index*8, index*8+7)) }
 
 // SetByte sets byte index (0 = least significant) to v.
-func (u *U24) SetByte(index int, v U24) { u.SetBits(index*8, index*8+7, v) }
+func (u *U24) SetByte(index int, v U8) { u.SetBits(index*8, index*8+7, U24(v)) }
 
-// Byteref returns a Range for byte index.
-func (u *U24) Byteref(index int) Range[U24] { return byte(u, index) }
+// Byteref returns a Range for the byte at index idx.
+func (u *U24) Byteref(idx int) Range[U24] { return byte(u, idx) }
 
 // I24 is an 24-bit signed integer in two's complement.
 type I24 int32
@@ -6670,14 +6670,14 @@ func (i *I24) SetBits(lo, hi int, v I24) {
 // Bitsref returns a Range for bits lo through hi.
 func (i *I24) Bitsref(lo, hi int) Range[I24] { return bits(i, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (i I24) Byte(index int) I24 { return i.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (i I24) Byte(idx int) U8 { return U8(i.Bits(idx*8, idx*8+7)) }
 
-// SetByte sets byte index (0 = least significant) to v.
-func (i *I24) SetByte(index int, v I24) { i.SetBits(index*8, index*8+7, v) }
+// SetByte sets the byte at index idx to v.
+func (i *I24) SetByte(idx int, v U8) { i.SetBits(idx*8, idx*8+7, I24(v)) }
 
-// Byteref returns a Range for byte index.
-func (i *I24) Byteref(index int) Range[I24] { return byte(i, index) }
+// Byteref returns a Range for the byte at index idx.
+func (i *I24) Byteref(idx int) Range[I24] { return byte(i, idx) }
 
 // U25 is an 25-bit unsigned integer.
 type U25 uint32
@@ -6808,14 +6808,14 @@ func (u *U25) SetBits(lo, hi int, v U25) {
 // Bitsref returns a Range for bits lo through hi.
 func (u *U25) Bitsref(lo, hi int) Range[U25] { return bits(u, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (u U25) Byte(index int) U25 { return u.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (u U25) Byte(index int) U8 { return U8(u.Bits(index*8, index*8+7)) }
 
 // SetByte sets byte index (0 = least significant) to v.
-func (u *U25) SetByte(index int, v U25) { u.SetBits(index*8, index*8+7, v) }
+func (u *U25) SetByte(index int, v U8) { u.SetBits(index*8, index*8+7, U25(v)) }
 
-// Byteref returns a Range for byte index.
-func (u *U25) Byteref(index int) Range[U25] { return byte(u, index) }
+// Byteref returns a Range for the byte at index idx.
+func (u *U25) Byteref(idx int) Range[U25] { return byte(u, idx) }
 
 // I25 is an 25-bit signed integer in two's complement.
 type I25 int32
@@ -6948,14 +6948,14 @@ func (i *I25) SetBits(lo, hi int, v I25) {
 // Bitsref returns a Range for bits lo through hi.
 func (i *I25) Bitsref(lo, hi int) Range[I25] { return bits(i, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (i I25) Byte(index int) I25 { return i.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (i I25) Byte(idx int) U8 { return U8(i.Bits(idx*8, idx*8+7)) }
 
-// SetByte sets byte index (0 = least significant) to v.
-func (i *I25) SetByte(index int, v I25) { i.SetBits(index*8, index*8+7, v) }
+// SetByte sets the byte at index idx to v.
+func (i *I25) SetByte(idx int, v U8) { i.SetBits(idx*8, idx*8+7, I25(v)) }
 
-// Byteref returns a Range for byte index.
-func (i *I25) Byteref(index int) Range[I25] { return byte(i, index) }
+// Byteref returns a Range for the byte at index idx.
+func (i *I25) Byteref(idx int) Range[I25] { return byte(i, idx) }
 
 // U26 is an 26-bit unsigned integer.
 type U26 uint32
@@ -7086,14 +7086,14 @@ func (u *U26) SetBits(lo, hi int, v U26) {
 // Bitsref returns a Range for bits lo through hi.
 func (u *U26) Bitsref(lo, hi int) Range[U26] { return bits(u, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (u U26) Byte(index int) U26 { return u.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (u U26) Byte(index int) U8 { return U8(u.Bits(index*8, index*8+7)) }
 
 // SetByte sets byte index (0 = least significant) to v.
-func (u *U26) SetByte(index int, v U26) { u.SetBits(index*8, index*8+7, v) }
+func (u *U26) SetByte(index int, v U8) { u.SetBits(index*8, index*8+7, U26(v)) }
 
-// Byteref returns a Range for byte index.
-func (u *U26) Byteref(index int) Range[U26] { return byte(u, index) }
+// Byteref returns a Range for the byte at index idx.
+func (u *U26) Byteref(idx int) Range[U26] { return byte(u, idx) }
 
 // I26 is an 26-bit signed integer in two's complement.
 type I26 int32
@@ -7226,14 +7226,14 @@ func (i *I26) SetBits(lo, hi int, v I26) {
 // Bitsref returns a Range for bits lo through hi.
 func (i *I26) Bitsref(lo, hi int) Range[I26] { return bits(i, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (i I26) Byte(index int) I26 { return i.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (i I26) Byte(idx int) U8 { return U8(i.Bits(idx*8, idx*8+7)) }
 
-// SetByte sets byte index (0 = least significant) to v.
-func (i *I26) SetByte(index int, v I26) { i.SetBits(index*8, index*8+7, v) }
+// SetByte sets the byte at index idx to v.
+func (i *I26) SetByte(idx int, v U8) { i.SetBits(idx*8, idx*8+7, I26(v)) }
 
-// Byteref returns a Range for byte index.
-func (i *I26) Byteref(index int) Range[I26] { return byte(i, index) }
+// Byteref returns a Range for the byte at index idx.
+func (i *I26) Byteref(idx int) Range[I26] { return byte(i, idx) }
 
 // U27 is an 27-bit unsigned integer.
 type U27 uint32
@@ -7364,14 +7364,14 @@ func (u *U27) SetBits(lo, hi int, v U27) {
 // Bitsref returns a Range for bits lo through hi.
 func (u *U27) Bitsref(lo, hi int) Range[U27] { return bits(u, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (u U27) Byte(index int) U27 { return u.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (u U27) Byte(index int) U8 { return U8(u.Bits(index*8, index*8+7)) }
 
 // SetByte sets byte index (0 = least significant) to v.
-func (u *U27) SetByte(index int, v U27) { u.SetBits(index*8, index*8+7, v) }
+func (u *U27) SetByte(index int, v U8) { u.SetBits(index*8, index*8+7, U27(v)) }
 
-// Byteref returns a Range for byte index.
-func (u *U27) Byteref(index int) Range[U27] { return byte(u, index) }
+// Byteref returns a Range for the byte at index idx.
+func (u *U27) Byteref(idx int) Range[U27] { return byte(u, idx) }
 
 // I27 is an 27-bit signed integer in two's complement.
 type I27 int32
@@ -7504,14 +7504,14 @@ func (i *I27) SetBits(lo, hi int, v I27) {
 // Bitsref returns a Range for bits lo through hi.
 func (i *I27) Bitsref(lo, hi int) Range[I27] { return bits(i, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (i I27) Byte(index int) I27 { return i.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (i I27) Byte(idx int) U8 { return U8(i.Bits(idx*8, idx*8+7)) }
 
-// SetByte sets byte index (0 = least significant) to v.
-func (i *I27) SetByte(index int, v I27) { i.SetBits(index*8, index*8+7, v) }
+// SetByte sets the byte at index idx to v.
+func (i *I27) SetByte(idx int, v U8) { i.SetBits(idx*8, idx*8+7, I27(v)) }
 
-// Byteref returns a Range for byte index.
-func (i *I27) Byteref(index int) Range[I27] { return byte(i, index) }
+// Byteref returns a Range for the byte at index idx.
+func (i *I27) Byteref(idx int) Range[I27] { return byte(i, idx) }
 
 // U28 is an 28-bit unsigned integer.
 type U28 uint32
@@ -7642,14 +7642,14 @@ func (u *U28) SetBits(lo, hi int, v U28) {
 // Bitsref returns a Range for bits lo through hi.
 func (u *U28) Bitsref(lo, hi int) Range[U28] { return bits(u, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (u U28) Byte(index int) U28 { return u.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (u U28) Byte(index int) U8 { return U8(u.Bits(index*8, index*8+7)) }
 
 // SetByte sets byte index (0 = least significant) to v.
-func (u *U28) SetByte(index int, v U28) { u.SetBits(index*8, index*8+7, v) }
+func (u *U28) SetByte(index int, v U8) { u.SetBits(index*8, index*8+7, U28(v)) }
 
-// Byteref returns a Range for byte index.
-func (u *U28) Byteref(index int) Range[U28] { return byte(u, index) }
+// Byteref returns a Range for the byte at index idx.
+func (u *U28) Byteref(idx int) Range[U28] { return byte(u, idx) }
 
 // I28 is an 28-bit signed integer in two's complement.
 type I28 int32
@@ -7782,14 +7782,14 @@ func (i *I28) SetBits(lo, hi int, v I28) {
 // Bitsref returns a Range for bits lo through hi.
 func (i *I28) Bitsref(lo, hi int) Range[I28] { return bits(i, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (i I28) Byte(index int) I28 { return i.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (i I28) Byte(idx int) U8 { return U8(i.Bits(idx*8, idx*8+7)) }
 
-// SetByte sets byte index (0 = least significant) to v.
-func (i *I28) SetByte(index int, v I28) { i.SetBits(index*8, index*8+7, v) }
+// SetByte sets the byte at index idx to v.
+func (i *I28) SetByte(idx int, v U8) { i.SetBits(idx*8, idx*8+7, I28(v)) }
 
-// Byteref returns a Range for byte index.
-func (i *I28) Byteref(index int) Range[I28] { return byte(i, index) }
+// Byteref returns a Range for the byte at index idx.
+func (i *I28) Byteref(idx int) Range[I28] { return byte(i, idx) }
 
 // U29 is an 29-bit unsigned integer.
 type U29 uint32
@@ -7920,14 +7920,14 @@ func (u *U29) SetBits(lo, hi int, v U29) {
 // Bitsref returns a Range for bits lo through hi.
 func (u *U29) Bitsref(lo, hi int) Range[U29] { return bits(u, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (u U29) Byte(index int) U29 { return u.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (u U29) Byte(index int) U8 { return U8(u.Bits(index*8, index*8+7)) }
 
 // SetByte sets byte index (0 = least significant) to v.
-func (u *U29) SetByte(index int, v U29) { u.SetBits(index*8, index*8+7, v) }
+func (u *U29) SetByte(index int, v U8) { u.SetBits(index*8, index*8+7, U29(v)) }
 
-// Byteref returns a Range for byte index.
-func (u *U29) Byteref(index int) Range[U29] { return byte(u, index) }
+// Byteref returns a Range for the byte at index idx.
+func (u *U29) Byteref(idx int) Range[U29] { return byte(u, idx) }
 
 // I29 is an 29-bit signed integer in two's complement.
 type I29 int32
@@ -8060,14 +8060,14 @@ func (i *I29) SetBits(lo, hi int, v I29) {
 // Bitsref returns a Range for bits lo through hi.
 func (i *I29) Bitsref(lo, hi int) Range[I29] { return bits(i, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (i I29) Byte(index int) I29 { return i.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (i I29) Byte(idx int) U8 { return U8(i.Bits(idx*8, idx*8+7)) }
 
-// SetByte sets byte index (0 = least significant) to v.
-func (i *I29) SetByte(index int, v I29) { i.SetBits(index*8, index*8+7, v) }
+// SetByte sets the byte at index idx to v.
+func (i *I29) SetByte(idx int, v U8) { i.SetBits(idx*8, idx*8+7, I29(v)) }
 
-// Byteref returns a Range for byte index.
-func (i *I29) Byteref(index int) Range[I29] { return byte(i, index) }
+// Byteref returns a Range for the byte at index idx.
+func (i *I29) Byteref(idx int) Range[I29] { return byte(i, idx) }
 
 // U30 is an 30-bit unsigned integer.
 type U30 uint32
@@ -8198,14 +8198,14 @@ func (u *U30) SetBits(lo, hi int, v U30) {
 // Bitsref returns a Range for bits lo through hi.
 func (u *U30) Bitsref(lo, hi int) Range[U30] { return bits(u, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (u U30) Byte(index int) U30 { return u.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (u U30) Byte(index int) U8 { return U8(u.Bits(index*8, index*8+7)) }
 
 // SetByte sets byte index (0 = least significant) to v.
-func (u *U30) SetByte(index int, v U30) { u.SetBits(index*8, index*8+7, v) }
+func (u *U30) SetByte(index int, v U8) { u.SetBits(index*8, index*8+7, U30(v)) }
 
-// Byteref returns a Range for byte index.
-func (u *U30) Byteref(index int) Range[U30] { return byte(u, index) }
+// Byteref returns a Range for the byte at index idx.
+func (u *U30) Byteref(idx int) Range[U30] { return byte(u, idx) }
 
 // I30 is an 30-bit signed integer in two's complement.
 type I30 int32
@@ -8338,14 +8338,14 @@ func (i *I30) SetBits(lo, hi int, v I30) {
 // Bitsref returns a Range for bits lo through hi.
 func (i *I30) Bitsref(lo, hi int) Range[I30] { return bits(i, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (i I30) Byte(index int) I30 { return i.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (i I30) Byte(idx int) U8 { return U8(i.Bits(idx*8, idx*8+7)) }
 
-// SetByte sets byte index (0 = least significant) to v.
-func (i *I30) SetByte(index int, v I30) { i.SetBits(index*8, index*8+7, v) }
+// SetByte sets the byte at index idx to v.
+func (i *I30) SetByte(idx int, v U8) { i.SetBits(idx*8, idx*8+7, I30(v)) }
 
-// Byteref returns a Range for byte index.
-func (i *I30) Byteref(index int) Range[I30] { return byte(i, index) }
+// Byteref returns a Range for the byte at index idx.
+func (i *I30) Byteref(idx int) Range[I30] { return byte(i, idx) }
 
 // U31 is an 31-bit unsigned integer.
 type U31 uint32
@@ -8476,14 +8476,14 @@ func (u *U31) SetBits(lo, hi int, v U31) {
 // Bitsref returns a Range for bits lo through hi.
 func (u *U31) Bitsref(lo, hi int) Range[U31] { return bits(u, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (u U31) Byte(index int) U31 { return u.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (u U31) Byte(index int) U8 { return U8(u.Bits(index*8, index*8+7)) }
 
 // SetByte sets byte index (0 = least significant) to v.
-func (u *U31) SetByte(index int, v U31) { u.SetBits(index*8, index*8+7, v) }
+func (u *U31) SetByte(index int, v U8) { u.SetBits(index*8, index*8+7, U31(v)) }
 
-// Byteref returns a Range for byte index.
-func (u *U31) Byteref(index int) Range[U31] { return byte(u, index) }
+// Byteref returns a Range for the byte at index idx.
+func (u *U31) Byteref(idx int) Range[U31] { return byte(u, idx) }
 
 // I31 is an 31-bit signed integer in two's complement.
 type I31 int32
@@ -8616,14 +8616,14 @@ func (i *I31) SetBits(lo, hi int, v I31) {
 // Bitsref returns a Range for bits lo through hi.
 func (i *I31) Bitsref(lo, hi int) Range[I31] { return bits(i, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (i I31) Byte(index int) I31 { return i.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (i I31) Byte(idx int) U8 { return U8(i.Bits(idx*8, idx*8+7)) }
 
-// SetByte sets byte index (0 = least significant) to v.
-func (i *I31) SetByte(index int, v I31) { i.SetBits(index*8, index*8+7, v) }
+// SetByte sets the byte at index idx to v.
+func (i *I31) SetByte(idx int, v U8) { i.SetBits(idx*8, idx*8+7, I31(v)) }
 
-// Byteref returns a Range for byte index.
-func (i *I31) Byteref(index int) Range[I31] { return byte(i, index) }
+// Byteref returns a Range for the byte at index idx.
+func (i *I31) Byteref(idx int) Range[I31] { return byte(i, idx) }
 
 // U32 is an 32-bit unsigned integer.
 type U32 uint32
@@ -8754,14 +8754,14 @@ func (u *U32) SetBits(lo, hi int, v U32) {
 // Bitsref returns a Range for bits lo through hi.
 func (u *U32) Bitsref(lo, hi int) Range[U32] { return bits(u, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (u U32) Byte(index int) U32 { return u.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (u U32) Byte(index int) U8 { return U8(u.Bits(index*8, index*8+7)) }
 
 // SetByte sets byte index (0 = least significant) to v.
-func (u *U32) SetByte(index int, v U32) { u.SetBits(index*8, index*8+7, v) }
+func (u *U32) SetByte(index int, v U8) { u.SetBits(index*8, index*8+7, U32(v)) }
 
-// Byteref returns a Range for byte index.
-func (u *U32) Byteref(index int) Range[U32] { return byte(u, index) }
+// Byteref returns a Range for the byte at index idx.
+func (u *U32) Byteref(idx int) Range[U32] { return byte(u, idx) }
 
 // I32 is an 32-bit signed integer in two's complement.
 type I32 int32
@@ -8894,14 +8894,14 @@ func (i *I32) SetBits(lo, hi int, v I32) {
 // Bitsref returns a Range for bits lo through hi.
 func (i *I32) Bitsref(lo, hi int) Range[I32] { return bits(i, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (i I32) Byte(index int) I32 { return i.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (i I32) Byte(idx int) U8 { return U8(i.Bits(idx*8, idx*8+7)) }
 
-// SetByte sets byte index (0 = least significant) to v.
-func (i *I32) SetByte(index int, v I32) { i.SetBits(index*8, index*8+7, v) }
+// SetByte sets the byte at index idx to v.
+func (i *I32) SetByte(idx int, v U8) { i.SetBits(idx*8, idx*8+7, I32(v)) }
 
-// Byteref returns a Range for byte index.
-func (i *I32) Byteref(index int) Range[I32] { return byte(i, index) }
+// Byteref returns a Range for the byte at index idx.
+func (i *I32) Byteref(idx int) Range[I32] { return byte(i, idx) }
 
 // U33 is an 33-bit unsigned integer.
 type U33 uint64
@@ -9032,14 +9032,14 @@ func (u *U33) SetBits(lo, hi int, v U33) {
 // Bitsref returns a Range for bits lo through hi.
 func (u *U33) Bitsref(lo, hi int) Range[U33] { return bits(u, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (u U33) Byte(index int) U33 { return u.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (u U33) Byte(index int) U8 { return U8(u.Bits(index*8, index*8+7)) }
 
 // SetByte sets byte index (0 = least significant) to v.
-func (u *U33) SetByte(index int, v U33) { u.SetBits(index*8, index*8+7, v) }
+func (u *U33) SetByte(index int, v U8) { u.SetBits(index*8, index*8+7, U33(v)) }
 
-// Byteref returns a Range for byte index.
-func (u *U33) Byteref(index int) Range[U33] { return byte(u, index) }
+// Byteref returns a Range for the byte at index idx.
+func (u *U33) Byteref(idx int) Range[U33] { return byte(u, idx) }
 
 // I33 is an 33-bit signed integer in two's complement.
 type I33 int64
@@ -9172,14 +9172,14 @@ func (i *I33) SetBits(lo, hi int, v I33) {
 // Bitsref returns a Range for bits lo through hi.
 func (i *I33) Bitsref(lo, hi int) Range[I33] { return bits(i, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (i I33) Byte(index int) I33 { return i.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (i I33) Byte(idx int) U8 { return U8(i.Bits(idx*8, idx*8+7)) }
 
-// SetByte sets byte index (0 = least significant) to v.
-func (i *I33) SetByte(index int, v I33) { i.SetBits(index*8, index*8+7, v) }
+// SetByte sets the byte at index idx to v.
+func (i *I33) SetByte(idx int, v U8) { i.SetBits(idx*8, idx*8+7, I33(v)) }
 
-// Byteref returns a Range for byte index.
-func (i *I33) Byteref(index int) Range[I33] { return byte(i, index) }
+// Byteref returns a Range for the byte at index idx.
+func (i *I33) Byteref(idx int) Range[I33] { return byte(i, idx) }
 
 // U34 is an 34-bit unsigned integer.
 type U34 uint64
@@ -9310,14 +9310,14 @@ func (u *U34) SetBits(lo, hi int, v U34) {
 // Bitsref returns a Range for bits lo through hi.
 func (u *U34) Bitsref(lo, hi int) Range[U34] { return bits(u, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (u U34) Byte(index int) U34 { return u.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (u U34) Byte(index int) U8 { return U8(u.Bits(index*8, index*8+7)) }
 
 // SetByte sets byte index (0 = least significant) to v.
-func (u *U34) SetByte(index int, v U34) { u.SetBits(index*8, index*8+7, v) }
+func (u *U34) SetByte(index int, v U8) { u.SetBits(index*8, index*8+7, U34(v)) }
 
-// Byteref returns a Range for byte index.
-func (u *U34) Byteref(index int) Range[U34] { return byte(u, index) }
+// Byteref returns a Range for the byte at index idx.
+func (u *U34) Byteref(idx int) Range[U34] { return byte(u, idx) }
 
 // I34 is an 34-bit signed integer in two's complement.
 type I34 int64
@@ -9450,14 +9450,14 @@ func (i *I34) SetBits(lo, hi int, v I34) {
 // Bitsref returns a Range for bits lo through hi.
 func (i *I34) Bitsref(lo, hi int) Range[I34] { return bits(i, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (i I34) Byte(index int) I34 { return i.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (i I34) Byte(idx int) U8 { return U8(i.Bits(idx*8, idx*8+7)) }
 
-// SetByte sets byte index (0 = least significant) to v.
-func (i *I34) SetByte(index int, v I34) { i.SetBits(index*8, index*8+7, v) }
+// SetByte sets the byte at index idx to v.
+func (i *I34) SetByte(idx int, v U8) { i.SetBits(idx*8, idx*8+7, I34(v)) }
 
-// Byteref returns a Range for byte index.
-func (i *I34) Byteref(index int) Range[I34] { return byte(i, index) }
+// Byteref returns a Range for the byte at index idx.
+func (i *I34) Byteref(idx int) Range[I34] { return byte(i, idx) }
 
 // U35 is an 35-bit unsigned integer.
 type U35 uint64
@@ -9588,14 +9588,14 @@ func (u *U35) SetBits(lo, hi int, v U35) {
 // Bitsref returns a Range for bits lo through hi.
 func (u *U35) Bitsref(lo, hi int) Range[U35] { return bits(u, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (u U35) Byte(index int) U35 { return u.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (u U35) Byte(index int) U8 { return U8(u.Bits(index*8, index*8+7)) }
 
 // SetByte sets byte index (0 = least significant) to v.
-func (u *U35) SetByte(index int, v U35) { u.SetBits(index*8, index*8+7, v) }
+func (u *U35) SetByte(index int, v U8) { u.SetBits(index*8, index*8+7, U35(v)) }
 
-// Byteref returns a Range for byte index.
-func (u *U35) Byteref(index int) Range[U35] { return byte(u, index) }
+// Byteref returns a Range for the byte at index idx.
+func (u *U35) Byteref(idx int) Range[U35] { return byte(u, idx) }
 
 // I35 is an 35-bit signed integer in two's complement.
 type I35 int64
@@ -9728,14 +9728,14 @@ func (i *I35) SetBits(lo, hi int, v I35) {
 // Bitsref returns a Range for bits lo through hi.
 func (i *I35) Bitsref(lo, hi int) Range[I35] { return bits(i, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (i I35) Byte(index int) I35 { return i.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (i I35) Byte(idx int) U8 { return U8(i.Bits(idx*8, idx*8+7)) }
 
-// SetByte sets byte index (0 = least significant) to v.
-func (i *I35) SetByte(index int, v I35) { i.SetBits(index*8, index*8+7, v) }
+// SetByte sets the byte at index idx to v.
+func (i *I35) SetByte(idx int, v U8) { i.SetBits(idx*8, idx*8+7, I35(v)) }
 
-// Byteref returns a Range for byte index.
-func (i *I35) Byteref(index int) Range[I35] { return byte(i, index) }
+// Byteref returns a Range for the byte at index idx.
+func (i *I35) Byteref(idx int) Range[I35] { return byte(i, idx) }
 
 // U36 is an 36-bit unsigned integer.
 type U36 uint64
@@ -9866,14 +9866,14 @@ func (u *U36) SetBits(lo, hi int, v U36) {
 // Bitsref returns a Range for bits lo through hi.
 func (u *U36) Bitsref(lo, hi int) Range[U36] { return bits(u, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (u U36) Byte(index int) U36 { return u.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (u U36) Byte(index int) U8 { return U8(u.Bits(index*8, index*8+7)) }
 
 // SetByte sets byte index (0 = least significant) to v.
-func (u *U36) SetByte(index int, v U36) { u.SetBits(index*8, index*8+7, v) }
+func (u *U36) SetByte(index int, v U8) { u.SetBits(index*8, index*8+7, U36(v)) }
 
-// Byteref returns a Range for byte index.
-func (u *U36) Byteref(index int) Range[U36] { return byte(u, index) }
+// Byteref returns a Range for the byte at index idx.
+func (u *U36) Byteref(idx int) Range[U36] { return byte(u, idx) }
 
 // I36 is an 36-bit signed integer in two's complement.
 type I36 int64
@@ -10006,14 +10006,14 @@ func (i *I36) SetBits(lo, hi int, v I36) {
 // Bitsref returns a Range for bits lo through hi.
 func (i *I36) Bitsref(lo, hi int) Range[I36] { return bits(i, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (i I36) Byte(index int) I36 { return i.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (i I36) Byte(idx int) U8 { return U8(i.Bits(idx*8, idx*8+7)) }
 
-// SetByte sets byte index (0 = least significant) to v.
-func (i *I36) SetByte(index int, v I36) { i.SetBits(index*8, index*8+7, v) }
+// SetByte sets the byte at index idx to v.
+func (i *I36) SetByte(idx int, v U8) { i.SetBits(idx*8, idx*8+7, I36(v)) }
 
-// Byteref returns a Range for byte index.
-func (i *I36) Byteref(index int) Range[I36] { return byte(i, index) }
+// Byteref returns a Range for the byte at index idx.
+func (i *I36) Byteref(idx int) Range[I36] { return byte(i, idx) }
 
 // U37 is an 37-bit unsigned integer.
 type U37 uint64
@@ -10144,14 +10144,14 @@ func (u *U37) SetBits(lo, hi int, v U37) {
 // Bitsref returns a Range for bits lo through hi.
 func (u *U37) Bitsref(lo, hi int) Range[U37] { return bits(u, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (u U37) Byte(index int) U37 { return u.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (u U37) Byte(index int) U8 { return U8(u.Bits(index*8, index*8+7)) }
 
 // SetByte sets byte index (0 = least significant) to v.
-func (u *U37) SetByte(index int, v U37) { u.SetBits(index*8, index*8+7, v) }
+func (u *U37) SetByte(index int, v U8) { u.SetBits(index*8, index*8+7, U37(v)) }
 
-// Byteref returns a Range for byte index.
-func (u *U37) Byteref(index int) Range[U37] { return byte(u, index) }
+// Byteref returns a Range for the byte at index idx.
+func (u *U37) Byteref(idx int) Range[U37] { return byte(u, idx) }
 
 // I37 is an 37-bit signed integer in two's complement.
 type I37 int64
@@ -10284,14 +10284,14 @@ func (i *I37) SetBits(lo, hi int, v I37) {
 // Bitsref returns a Range for bits lo through hi.
 func (i *I37) Bitsref(lo, hi int) Range[I37] { return bits(i, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (i I37) Byte(index int) I37 { return i.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (i I37) Byte(idx int) U8 { return U8(i.Bits(idx*8, idx*8+7)) }
 
-// SetByte sets byte index (0 = least significant) to v.
-func (i *I37) SetByte(index int, v I37) { i.SetBits(index*8, index*8+7, v) }
+// SetByte sets the byte at index idx to v.
+func (i *I37) SetByte(idx int, v U8) { i.SetBits(idx*8, idx*8+7, I37(v)) }
 
-// Byteref returns a Range for byte index.
-func (i *I37) Byteref(index int) Range[I37] { return byte(i, index) }
+// Byteref returns a Range for the byte at index idx.
+func (i *I37) Byteref(idx int) Range[I37] { return byte(i, idx) }
 
 // U38 is an 38-bit unsigned integer.
 type U38 uint64
@@ -10422,14 +10422,14 @@ func (u *U38) SetBits(lo, hi int, v U38) {
 // Bitsref returns a Range for bits lo through hi.
 func (u *U38) Bitsref(lo, hi int) Range[U38] { return bits(u, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (u U38) Byte(index int) U38 { return u.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (u U38) Byte(index int) U8 { return U8(u.Bits(index*8, index*8+7)) }
 
 // SetByte sets byte index (0 = least significant) to v.
-func (u *U38) SetByte(index int, v U38) { u.SetBits(index*8, index*8+7, v) }
+func (u *U38) SetByte(index int, v U8) { u.SetBits(index*8, index*8+7, U38(v)) }
 
-// Byteref returns a Range for byte index.
-func (u *U38) Byteref(index int) Range[U38] { return byte(u, index) }
+// Byteref returns a Range for the byte at index idx.
+func (u *U38) Byteref(idx int) Range[U38] { return byte(u, idx) }
 
 // I38 is an 38-bit signed integer in two's complement.
 type I38 int64
@@ -10562,14 +10562,14 @@ func (i *I38) SetBits(lo, hi int, v I38) {
 // Bitsref returns a Range for bits lo through hi.
 func (i *I38) Bitsref(lo, hi int) Range[I38] { return bits(i, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (i I38) Byte(index int) I38 { return i.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (i I38) Byte(idx int) U8 { return U8(i.Bits(idx*8, idx*8+7)) }
 
-// SetByte sets byte index (0 = least significant) to v.
-func (i *I38) SetByte(index int, v I38) { i.SetBits(index*8, index*8+7, v) }
+// SetByte sets the byte at index idx to v.
+func (i *I38) SetByte(idx int, v U8) { i.SetBits(idx*8, idx*8+7, I38(v)) }
 
-// Byteref returns a Range for byte index.
-func (i *I38) Byteref(index int) Range[I38] { return byte(i, index) }
+// Byteref returns a Range for the byte at index idx.
+func (i *I38) Byteref(idx int) Range[I38] { return byte(i, idx) }
 
 // U39 is an 39-bit unsigned integer.
 type U39 uint64
@@ -10700,14 +10700,14 @@ func (u *U39) SetBits(lo, hi int, v U39) {
 // Bitsref returns a Range for bits lo through hi.
 func (u *U39) Bitsref(lo, hi int) Range[U39] { return bits(u, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (u U39) Byte(index int) U39 { return u.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (u U39) Byte(index int) U8 { return U8(u.Bits(index*8, index*8+7)) }
 
 // SetByte sets byte index (0 = least significant) to v.
-func (u *U39) SetByte(index int, v U39) { u.SetBits(index*8, index*8+7, v) }
+func (u *U39) SetByte(index int, v U8) { u.SetBits(index*8, index*8+7, U39(v)) }
 
-// Byteref returns a Range for byte index.
-func (u *U39) Byteref(index int) Range[U39] { return byte(u, index) }
+// Byteref returns a Range for the byte at index idx.
+func (u *U39) Byteref(idx int) Range[U39] { return byte(u, idx) }
 
 // I39 is an 39-bit signed integer in two's complement.
 type I39 int64
@@ -10840,14 +10840,14 @@ func (i *I39) SetBits(lo, hi int, v I39) {
 // Bitsref returns a Range for bits lo through hi.
 func (i *I39) Bitsref(lo, hi int) Range[I39] { return bits(i, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (i I39) Byte(index int) I39 { return i.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (i I39) Byte(idx int) U8 { return U8(i.Bits(idx*8, idx*8+7)) }
 
-// SetByte sets byte index (0 = least significant) to v.
-func (i *I39) SetByte(index int, v I39) { i.SetBits(index*8, index*8+7, v) }
+// SetByte sets the byte at index idx to v.
+func (i *I39) SetByte(idx int, v U8) { i.SetBits(idx*8, idx*8+7, I39(v)) }
 
-// Byteref returns a Range for byte index.
-func (i *I39) Byteref(index int) Range[I39] { return byte(i, index) }
+// Byteref returns a Range for the byte at index idx.
+func (i *I39) Byteref(idx int) Range[I39] { return byte(i, idx) }
 
 // U40 is an 40-bit unsigned integer.
 type U40 uint64
@@ -10978,14 +10978,14 @@ func (u *U40) SetBits(lo, hi int, v U40) {
 // Bitsref returns a Range for bits lo through hi.
 func (u *U40) Bitsref(lo, hi int) Range[U40] { return bits(u, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (u U40) Byte(index int) U40 { return u.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (u U40) Byte(index int) U8 { return U8(u.Bits(index*8, index*8+7)) }
 
 // SetByte sets byte index (0 = least significant) to v.
-func (u *U40) SetByte(index int, v U40) { u.SetBits(index*8, index*8+7, v) }
+func (u *U40) SetByte(index int, v U8) { u.SetBits(index*8, index*8+7, U40(v)) }
 
-// Byteref returns a Range for byte index.
-func (u *U40) Byteref(index int) Range[U40] { return byte(u, index) }
+// Byteref returns a Range for the byte at index idx.
+func (u *U40) Byteref(idx int) Range[U40] { return byte(u, idx) }
 
 // I40 is an 40-bit signed integer in two's complement.
 type I40 int64
@@ -11118,14 +11118,14 @@ func (i *I40) SetBits(lo, hi int, v I40) {
 // Bitsref returns a Range for bits lo through hi.
 func (i *I40) Bitsref(lo, hi int) Range[I40] { return bits(i, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (i I40) Byte(index int) I40 { return i.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (i I40) Byte(idx int) U8 { return U8(i.Bits(idx*8, idx*8+7)) }
 
-// SetByte sets byte index (0 = least significant) to v.
-func (i *I40) SetByte(index int, v I40) { i.SetBits(index*8, index*8+7, v) }
+// SetByte sets the byte at index idx to v.
+func (i *I40) SetByte(idx int, v U8) { i.SetBits(idx*8, idx*8+7, I40(v)) }
 
-// Byteref returns a Range for byte index.
-func (i *I40) Byteref(index int) Range[I40] { return byte(i, index) }
+// Byteref returns a Range for the byte at index idx.
+func (i *I40) Byteref(idx int) Range[I40] { return byte(i, idx) }
 
 // U41 is an 41-bit unsigned integer.
 type U41 uint64
@@ -11256,14 +11256,14 @@ func (u *U41) SetBits(lo, hi int, v U41) {
 // Bitsref returns a Range for bits lo through hi.
 func (u *U41) Bitsref(lo, hi int) Range[U41] { return bits(u, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (u U41) Byte(index int) U41 { return u.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (u U41) Byte(index int) U8 { return U8(u.Bits(index*8, index*8+7)) }
 
 // SetByte sets byte index (0 = least significant) to v.
-func (u *U41) SetByte(index int, v U41) { u.SetBits(index*8, index*8+7, v) }
+func (u *U41) SetByte(index int, v U8) { u.SetBits(index*8, index*8+7, U41(v)) }
 
-// Byteref returns a Range for byte index.
-func (u *U41) Byteref(index int) Range[U41] { return byte(u, index) }
+// Byteref returns a Range for the byte at index idx.
+func (u *U41) Byteref(idx int) Range[U41] { return byte(u, idx) }
 
 // I41 is an 41-bit signed integer in two's complement.
 type I41 int64
@@ -11396,14 +11396,14 @@ func (i *I41) SetBits(lo, hi int, v I41) {
 // Bitsref returns a Range for bits lo through hi.
 func (i *I41) Bitsref(lo, hi int) Range[I41] { return bits(i, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (i I41) Byte(index int) I41 { return i.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (i I41) Byte(idx int) U8 { return U8(i.Bits(idx*8, idx*8+7)) }
 
-// SetByte sets byte index (0 = least significant) to v.
-func (i *I41) SetByte(index int, v I41) { i.SetBits(index*8, index*8+7, v) }
+// SetByte sets the byte at index idx to v.
+func (i *I41) SetByte(idx int, v U8) { i.SetBits(idx*8, idx*8+7, I41(v)) }
 
-// Byteref returns a Range for byte index.
-func (i *I41) Byteref(index int) Range[I41] { return byte(i, index) }
+// Byteref returns a Range for the byte at index idx.
+func (i *I41) Byteref(idx int) Range[I41] { return byte(i, idx) }
 
 // U42 is an 42-bit unsigned integer.
 type U42 uint64
@@ -11534,14 +11534,14 @@ func (u *U42) SetBits(lo, hi int, v U42) {
 // Bitsref returns a Range for bits lo through hi.
 func (u *U42) Bitsref(lo, hi int) Range[U42] { return bits(u, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (u U42) Byte(index int) U42 { return u.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (u U42) Byte(index int) U8 { return U8(u.Bits(index*8, index*8+7)) }
 
 // SetByte sets byte index (0 = least significant) to v.
-func (u *U42) SetByte(index int, v U42) { u.SetBits(index*8, index*8+7, v) }
+func (u *U42) SetByte(index int, v U8) { u.SetBits(index*8, index*8+7, U42(v)) }
 
-// Byteref returns a Range for byte index.
-func (u *U42) Byteref(index int) Range[U42] { return byte(u, index) }
+// Byteref returns a Range for the byte at index idx.
+func (u *U42) Byteref(idx int) Range[U42] { return byte(u, idx) }
 
 // I42 is an 42-bit signed integer in two's complement.
 type I42 int64
@@ -11674,14 +11674,14 @@ func (i *I42) SetBits(lo, hi int, v I42) {
 // Bitsref returns a Range for bits lo through hi.
 func (i *I42) Bitsref(lo, hi int) Range[I42] { return bits(i, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (i I42) Byte(index int) I42 { return i.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (i I42) Byte(idx int) U8 { return U8(i.Bits(idx*8, idx*8+7)) }
 
-// SetByte sets byte index (0 = least significant) to v.
-func (i *I42) SetByte(index int, v I42) { i.SetBits(index*8, index*8+7, v) }
+// SetByte sets the byte at index idx to v.
+func (i *I42) SetByte(idx int, v U8) { i.SetBits(idx*8, idx*8+7, I42(v)) }
 
-// Byteref returns a Range for byte index.
-func (i *I42) Byteref(index int) Range[I42] { return byte(i, index) }
+// Byteref returns a Range for the byte at index idx.
+func (i *I42) Byteref(idx int) Range[I42] { return byte(i, idx) }
 
 // U43 is an 43-bit unsigned integer.
 type U43 uint64
@@ -11812,14 +11812,14 @@ func (u *U43) SetBits(lo, hi int, v U43) {
 // Bitsref returns a Range for bits lo through hi.
 func (u *U43) Bitsref(lo, hi int) Range[U43] { return bits(u, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (u U43) Byte(index int) U43 { return u.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (u U43) Byte(index int) U8 { return U8(u.Bits(index*8, index*8+7)) }
 
 // SetByte sets byte index (0 = least significant) to v.
-func (u *U43) SetByte(index int, v U43) { u.SetBits(index*8, index*8+7, v) }
+func (u *U43) SetByte(index int, v U8) { u.SetBits(index*8, index*8+7, U43(v)) }
 
-// Byteref returns a Range for byte index.
-func (u *U43) Byteref(index int) Range[U43] { return byte(u, index) }
+// Byteref returns a Range for the byte at index idx.
+func (u *U43) Byteref(idx int) Range[U43] { return byte(u, idx) }
 
 // I43 is an 43-bit signed integer in two's complement.
 type I43 int64
@@ -11952,14 +11952,14 @@ func (i *I43) SetBits(lo, hi int, v I43) {
 // Bitsref returns a Range for bits lo through hi.
 func (i *I43) Bitsref(lo, hi int) Range[I43] { return bits(i, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (i I43) Byte(index int) I43 { return i.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (i I43) Byte(idx int) U8 { return U8(i.Bits(idx*8, idx*8+7)) }
 
-// SetByte sets byte index (0 = least significant) to v.
-func (i *I43) SetByte(index int, v I43) { i.SetBits(index*8, index*8+7, v) }
+// SetByte sets the byte at index idx to v.
+func (i *I43) SetByte(idx int, v U8) { i.SetBits(idx*8, idx*8+7, I43(v)) }
 
-// Byteref returns a Range for byte index.
-func (i *I43) Byteref(index int) Range[I43] { return byte(i, index) }
+// Byteref returns a Range for the byte at index idx.
+func (i *I43) Byteref(idx int) Range[I43] { return byte(i, idx) }
 
 // U44 is an 44-bit unsigned integer.
 type U44 uint64
@@ -12090,14 +12090,14 @@ func (u *U44) SetBits(lo, hi int, v U44) {
 // Bitsref returns a Range for bits lo through hi.
 func (u *U44) Bitsref(lo, hi int) Range[U44] { return bits(u, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (u U44) Byte(index int) U44 { return u.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (u U44) Byte(index int) U8 { return U8(u.Bits(index*8, index*8+7)) }
 
 // SetByte sets byte index (0 = least significant) to v.
-func (u *U44) SetByte(index int, v U44) { u.SetBits(index*8, index*8+7, v) }
+func (u *U44) SetByte(index int, v U8) { u.SetBits(index*8, index*8+7, U44(v)) }
 
-// Byteref returns a Range for byte index.
-func (u *U44) Byteref(index int) Range[U44] { return byte(u, index) }
+// Byteref returns a Range for the byte at index idx.
+func (u *U44) Byteref(idx int) Range[U44] { return byte(u, idx) }
 
 // I44 is an 44-bit signed integer in two's complement.
 type I44 int64
@@ -12230,14 +12230,14 @@ func (i *I44) SetBits(lo, hi int, v I44) {
 // Bitsref returns a Range for bits lo through hi.
 func (i *I44) Bitsref(lo, hi int) Range[I44] { return bits(i, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (i I44) Byte(index int) I44 { return i.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (i I44) Byte(idx int) U8 { return U8(i.Bits(idx*8, idx*8+7)) }
 
-// SetByte sets byte index (0 = least significant) to v.
-func (i *I44) SetByte(index int, v I44) { i.SetBits(index*8, index*8+7, v) }
+// SetByte sets the byte at index idx to v.
+func (i *I44) SetByte(idx int, v U8) { i.SetBits(idx*8, idx*8+7, I44(v)) }
 
-// Byteref returns a Range for byte index.
-func (i *I44) Byteref(index int) Range[I44] { return byte(i, index) }
+// Byteref returns a Range for the byte at index idx.
+func (i *I44) Byteref(idx int) Range[I44] { return byte(i, idx) }
 
 // U45 is an 45-bit unsigned integer.
 type U45 uint64
@@ -12368,14 +12368,14 @@ func (u *U45) SetBits(lo, hi int, v U45) {
 // Bitsref returns a Range for bits lo through hi.
 func (u *U45) Bitsref(lo, hi int) Range[U45] { return bits(u, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (u U45) Byte(index int) U45 { return u.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (u U45) Byte(index int) U8 { return U8(u.Bits(index*8, index*8+7)) }
 
 // SetByte sets byte index (0 = least significant) to v.
-func (u *U45) SetByte(index int, v U45) { u.SetBits(index*8, index*8+7, v) }
+func (u *U45) SetByte(index int, v U8) { u.SetBits(index*8, index*8+7, U45(v)) }
 
-// Byteref returns a Range for byte index.
-func (u *U45) Byteref(index int) Range[U45] { return byte(u, index) }
+// Byteref returns a Range for the byte at index idx.
+func (u *U45) Byteref(idx int) Range[U45] { return byte(u, idx) }
 
 // I45 is an 45-bit signed integer in two's complement.
 type I45 int64
@@ -12508,14 +12508,14 @@ func (i *I45) SetBits(lo, hi int, v I45) {
 // Bitsref returns a Range for bits lo through hi.
 func (i *I45) Bitsref(lo, hi int) Range[I45] { return bits(i, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (i I45) Byte(index int) I45 { return i.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (i I45) Byte(idx int) U8 { return U8(i.Bits(idx*8, idx*8+7)) }
 
-// SetByte sets byte index (0 = least significant) to v.
-func (i *I45) SetByte(index int, v I45) { i.SetBits(index*8, index*8+7, v) }
+// SetByte sets the byte at index idx to v.
+func (i *I45) SetByte(idx int, v U8) { i.SetBits(idx*8, idx*8+7, I45(v)) }
 
-// Byteref returns a Range for byte index.
-func (i *I45) Byteref(index int) Range[I45] { return byte(i, index) }
+// Byteref returns a Range for the byte at index idx.
+func (i *I45) Byteref(idx int) Range[I45] { return byte(i, idx) }
 
 // U46 is an 46-bit unsigned integer.
 type U46 uint64
@@ -12646,14 +12646,14 @@ func (u *U46) SetBits(lo, hi int, v U46) {
 // Bitsref returns a Range for bits lo through hi.
 func (u *U46) Bitsref(lo, hi int) Range[U46] { return bits(u, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (u U46) Byte(index int) U46 { return u.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (u U46) Byte(index int) U8 { return U8(u.Bits(index*8, index*8+7)) }
 
 // SetByte sets byte index (0 = least significant) to v.
-func (u *U46) SetByte(index int, v U46) { u.SetBits(index*8, index*8+7, v) }
+func (u *U46) SetByte(index int, v U8) { u.SetBits(index*8, index*8+7, U46(v)) }
 
-// Byteref returns a Range for byte index.
-func (u *U46) Byteref(index int) Range[U46] { return byte(u, index) }
+// Byteref returns a Range for the byte at index idx.
+func (u *U46) Byteref(idx int) Range[U46] { return byte(u, idx) }
 
 // I46 is an 46-bit signed integer in two's complement.
 type I46 int64
@@ -12786,14 +12786,14 @@ func (i *I46) SetBits(lo, hi int, v I46) {
 // Bitsref returns a Range for bits lo through hi.
 func (i *I46) Bitsref(lo, hi int) Range[I46] { return bits(i, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (i I46) Byte(index int) I46 { return i.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (i I46) Byte(idx int) U8 { return U8(i.Bits(idx*8, idx*8+7)) }
 
-// SetByte sets byte index (0 = least significant) to v.
-func (i *I46) SetByte(index int, v I46) { i.SetBits(index*8, index*8+7, v) }
+// SetByte sets the byte at index idx to v.
+func (i *I46) SetByte(idx int, v U8) { i.SetBits(idx*8, idx*8+7, I46(v)) }
 
-// Byteref returns a Range for byte index.
-func (i *I46) Byteref(index int) Range[I46] { return byte(i, index) }
+// Byteref returns a Range for the byte at index idx.
+func (i *I46) Byteref(idx int) Range[I46] { return byte(i, idx) }
 
 // U47 is an 47-bit unsigned integer.
 type U47 uint64
@@ -12924,14 +12924,14 @@ func (u *U47) SetBits(lo, hi int, v U47) {
 // Bitsref returns a Range for bits lo through hi.
 func (u *U47) Bitsref(lo, hi int) Range[U47] { return bits(u, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (u U47) Byte(index int) U47 { return u.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (u U47) Byte(index int) U8 { return U8(u.Bits(index*8, index*8+7)) }
 
 // SetByte sets byte index (0 = least significant) to v.
-func (u *U47) SetByte(index int, v U47) { u.SetBits(index*8, index*8+7, v) }
+func (u *U47) SetByte(index int, v U8) { u.SetBits(index*8, index*8+7, U47(v)) }
 
-// Byteref returns a Range for byte index.
-func (u *U47) Byteref(index int) Range[U47] { return byte(u, index) }
+// Byteref returns a Range for the byte at index idx.
+func (u *U47) Byteref(idx int) Range[U47] { return byte(u, idx) }
 
 // I47 is an 47-bit signed integer in two's complement.
 type I47 int64
@@ -13064,14 +13064,14 @@ func (i *I47) SetBits(lo, hi int, v I47) {
 // Bitsref returns a Range for bits lo through hi.
 func (i *I47) Bitsref(lo, hi int) Range[I47] { return bits(i, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (i I47) Byte(index int) I47 { return i.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (i I47) Byte(idx int) U8 { return U8(i.Bits(idx*8, idx*8+7)) }
 
-// SetByte sets byte index (0 = least significant) to v.
-func (i *I47) SetByte(index int, v I47) { i.SetBits(index*8, index*8+7, v) }
+// SetByte sets the byte at index idx to v.
+func (i *I47) SetByte(idx int, v U8) { i.SetBits(idx*8, idx*8+7, I47(v)) }
 
-// Byteref returns a Range for byte index.
-func (i *I47) Byteref(index int) Range[I47] { return byte(i, index) }
+// Byteref returns a Range for the byte at index idx.
+func (i *I47) Byteref(idx int) Range[I47] { return byte(i, idx) }
 
 // U48 is an 48-bit unsigned integer.
 type U48 uint64
@@ -13202,14 +13202,14 @@ func (u *U48) SetBits(lo, hi int, v U48) {
 // Bitsref returns a Range for bits lo through hi.
 func (u *U48) Bitsref(lo, hi int) Range[U48] { return bits(u, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (u U48) Byte(index int) U48 { return u.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (u U48) Byte(index int) U8 { return U8(u.Bits(index*8, index*8+7)) }
 
 // SetByte sets byte index (0 = least significant) to v.
-func (u *U48) SetByte(index int, v U48) { u.SetBits(index*8, index*8+7, v) }
+func (u *U48) SetByte(index int, v U8) { u.SetBits(index*8, index*8+7, U48(v)) }
 
-// Byteref returns a Range for byte index.
-func (u *U48) Byteref(index int) Range[U48] { return byte(u, index) }
+// Byteref returns a Range for the byte at index idx.
+func (u *U48) Byteref(idx int) Range[U48] { return byte(u, idx) }
 
 // I48 is an 48-bit signed integer in two's complement.
 type I48 int64
@@ -13342,14 +13342,14 @@ func (i *I48) SetBits(lo, hi int, v I48) {
 // Bitsref returns a Range for bits lo through hi.
 func (i *I48) Bitsref(lo, hi int) Range[I48] { return bits(i, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (i I48) Byte(index int) I48 { return i.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (i I48) Byte(idx int) U8 { return U8(i.Bits(idx*8, idx*8+7)) }
 
-// SetByte sets byte index (0 = least significant) to v.
-func (i *I48) SetByte(index int, v I48) { i.SetBits(index*8, index*8+7, v) }
+// SetByte sets the byte at index idx to v.
+func (i *I48) SetByte(idx int, v U8) { i.SetBits(idx*8, idx*8+7, I48(v)) }
 
-// Byteref returns a Range for byte index.
-func (i *I48) Byteref(index int) Range[I48] { return byte(i, index) }
+// Byteref returns a Range for the byte at index idx.
+func (i *I48) Byteref(idx int) Range[I48] { return byte(i, idx) }
 
 // U49 is an 49-bit unsigned integer.
 type U49 uint64
@@ -13480,14 +13480,14 @@ func (u *U49) SetBits(lo, hi int, v U49) {
 // Bitsref returns a Range for bits lo through hi.
 func (u *U49) Bitsref(lo, hi int) Range[U49] { return bits(u, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (u U49) Byte(index int) U49 { return u.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (u U49) Byte(index int) U8 { return U8(u.Bits(index*8, index*8+7)) }
 
 // SetByte sets byte index (0 = least significant) to v.
-func (u *U49) SetByte(index int, v U49) { u.SetBits(index*8, index*8+7, v) }
+func (u *U49) SetByte(index int, v U8) { u.SetBits(index*8, index*8+7, U49(v)) }
 
-// Byteref returns a Range for byte index.
-func (u *U49) Byteref(index int) Range[U49] { return byte(u, index) }
+// Byteref returns a Range for the byte at index idx.
+func (u *U49) Byteref(idx int) Range[U49] { return byte(u, idx) }
 
 // I49 is an 49-bit signed integer in two's complement.
 type I49 int64
@@ -13620,14 +13620,14 @@ func (i *I49) SetBits(lo, hi int, v I49) {
 // Bitsref returns a Range for bits lo through hi.
 func (i *I49) Bitsref(lo, hi int) Range[I49] { return bits(i, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (i I49) Byte(index int) I49 { return i.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (i I49) Byte(idx int) U8 { return U8(i.Bits(idx*8, idx*8+7)) }
 
-// SetByte sets byte index (0 = least significant) to v.
-func (i *I49) SetByte(index int, v I49) { i.SetBits(index*8, index*8+7, v) }
+// SetByte sets the byte at index idx to v.
+func (i *I49) SetByte(idx int, v U8) { i.SetBits(idx*8, idx*8+7, I49(v)) }
 
-// Byteref returns a Range for byte index.
-func (i *I49) Byteref(index int) Range[I49] { return byte(i, index) }
+// Byteref returns a Range for the byte at index idx.
+func (i *I49) Byteref(idx int) Range[I49] { return byte(i, idx) }
 
 // U50 is an 50-bit unsigned integer.
 type U50 uint64
@@ -13758,14 +13758,14 @@ func (u *U50) SetBits(lo, hi int, v U50) {
 // Bitsref returns a Range for bits lo through hi.
 func (u *U50) Bitsref(lo, hi int) Range[U50] { return bits(u, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (u U50) Byte(index int) U50 { return u.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (u U50) Byte(index int) U8 { return U8(u.Bits(index*8, index*8+7)) }
 
 // SetByte sets byte index (0 = least significant) to v.
-func (u *U50) SetByte(index int, v U50) { u.SetBits(index*8, index*8+7, v) }
+func (u *U50) SetByte(index int, v U8) { u.SetBits(index*8, index*8+7, U50(v)) }
 
-// Byteref returns a Range for byte index.
-func (u *U50) Byteref(index int) Range[U50] { return byte(u, index) }
+// Byteref returns a Range for the byte at index idx.
+func (u *U50) Byteref(idx int) Range[U50] { return byte(u, idx) }
 
 // I50 is an 50-bit signed integer in two's complement.
 type I50 int64
@@ -13898,14 +13898,14 @@ func (i *I50) SetBits(lo, hi int, v I50) {
 // Bitsref returns a Range for bits lo through hi.
 func (i *I50) Bitsref(lo, hi int) Range[I50] { return bits(i, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (i I50) Byte(index int) I50 { return i.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (i I50) Byte(idx int) U8 { return U8(i.Bits(idx*8, idx*8+7)) }
 
-// SetByte sets byte index (0 = least significant) to v.
-func (i *I50) SetByte(index int, v I50) { i.SetBits(index*8, index*8+7, v) }
+// SetByte sets the byte at index idx to v.
+func (i *I50) SetByte(idx int, v U8) { i.SetBits(idx*8, idx*8+7, I50(v)) }
 
-// Byteref returns a Range for byte index.
-func (i *I50) Byteref(index int) Range[I50] { return byte(i, index) }
+// Byteref returns a Range for the byte at index idx.
+func (i *I50) Byteref(idx int) Range[I50] { return byte(i, idx) }
 
 // U51 is an 51-bit unsigned integer.
 type U51 uint64
@@ -14036,14 +14036,14 @@ func (u *U51) SetBits(lo, hi int, v U51) {
 // Bitsref returns a Range for bits lo through hi.
 func (u *U51) Bitsref(lo, hi int) Range[U51] { return bits(u, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (u U51) Byte(index int) U51 { return u.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (u U51) Byte(index int) U8 { return U8(u.Bits(index*8, index*8+7)) }
 
 // SetByte sets byte index (0 = least significant) to v.
-func (u *U51) SetByte(index int, v U51) { u.SetBits(index*8, index*8+7, v) }
+func (u *U51) SetByte(index int, v U8) { u.SetBits(index*8, index*8+7, U51(v)) }
 
-// Byteref returns a Range for byte index.
-func (u *U51) Byteref(index int) Range[U51] { return byte(u, index) }
+// Byteref returns a Range for the byte at index idx.
+func (u *U51) Byteref(idx int) Range[U51] { return byte(u, idx) }
 
 // I51 is an 51-bit signed integer in two's complement.
 type I51 int64
@@ -14176,14 +14176,14 @@ func (i *I51) SetBits(lo, hi int, v I51) {
 // Bitsref returns a Range for bits lo through hi.
 func (i *I51) Bitsref(lo, hi int) Range[I51] { return bits(i, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (i I51) Byte(index int) I51 { return i.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (i I51) Byte(idx int) U8 { return U8(i.Bits(idx*8, idx*8+7)) }
 
-// SetByte sets byte index (0 = least significant) to v.
-func (i *I51) SetByte(index int, v I51) { i.SetBits(index*8, index*8+7, v) }
+// SetByte sets the byte at index idx to v.
+func (i *I51) SetByte(idx int, v U8) { i.SetBits(idx*8, idx*8+7, I51(v)) }
 
-// Byteref returns a Range for byte index.
-func (i *I51) Byteref(index int) Range[I51] { return byte(i, index) }
+// Byteref returns a Range for the byte at index idx.
+func (i *I51) Byteref(idx int) Range[I51] { return byte(i, idx) }
 
 // U52 is an 52-bit unsigned integer.
 type U52 uint64
@@ -14314,14 +14314,14 @@ func (u *U52) SetBits(lo, hi int, v U52) {
 // Bitsref returns a Range for bits lo through hi.
 func (u *U52) Bitsref(lo, hi int) Range[U52] { return bits(u, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (u U52) Byte(index int) U52 { return u.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (u U52) Byte(index int) U8 { return U8(u.Bits(index*8, index*8+7)) }
 
 // SetByte sets byte index (0 = least significant) to v.
-func (u *U52) SetByte(index int, v U52) { u.SetBits(index*8, index*8+7, v) }
+func (u *U52) SetByte(index int, v U8) { u.SetBits(index*8, index*8+7, U52(v)) }
 
-// Byteref returns a Range for byte index.
-func (u *U52) Byteref(index int) Range[U52] { return byte(u, index) }
+// Byteref returns a Range for the byte at index idx.
+func (u *U52) Byteref(idx int) Range[U52] { return byte(u, idx) }
 
 // I52 is an 52-bit signed integer in two's complement.
 type I52 int64
@@ -14454,14 +14454,14 @@ func (i *I52) SetBits(lo, hi int, v I52) {
 // Bitsref returns a Range for bits lo through hi.
 func (i *I52) Bitsref(lo, hi int) Range[I52] { return bits(i, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (i I52) Byte(index int) I52 { return i.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (i I52) Byte(idx int) U8 { return U8(i.Bits(idx*8, idx*8+7)) }
 
-// SetByte sets byte index (0 = least significant) to v.
-func (i *I52) SetByte(index int, v I52) { i.SetBits(index*8, index*8+7, v) }
+// SetByte sets the byte at index idx to v.
+func (i *I52) SetByte(idx int, v U8) { i.SetBits(idx*8, idx*8+7, I52(v)) }
 
-// Byteref returns a Range for byte index.
-func (i *I52) Byteref(index int) Range[I52] { return byte(i, index) }
+// Byteref returns a Range for the byte at index idx.
+func (i *I52) Byteref(idx int) Range[I52] { return byte(i, idx) }
 
 // U53 is an 53-bit unsigned integer.
 type U53 uint64
@@ -14592,14 +14592,14 @@ func (u *U53) SetBits(lo, hi int, v U53) {
 // Bitsref returns a Range for bits lo through hi.
 func (u *U53) Bitsref(lo, hi int) Range[U53] { return bits(u, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (u U53) Byte(index int) U53 { return u.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (u U53) Byte(index int) U8 { return U8(u.Bits(index*8, index*8+7)) }
 
 // SetByte sets byte index (0 = least significant) to v.
-func (u *U53) SetByte(index int, v U53) { u.SetBits(index*8, index*8+7, v) }
+func (u *U53) SetByte(index int, v U8) { u.SetBits(index*8, index*8+7, U53(v)) }
 
-// Byteref returns a Range for byte index.
-func (u *U53) Byteref(index int) Range[U53] { return byte(u, index) }
+// Byteref returns a Range for the byte at index idx.
+func (u *U53) Byteref(idx int) Range[U53] { return byte(u, idx) }
 
 // I53 is an 53-bit signed integer in two's complement.
 type I53 int64
@@ -14732,14 +14732,14 @@ func (i *I53) SetBits(lo, hi int, v I53) {
 // Bitsref returns a Range for bits lo through hi.
 func (i *I53) Bitsref(lo, hi int) Range[I53] { return bits(i, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (i I53) Byte(index int) I53 { return i.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (i I53) Byte(idx int) U8 { return U8(i.Bits(idx*8, idx*8+7)) }
 
-// SetByte sets byte index (0 = least significant) to v.
-func (i *I53) SetByte(index int, v I53) { i.SetBits(index*8, index*8+7, v) }
+// SetByte sets the byte at index idx to v.
+func (i *I53) SetByte(idx int, v U8) { i.SetBits(idx*8, idx*8+7, I53(v)) }
 
-// Byteref returns a Range for byte index.
-func (i *I53) Byteref(index int) Range[I53] { return byte(i, index) }
+// Byteref returns a Range for the byte at index idx.
+func (i *I53) Byteref(idx int) Range[I53] { return byte(i, idx) }
 
 // U54 is an 54-bit unsigned integer.
 type U54 uint64
@@ -14870,14 +14870,14 @@ func (u *U54) SetBits(lo, hi int, v U54) {
 // Bitsref returns a Range for bits lo through hi.
 func (u *U54) Bitsref(lo, hi int) Range[U54] { return bits(u, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (u U54) Byte(index int) U54 { return u.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (u U54) Byte(index int) U8 { return U8(u.Bits(index*8, index*8+7)) }
 
 // SetByte sets byte index (0 = least significant) to v.
-func (u *U54) SetByte(index int, v U54) { u.SetBits(index*8, index*8+7, v) }
+func (u *U54) SetByte(index int, v U8) { u.SetBits(index*8, index*8+7, U54(v)) }
 
-// Byteref returns a Range for byte index.
-func (u *U54) Byteref(index int) Range[U54] { return byte(u, index) }
+// Byteref returns a Range for the byte at index idx.
+func (u *U54) Byteref(idx int) Range[U54] { return byte(u, idx) }
 
 // I54 is an 54-bit signed integer in two's complement.
 type I54 int64
@@ -15010,14 +15010,14 @@ func (i *I54) SetBits(lo, hi int, v I54) {
 // Bitsref returns a Range for bits lo through hi.
 func (i *I54) Bitsref(lo, hi int) Range[I54] { return bits(i, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (i I54) Byte(index int) I54 { return i.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (i I54) Byte(idx int) U8 { return U8(i.Bits(idx*8, idx*8+7)) }
 
-// SetByte sets byte index (0 = least significant) to v.
-func (i *I54) SetByte(index int, v I54) { i.SetBits(index*8, index*8+7, v) }
+// SetByte sets the byte at index idx to v.
+func (i *I54) SetByte(idx int, v U8) { i.SetBits(idx*8, idx*8+7, I54(v)) }
 
-// Byteref returns a Range for byte index.
-func (i *I54) Byteref(index int) Range[I54] { return byte(i, index) }
+// Byteref returns a Range for the byte at index idx.
+func (i *I54) Byteref(idx int) Range[I54] { return byte(i, idx) }
 
 // U55 is an 55-bit unsigned integer.
 type U55 uint64
@@ -15148,14 +15148,14 @@ func (u *U55) SetBits(lo, hi int, v U55) {
 // Bitsref returns a Range for bits lo through hi.
 func (u *U55) Bitsref(lo, hi int) Range[U55] { return bits(u, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (u U55) Byte(index int) U55 { return u.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (u U55) Byte(index int) U8 { return U8(u.Bits(index*8, index*8+7)) }
 
 // SetByte sets byte index (0 = least significant) to v.
-func (u *U55) SetByte(index int, v U55) { u.SetBits(index*8, index*8+7, v) }
+func (u *U55) SetByte(index int, v U8) { u.SetBits(index*8, index*8+7, U55(v)) }
 
-// Byteref returns a Range for byte index.
-func (u *U55) Byteref(index int) Range[U55] { return byte(u, index) }
+// Byteref returns a Range for the byte at index idx.
+func (u *U55) Byteref(idx int) Range[U55] { return byte(u, idx) }
 
 // I55 is an 55-bit signed integer in two's complement.
 type I55 int64
@@ -15288,14 +15288,14 @@ func (i *I55) SetBits(lo, hi int, v I55) {
 // Bitsref returns a Range for bits lo through hi.
 func (i *I55) Bitsref(lo, hi int) Range[I55] { return bits(i, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (i I55) Byte(index int) I55 { return i.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (i I55) Byte(idx int) U8 { return U8(i.Bits(idx*8, idx*8+7)) }
 
-// SetByte sets byte index (0 = least significant) to v.
-func (i *I55) SetByte(index int, v I55) { i.SetBits(index*8, index*8+7, v) }
+// SetByte sets the byte at index idx to v.
+func (i *I55) SetByte(idx int, v U8) { i.SetBits(idx*8, idx*8+7, I55(v)) }
 
-// Byteref returns a Range for byte index.
-func (i *I55) Byteref(index int) Range[I55] { return byte(i, index) }
+// Byteref returns a Range for the byte at index idx.
+func (i *I55) Byteref(idx int) Range[I55] { return byte(i, idx) }
 
 // U56 is an 56-bit unsigned integer.
 type U56 uint64
@@ -15426,14 +15426,14 @@ func (u *U56) SetBits(lo, hi int, v U56) {
 // Bitsref returns a Range for bits lo through hi.
 func (u *U56) Bitsref(lo, hi int) Range[U56] { return bits(u, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (u U56) Byte(index int) U56 { return u.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (u U56) Byte(index int) U8 { return U8(u.Bits(index*8, index*8+7)) }
 
 // SetByte sets byte index (0 = least significant) to v.
-func (u *U56) SetByte(index int, v U56) { u.SetBits(index*8, index*8+7, v) }
+func (u *U56) SetByte(index int, v U8) { u.SetBits(index*8, index*8+7, U56(v)) }
 
-// Byteref returns a Range for byte index.
-func (u *U56) Byteref(index int) Range[U56] { return byte(u, index) }
+// Byteref returns a Range for the byte at index idx.
+func (u *U56) Byteref(idx int) Range[U56] { return byte(u, idx) }
 
 // I56 is an 56-bit signed integer in two's complement.
 type I56 int64
@@ -15566,14 +15566,14 @@ func (i *I56) SetBits(lo, hi int, v I56) {
 // Bitsref returns a Range for bits lo through hi.
 func (i *I56) Bitsref(lo, hi int) Range[I56] { return bits(i, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (i I56) Byte(index int) I56 { return i.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (i I56) Byte(idx int) U8 { return U8(i.Bits(idx*8, idx*8+7)) }
 
-// SetByte sets byte index (0 = least significant) to v.
-func (i *I56) SetByte(index int, v I56) { i.SetBits(index*8, index*8+7, v) }
+// SetByte sets the byte at index idx to v.
+func (i *I56) SetByte(idx int, v U8) { i.SetBits(idx*8, idx*8+7, I56(v)) }
 
-// Byteref returns a Range for byte index.
-func (i *I56) Byteref(index int) Range[I56] { return byte(i, index) }
+// Byteref returns a Range for the byte at index idx.
+func (i *I56) Byteref(idx int) Range[I56] { return byte(i, idx) }
 
 // U57 is an 57-bit unsigned integer.
 type U57 uint64
@@ -15704,14 +15704,14 @@ func (u *U57) SetBits(lo, hi int, v U57) {
 // Bitsref returns a Range for bits lo through hi.
 func (u *U57) Bitsref(lo, hi int) Range[U57] { return bits(u, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (u U57) Byte(index int) U57 { return u.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (u U57) Byte(index int) U8 { return U8(u.Bits(index*8, index*8+7)) }
 
 // SetByte sets byte index (0 = least significant) to v.
-func (u *U57) SetByte(index int, v U57) { u.SetBits(index*8, index*8+7, v) }
+func (u *U57) SetByte(index int, v U8) { u.SetBits(index*8, index*8+7, U57(v)) }
 
-// Byteref returns a Range for byte index.
-func (u *U57) Byteref(index int) Range[U57] { return byte(u, index) }
+// Byteref returns a Range for the byte at index idx.
+func (u *U57) Byteref(idx int) Range[U57] { return byte(u, idx) }
 
 // I57 is an 57-bit signed integer in two's complement.
 type I57 int64
@@ -15844,14 +15844,14 @@ func (i *I57) SetBits(lo, hi int, v I57) {
 // Bitsref returns a Range for bits lo through hi.
 func (i *I57) Bitsref(lo, hi int) Range[I57] { return bits(i, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (i I57) Byte(index int) I57 { return i.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (i I57) Byte(idx int) U8 { return U8(i.Bits(idx*8, idx*8+7)) }
 
-// SetByte sets byte index (0 = least significant) to v.
-func (i *I57) SetByte(index int, v I57) { i.SetBits(index*8, index*8+7, v) }
+// SetByte sets the byte at index idx to v.
+func (i *I57) SetByte(idx int, v U8) { i.SetBits(idx*8, idx*8+7, I57(v)) }
 
-// Byteref returns a Range for byte index.
-func (i *I57) Byteref(index int) Range[I57] { return byte(i, index) }
+// Byteref returns a Range for the byte at index idx.
+func (i *I57) Byteref(idx int) Range[I57] { return byte(i, idx) }
 
 // U58 is an 58-bit unsigned integer.
 type U58 uint64
@@ -15982,14 +15982,14 @@ func (u *U58) SetBits(lo, hi int, v U58) {
 // Bitsref returns a Range for bits lo through hi.
 func (u *U58) Bitsref(lo, hi int) Range[U58] { return bits(u, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (u U58) Byte(index int) U58 { return u.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (u U58) Byte(index int) U8 { return U8(u.Bits(index*8, index*8+7)) }
 
 // SetByte sets byte index (0 = least significant) to v.
-func (u *U58) SetByte(index int, v U58) { u.SetBits(index*8, index*8+7, v) }
+func (u *U58) SetByte(index int, v U8) { u.SetBits(index*8, index*8+7, U58(v)) }
 
-// Byteref returns a Range for byte index.
-func (u *U58) Byteref(index int) Range[U58] { return byte(u, index) }
+// Byteref returns a Range for the byte at index idx.
+func (u *U58) Byteref(idx int) Range[U58] { return byte(u, idx) }
 
 // I58 is an 58-bit signed integer in two's complement.
 type I58 int64
@@ -16122,14 +16122,14 @@ func (i *I58) SetBits(lo, hi int, v I58) {
 // Bitsref returns a Range for bits lo through hi.
 func (i *I58) Bitsref(lo, hi int) Range[I58] { return bits(i, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (i I58) Byte(index int) I58 { return i.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (i I58) Byte(idx int) U8 { return U8(i.Bits(idx*8, idx*8+7)) }
 
-// SetByte sets byte index (0 = least significant) to v.
-func (i *I58) SetByte(index int, v I58) { i.SetBits(index*8, index*8+7, v) }
+// SetByte sets the byte at index idx to v.
+func (i *I58) SetByte(idx int, v U8) { i.SetBits(idx*8, idx*8+7, I58(v)) }
 
-// Byteref returns a Range for byte index.
-func (i *I58) Byteref(index int) Range[I58] { return byte(i, index) }
+// Byteref returns a Range for the byte at index idx.
+func (i *I58) Byteref(idx int) Range[I58] { return byte(i, idx) }
 
 // U59 is an 59-bit unsigned integer.
 type U59 uint64
@@ -16260,14 +16260,14 @@ func (u *U59) SetBits(lo, hi int, v U59) {
 // Bitsref returns a Range for bits lo through hi.
 func (u *U59) Bitsref(lo, hi int) Range[U59] { return bits(u, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (u U59) Byte(index int) U59 { return u.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (u U59) Byte(index int) U8 { return U8(u.Bits(index*8, index*8+7)) }
 
 // SetByte sets byte index (0 = least significant) to v.
-func (u *U59) SetByte(index int, v U59) { u.SetBits(index*8, index*8+7, v) }
+func (u *U59) SetByte(index int, v U8) { u.SetBits(index*8, index*8+7, U59(v)) }
 
-// Byteref returns a Range for byte index.
-func (u *U59) Byteref(index int) Range[U59] { return byte(u, index) }
+// Byteref returns a Range for the byte at index idx.
+func (u *U59) Byteref(idx int) Range[U59] { return byte(u, idx) }
 
 // I59 is an 59-bit signed integer in two's complement.
 type I59 int64
@@ -16400,14 +16400,14 @@ func (i *I59) SetBits(lo, hi int, v I59) {
 // Bitsref returns a Range for bits lo through hi.
 func (i *I59) Bitsref(lo, hi int) Range[I59] { return bits(i, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (i I59) Byte(index int) I59 { return i.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (i I59) Byte(idx int) U8 { return U8(i.Bits(idx*8, idx*8+7)) }
 
-// SetByte sets byte index (0 = least significant) to v.
-func (i *I59) SetByte(index int, v I59) { i.SetBits(index*8, index*8+7, v) }
+// SetByte sets the byte at index idx to v.
+func (i *I59) SetByte(idx int, v U8) { i.SetBits(idx*8, idx*8+7, I59(v)) }
 
-// Byteref returns a Range for byte index.
-func (i *I59) Byteref(index int) Range[I59] { return byte(i, index) }
+// Byteref returns a Range for the byte at index idx.
+func (i *I59) Byteref(idx int) Range[I59] { return byte(i, idx) }
 
 // U60 is an 60-bit unsigned integer.
 type U60 uint64
@@ -16538,14 +16538,14 @@ func (u *U60) SetBits(lo, hi int, v U60) {
 // Bitsref returns a Range for bits lo through hi.
 func (u *U60) Bitsref(lo, hi int) Range[U60] { return bits(u, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (u U60) Byte(index int) U60 { return u.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (u U60) Byte(index int) U8 { return U8(u.Bits(index*8, index*8+7)) }
 
 // SetByte sets byte index (0 = least significant) to v.
-func (u *U60) SetByte(index int, v U60) { u.SetBits(index*8, index*8+7, v) }
+func (u *U60) SetByte(index int, v U8) { u.SetBits(index*8, index*8+7, U60(v)) }
 
-// Byteref returns a Range for byte index.
-func (u *U60) Byteref(index int) Range[U60] { return byte(u, index) }
+// Byteref returns a Range for the byte at index idx.
+func (u *U60) Byteref(idx int) Range[U60] { return byte(u, idx) }
 
 // I60 is an 60-bit signed integer in two's complement.
 type I60 int64
@@ -16678,14 +16678,14 @@ func (i *I60) SetBits(lo, hi int, v I60) {
 // Bitsref returns a Range for bits lo through hi.
 func (i *I60) Bitsref(lo, hi int) Range[I60] { return bits(i, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (i I60) Byte(index int) I60 { return i.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (i I60) Byte(idx int) U8 { return U8(i.Bits(idx*8, idx*8+7)) }
 
-// SetByte sets byte index (0 = least significant) to v.
-func (i *I60) SetByte(index int, v I60) { i.SetBits(index*8, index*8+7, v) }
+// SetByte sets the byte at index idx to v.
+func (i *I60) SetByte(idx int, v U8) { i.SetBits(idx*8, idx*8+7, I60(v)) }
 
-// Byteref returns a Range for byte index.
-func (i *I60) Byteref(index int) Range[I60] { return byte(i, index) }
+// Byteref returns a Range for the byte at index idx.
+func (i *I60) Byteref(idx int) Range[I60] { return byte(i, idx) }
 
 // U61 is an 61-bit unsigned integer.
 type U61 uint64
@@ -16816,14 +16816,14 @@ func (u *U61) SetBits(lo, hi int, v U61) {
 // Bitsref returns a Range for bits lo through hi.
 func (u *U61) Bitsref(lo, hi int) Range[U61] { return bits(u, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (u U61) Byte(index int) U61 { return u.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (u U61) Byte(index int) U8 { return U8(u.Bits(index*8, index*8+7)) }
 
 // SetByte sets byte index (0 = least significant) to v.
-func (u *U61) SetByte(index int, v U61) { u.SetBits(index*8, index*8+7, v) }
+func (u *U61) SetByte(index int, v U8) { u.SetBits(index*8, index*8+7, U61(v)) }
 
-// Byteref returns a Range for byte index.
-func (u *U61) Byteref(index int) Range[U61] { return byte(u, index) }
+// Byteref returns a Range for the byte at index idx.
+func (u *U61) Byteref(idx int) Range[U61] { return byte(u, idx) }
 
 // I61 is an 61-bit signed integer in two's complement.
 type I61 int64
@@ -16956,14 +16956,14 @@ func (i *I61) SetBits(lo, hi int, v I61) {
 // Bitsref returns a Range for bits lo through hi.
 func (i *I61) Bitsref(lo, hi int) Range[I61] { return bits(i, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (i I61) Byte(index int) I61 { return i.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (i I61) Byte(idx int) U8 { return U8(i.Bits(idx*8, idx*8+7)) }
 
-// SetByte sets byte index (0 = least significant) to v.
-func (i *I61) SetByte(index int, v I61) { i.SetBits(index*8, index*8+7, v) }
+// SetByte sets the byte at index idx to v.
+func (i *I61) SetByte(idx int, v U8) { i.SetBits(idx*8, idx*8+7, I61(v)) }
 
-// Byteref returns a Range for byte index.
-func (i *I61) Byteref(index int) Range[I61] { return byte(i, index) }
+// Byteref returns a Range for the byte at index idx.
+func (i *I61) Byteref(idx int) Range[I61] { return byte(i, idx) }
 
 // U62 is an 62-bit unsigned integer.
 type U62 uint64
@@ -17094,14 +17094,14 @@ func (u *U62) SetBits(lo, hi int, v U62) {
 // Bitsref returns a Range for bits lo through hi.
 func (u *U62) Bitsref(lo, hi int) Range[U62] { return bits(u, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (u U62) Byte(index int) U62 { return u.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (u U62) Byte(index int) U8 { return U8(u.Bits(index*8, index*8+7)) }
 
 // SetByte sets byte index (0 = least significant) to v.
-func (u *U62) SetByte(index int, v U62) { u.SetBits(index*8, index*8+7, v) }
+func (u *U62) SetByte(index int, v U8) { u.SetBits(index*8, index*8+7, U62(v)) }
 
-// Byteref returns a Range for byte index.
-func (u *U62) Byteref(index int) Range[U62] { return byte(u, index) }
+// Byteref returns a Range for the byte at index idx.
+func (u *U62) Byteref(idx int) Range[U62] { return byte(u, idx) }
 
 // I62 is an 62-bit signed integer in two's complement.
 type I62 int64
@@ -17234,14 +17234,14 @@ func (i *I62) SetBits(lo, hi int, v I62) {
 // Bitsref returns a Range for bits lo through hi.
 func (i *I62) Bitsref(lo, hi int) Range[I62] { return bits(i, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (i I62) Byte(index int) I62 { return i.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (i I62) Byte(idx int) U8 { return U8(i.Bits(idx*8, idx*8+7)) }
 
-// SetByte sets byte index (0 = least significant) to v.
-func (i *I62) SetByte(index int, v I62) { i.SetBits(index*8, index*8+7, v) }
+// SetByte sets the byte at index idx to v.
+func (i *I62) SetByte(idx int, v U8) { i.SetBits(idx*8, idx*8+7, I62(v)) }
 
-// Byteref returns a Range for byte index.
-func (i *I62) Byteref(index int) Range[I62] { return byte(i, index) }
+// Byteref returns a Range for the byte at index idx.
+func (i *I62) Byteref(idx int) Range[I62] { return byte(i, idx) }
 
 // U63 is an 63-bit unsigned integer.
 type U63 uint64
@@ -17372,14 +17372,14 @@ func (u *U63) SetBits(lo, hi int, v U63) {
 // Bitsref returns a Range for bits lo through hi.
 func (u *U63) Bitsref(lo, hi int) Range[U63] { return bits(u, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (u U63) Byte(index int) U63 { return u.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (u U63) Byte(index int) U8 { return U8(u.Bits(index*8, index*8+7)) }
 
 // SetByte sets byte index (0 = least significant) to v.
-func (u *U63) SetByte(index int, v U63) { u.SetBits(index*8, index*8+7, v) }
+func (u *U63) SetByte(index int, v U8) { u.SetBits(index*8, index*8+7, U63(v)) }
 
-// Byteref returns a Range for byte index.
-func (u *U63) Byteref(index int) Range[U63] { return byte(u, index) }
+// Byteref returns a Range for the byte at index idx.
+func (u *U63) Byteref(idx int) Range[U63] { return byte(u, idx) }
 
 // I63 is an 63-bit signed integer in two's complement.
 type I63 int64
@@ -17512,14 +17512,14 @@ func (i *I63) SetBits(lo, hi int, v I63) {
 // Bitsref returns a Range for bits lo through hi.
 func (i *I63) Bitsref(lo, hi int) Range[I63] { return bits(i, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (i I63) Byte(index int) I63 { return i.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (i I63) Byte(idx int) U8 { return U8(i.Bits(idx*8, idx*8+7)) }
 
-// SetByte sets byte index (0 = least significant) to v.
-func (i *I63) SetByte(index int, v I63) { i.SetBits(index*8, index*8+7, v) }
+// SetByte sets the byte at index idx to v.
+func (i *I63) SetByte(idx int, v U8) { i.SetBits(idx*8, idx*8+7, I63(v)) }
 
-// Byteref returns a Range for byte index.
-func (i *I63) Byteref(index int) Range[I63] { return byte(i, index) }
+// Byteref returns a Range for the byte at index idx.
+func (i *I63) Byteref(idx int) Range[I63] { return byte(i, idx) }
 
 // U64 is an 64-bit unsigned integer.
 type U64 uint64
@@ -17650,14 +17650,14 @@ func (u *U64) SetBits(lo, hi int, v U64) {
 // Bitsref returns a Range for bits lo through hi.
 func (u *U64) Bitsref(lo, hi int) Range[U64] { return bits(u, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (u U64) Byte(index int) U64 { return u.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (u U64) Byte(index int) U8 { return U8(u.Bits(index*8, index*8+7)) }
 
 // SetByte sets byte index (0 = least significant) to v.
-func (u *U64) SetByte(index int, v U64) { u.SetBits(index*8, index*8+7, v) }
+func (u *U64) SetByte(index int, v U8) { u.SetBits(index*8, index*8+7, U64(v)) }
 
-// Byteref returns a Range for byte index.
-func (u *U64) Byteref(index int) Range[U64] { return byte(u, index) }
+// Byteref returns a Range for the byte at index idx.
+func (u *U64) Byteref(idx int) Range[U64] { return byte(u, idx) }
 
 // I64 is an 64-bit signed integer in two's complement.
 type I64 int64
@@ -17790,11 +17790,11 @@ func (i *I64) SetBits(lo, hi int, v I64) {
 // Bitsref returns a Range for bits lo through hi.
 func (i *I64) Bitsref(lo, hi int) Range[I64] { return bits(i, lo, hi) }
 
-// Byte returns byte index (0 = least significant) as a bit field read.
-func (i I64) Byte(index int) I64 { return i.Bits(index*8, index*8+7) }
+// Byte returns the byte at index idx.
+func (i I64) Byte(idx int) U8 { return U8(i.Bits(idx*8, idx*8+7)) }
 
-// SetByte sets byte index (0 = least significant) to v.
-func (i *I64) SetByte(index int, v I64) { i.SetBits(index*8, index*8+7, v) }
+// SetByte sets the byte at index idx to v.
+func (i *I64) SetByte(idx int, v U8) { i.SetBits(idx*8, idx*8+7, I64(v)) }
 
-// Byteref returns a Range for byte index.
-func (i *I64) Byteref(index int) Range[I64] { return byte(i, index) }
+// Byteref returns a Range for the byte at index idx.
+func (i *I64) Byteref(idx int) Range[I64] { return byte(i, idx) }
