@@ -75,8 +75,7 @@ func (u U1) Clamp(value uint64) U1 { return uclamp[U1](value) }
 
 // Clip masks u to a bits-wide low field.
 func (u U1) Clip(bits int) U1 {
-	b := 1 << (bits - 1)
-	m := U1(b*2 - 1)
+	m := U1(1<<bits) - 1
 	return u & m
 }
 
@@ -353,8 +352,7 @@ func (u U2) Clamp(value uint64) U2 { return uclamp[U2](value) }
 
 // Clip masks u to a bits-wide low field.
 func (u U2) Clip(bits int) U2 {
-	b := 1 << (bits - 1)
-	m := U2(b*2 - 1)
+	m := U2(1<<bits) - 1
 	return u & m
 }
 
@@ -631,8 +629,7 @@ func (u U3) Clamp(value uint64) U3 { return uclamp[U3](value) }
 
 // Clip masks u to a bits-wide low field.
 func (u U3) Clip(bits int) U3 {
-	b := 1 << (bits - 1)
-	m := U3(b*2 - 1)
+	m := U3(1<<bits) - 1
 	return u & m
 }
 
@@ -909,8 +906,7 @@ func (u U4) Clamp(value uint64) U4 { return uclamp[U4](value) }
 
 // Clip masks u to a bits-wide low field.
 func (u U4) Clip(bits int) U4 {
-	b := 1 << (bits - 1)
-	m := U4(b*2 - 1)
+	m := U4(1<<bits) - 1
 	return u & m
 }
 
@@ -1187,8 +1183,7 @@ func (u U5) Clamp(value uint64) U5 { return uclamp[U5](value) }
 
 // Clip masks u to a bits-wide low field.
 func (u U5) Clip(bits int) U5 {
-	b := 1 << (bits - 1)
-	m := U5(b*2 - 1)
+	m := U5(1<<bits) - 1
 	return u & m
 }
 
@@ -1465,8 +1460,7 @@ func (u U6) Clamp(value uint64) U6 { return uclamp[U6](value) }
 
 // Clip masks u to a bits-wide low field.
 func (u U6) Clip(bits int) U6 {
-	b := 1 << (bits - 1)
-	m := U6(b*2 - 1)
+	m := U6(1<<bits) - 1
 	return u & m
 }
 
@@ -1743,8 +1737,7 @@ func (u U7) Clamp(value uint64) U7 { return uclamp[U7](value) }
 
 // Clip masks u to a bits-wide low field.
 func (u U7) Clip(bits int) U7 {
-	b := 1 << (bits - 1)
-	m := U7(b*2 - 1)
+	m := U7(1<<bits) - 1
 	return u & m
 }
 
@@ -2021,8 +2014,7 @@ func (u U8) Clamp(value uint64) U8 { return uclamp[U8](value) }
 
 // Clip masks u to a bits-wide low field.
 func (u U8) Clip(bits int) U8 {
-	b := 1 << (bits - 1)
-	m := U8(b*2 - 1)
+	m := U8(1<<bits) - 1
 	return u & m
 }
 
@@ -2299,8 +2291,7 @@ func (u U9) Clamp(value uint64) U9 { return uclamp[U9](value) }
 
 // Clip masks u to a bits-wide low field.
 func (u U9) Clip(bits int) U9 {
-	b := 1 << (bits - 1)
-	m := U9(b*2 - 1)
+	m := U9(1<<bits) - 1
 	return u & m
 }
 
@@ -2577,8 +2568,7 @@ func (u U10) Clamp(value uint64) U10 { return uclamp[U10](value) }
 
 // Clip masks u to a bits-wide low field.
 func (u U10) Clip(bits int) U10 {
-	b := 1 << (bits - 1)
-	m := U10(b*2 - 1)
+	m := U10(1<<bits) - 1
 	return u & m
 }
 
@@ -2855,8 +2845,7 @@ func (u U11) Clamp(value uint64) U11 { return uclamp[U11](value) }
 
 // Clip masks u to a bits-wide low field.
 func (u U11) Clip(bits int) U11 {
-	b := 1 << (bits - 1)
-	m := U11(b*2 - 1)
+	m := U11(1<<bits) - 1
 	return u & m
 }
 
@@ -3133,8 +3122,7 @@ func (u U12) Clamp(value uint64) U12 { return uclamp[U12](value) }
 
 // Clip masks u to a bits-wide low field.
 func (u U12) Clip(bits int) U12 {
-	b := 1 << (bits - 1)
-	m := U12(b*2 - 1)
+	m := U12(1<<bits) - 1
 	return u & m
 }
 
@@ -3411,8 +3399,7 @@ func (u U13) Clamp(value uint64) U13 { return uclamp[U13](value) }
 
 // Clip masks u to a bits-wide low field.
 func (u U13) Clip(bits int) U13 {
-	b := 1 << (bits - 1)
-	m := U13(b*2 - 1)
+	m := U13(1<<bits) - 1
 	return u & m
 }
 
@@ -3689,8 +3676,7 @@ func (u U14) Clamp(value uint64) U14 { return uclamp[U14](value) }
 
 // Clip masks u to a bits-wide low field.
 func (u U14) Clip(bits int) U14 {
-	b := 1 << (bits - 1)
-	m := U14(b*2 - 1)
+	m := U14(1<<bits) - 1
 	return u & m
 }
 
@@ -3967,8 +3953,7 @@ func (u U15) Clamp(value uint64) U15 { return uclamp[U15](value) }
 
 // Clip masks u to a bits-wide low field.
 func (u U15) Clip(bits int) U15 {
-	b := 1 << (bits - 1)
-	m := U15(b*2 - 1)
+	m := U15(1<<bits) - 1
 	return u & m
 }
 
@@ -4245,8 +4230,7 @@ func (u U16) Clamp(value uint64) U16 { return uclamp[U16](value) }
 
 // Clip masks u to a bits-wide low field.
 func (u U16) Clip(bits int) U16 {
-	b := 1 << (bits - 1)
-	m := U16(b*2 - 1)
+	m := U16(1<<bits) - 1
 	return u & m
 }
 
@@ -4523,8 +4507,7 @@ func (u U17) Clamp(value uint64) U17 { return uclamp[U17](value) }
 
 // Clip masks u to a bits-wide low field.
 func (u U17) Clip(bits int) U17 {
-	b := 1 << (bits - 1)
-	m := U17(b*2 - 1)
+	m := U17(1<<bits) - 1
 	return u & m
 }
 
@@ -4801,8 +4784,7 @@ func (u U18) Clamp(value uint64) U18 { return uclamp[U18](value) }
 
 // Clip masks u to a bits-wide low field.
 func (u U18) Clip(bits int) U18 {
-	b := 1 << (bits - 1)
-	m := U18(b*2 - 1)
+	m := U18(1<<bits) - 1
 	return u & m
 }
 
@@ -5079,8 +5061,7 @@ func (u U19) Clamp(value uint64) U19 { return uclamp[U19](value) }
 
 // Clip masks u to a bits-wide low field.
 func (u U19) Clip(bits int) U19 {
-	b := 1 << (bits - 1)
-	m := U19(b*2 - 1)
+	m := U19(1<<bits) - 1
 	return u & m
 }
 
@@ -5357,8 +5338,7 @@ func (u U20) Clamp(value uint64) U20 { return uclamp[U20](value) }
 
 // Clip masks u to a bits-wide low field.
 func (u U20) Clip(bits int) U20 {
-	b := 1 << (bits - 1)
-	m := U20(b*2 - 1)
+	m := U20(1<<bits) - 1
 	return u & m
 }
 
@@ -5635,8 +5615,7 @@ func (u U21) Clamp(value uint64) U21 { return uclamp[U21](value) }
 
 // Clip masks u to a bits-wide low field.
 func (u U21) Clip(bits int) U21 {
-	b := 1 << (bits - 1)
-	m := U21(b*2 - 1)
+	m := U21(1<<bits) - 1
 	return u & m
 }
 
@@ -5913,8 +5892,7 @@ func (u U22) Clamp(value uint64) U22 { return uclamp[U22](value) }
 
 // Clip masks u to a bits-wide low field.
 func (u U22) Clip(bits int) U22 {
-	b := 1 << (bits - 1)
-	m := U22(b*2 - 1)
+	m := U22(1<<bits) - 1
 	return u & m
 }
 
@@ -6191,8 +6169,7 @@ func (u U23) Clamp(value uint64) U23 { return uclamp[U23](value) }
 
 // Clip masks u to a bits-wide low field.
 func (u U23) Clip(bits int) U23 {
-	b := 1 << (bits - 1)
-	m := U23(b*2 - 1)
+	m := U23(1<<bits) - 1
 	return u & m
 }
 
@@ -6469,8 +6446,7 @@ func (u U24) Clamp(value uint64) U24 { return uclamp[U24](value) }
 
 // Clip masks u to a bits-wide low field.
 func (u U24) Clip(bits int) U24 {
-	b := 1 << (bits - 1)
-	m := U24(b*2 - 1)
+	m := U24(1<<bits) - 1
 	return u & m
 }
 
@@ -6747,8 +6723,7 @@ func (u U25) Clamp(value uint64) U25 { return uclamp[U25](value) }
 
 // Clip masks u to a bits-wide low field.
 func (u U25) Clip(bits int) U25 {
-	b := 1 << (bits - 1)
-	m := U25(b*2 - 1)
+	m := U25(1<<bits) - 1
 	return u & m
 }
 
@@ -7025,8 +7000,7 @@ func (u U26) Clamp(value uint64) U26 { return uclamp[U26](value) }
 
 // Clip masks u to a bits-wide low field.
 func (u U26) Clip(bits int) U26 {
-	b := 1 << (bits - 1)
-	m := U26(b*2 - 1)
+	m := U26(1<<bits) - 1
 	return u & m
 }
 
@@ -7303,8 +7277,7 @@ func (u U27) Clamp(value uint64) U27 { return uclamp[U27](value) }
 
 // Clip masks u to a bits-wide low field.
 func (u U27) Clip(bits int) U27 {
-	b := 1 << (bits - 1)
-	m := U27(b*2 - 1)
+	m := U27(1<<bits) - 1
 	return u & m
 }
 
@@ -7581,8 +7554,7 @@ func (u U28) Clamp(value uint64) U28 { return uclamp[U28](value) }
 
 // Clip masks u to a bits-wide low field.
 func (u U28) Clip(bits int) U28 {
-	b := 1 << (bits - 1)
-	m := U28(b*2 - 1)
+	m := U28(1<<bits) - 1
 	return u & m
 }
 
@@ -7859,8 +7831,7 @@ func (u U29) Clamp(value uint64) U29 { return uclamp[U29](value) }
 
 // Clip masks u to a bits-wide low field.
 func (u U29) Clip(bits int) U29 {
-	b := 1 << (bits - 1)
-	m := U29(b*2 - 1)
+	m := U29(1<<bits) - 1
 	return u & m
 }
 
@@ -8137,8 +8108,7 @@ func (u U30) Clamp(value uint64) U30 { return uclamp[U30](value) }
 
 // Clip masks u to a bits-wide low field.
 func (u U30) Clip(bits int) U30 {
-	b := 1 << (bits - 1)
-	m := U30(b*2 - 1)
+	m := U30(1<<bits) - 1
 	return u & m
 }
 
@@ -8415,8 +8385,7 @@ func (u U31) Clamp(value uint64) U31 { return uclamp[U31](value) }
 
 // Clip masks u to a bits-wide low field.
 func (u U31) Clip(bits int) U31 {
-	b := 1 << (bits - 1)
-	m := U31(b*2 - 1)
+	m := U31(1<<bits) - 1
 	return u & m
 }
 
@@ -8693,8 +8662,7 @@ func (u U32) Clamp(value uint64) U32 { return uclamp[U32](value) }
 
 // Clip masks u to a bits-wide low field.
 func (u U32) Clip(bits int) U32 {
-	b := 1 << (bits - 1)
-	m := U32(b*2 - 1)
+	m := U32(1<<bits) - 1
 	return u & m
 }
 
@@ -8971,8 +8939,7 @@ func (u U33) Clamp(value uint64) U33 { return uclamp[U33](value) }
 
 // Clip masks u to a bits-wide low field.
 func (u U33) Clip(bits int) U33 {
-	b := 1 << (bits - 1)
-	m := U33(b*2 - 1)
+	m := U33(1<<bits) - 1
 	return u & m
 }
 
@@ -9249,8 +9216,7 @@ func (u U34) Clamp(value uint64) U34 { return uclamp[U34](value) }
 
 // Clip masks u to a bits-wide low field.
 func (u U34) Clip(bits int) U34 {
-	b := 1 << (bits - 1)
-	m := U34(b*2 - 1)
+	m := U34(1<<bits) - 1
 	return u & m
 }
 
@@ -9527,8 +9493,7 @@ func (u U35) Clamp(value uint64) U35 { return uclamp[U35](value) }
 
 // Clip masks u to a bits-wide low field.
 func (u U35) Clip(bits int) U35 {
-	b := 1 << (bits - 1)
-	m := U35(b*2 - 1)
+	m := U35(1<<bits) - 1
 	return u & m
 }
 
@@ -9805,8 +9770,7 @@ func (u U36) Clamp(value uint64) U36 { return uclamp[U36](value) }
 
 // Clip masks u to a bits-wide low field.
 func (u U36) Clip(bits int) U36 {
-	b := 1 << (bits - 1)
-	m := U36(b*2 - 1)
+	m := U36(1<<bits) - 1
 	return u & m
 }
 
@@ -10083,8 +10047,7 @@ func (u U37) Clamp(value uint64) U37 { return uclamp[U37](value) }
 
 // Clip masks u to a bits-wide low field.
 func (u U37) Clip(bits int) U37 {
-	b := 1 << (bits - 1)
-	m := U37(b*2 - 1)
+	m := U37(1<<bits) - 1
 	return u & m
 }
 
@@ -10361,8 +10324,7 @@ func (u U38) Clamp(value uint64) U38 { return uclamp[U38](value) }
 
 // Clip masks u to a bits-wide low field.
 func (u U38) Clip(bits int) U38 {
-	b := 1 << (bits - 1)
-	m := U38(b*2 - 1)
+	m := U38(1<<bits) - 1
 	return u & m
 }
 
@@ -10639,8 +10601,7 @@ func (u U39) Clamp(value uint64) U39 { return uclamp[U39](value) }
 
 // Clip masks u to a bits-wide low field.
 func (u U39) Clip(bits int) U39 {
-	b := 1 << (bits - 1)
-	m := U39(b*2 - 1)
+	m := U39(1<<bits) - 1
 	return u & m
 }
 
@@ -10917,8 +10878,7 @@ func (u U40) Clamp(value uint64) U40 { return uclamp[U40](value) }
 
 // Clip masks u to a bits-wide low field.
 func (u U40) Clip(bits int) U40 {
-	b := 1 << (bits - 1)
-	m := U40(b*2 - 1)
+	m := U40(1<<bits) - 1
 	return u & m
 }
 
@@ -11195,8 +11155,7 @@ func (u U41) Clamp(value uint64) U41 { return uclamp[U41](value) }
 
 // Clip masks u to a bits-wide low field.
 func (u U41) Clip(bits int) U41 {
-	b := 1 << (bits - 1)
-	m := U41(b*2 - 1)
+	m := U41(1<<bits) - 1
 	return u & m
 }
 
@@ -11473,8 +11432,7 @@ func (u U42) Clamp(value uint64) U42 { return uclamp[U42](value) }
 
 // Clip masks u to a bits-wide low field.
 func (u U42) Clip(bits int) U42 {
-	b := 1 << (bits - 1)
-	m := U42(b*2 - 1)
+	m := U42(1<<bits) - 1
 	return u & m
 }
 
@@ -11751,8 +11709,7 @@ func (u U43) Clamp(value uint64) U43 { return uclamp[U43](value) }
 
 // Clip masks u to a bits-wide low field.
 func (u U43) Clip(bits int) U43 {
-	b := 1 << (bits - 1)
-	m := U43(b*2 - 1)
+	m := U43(1<<bits) - 1
 	return u & m
 }
 
@@ -12029,8 +11986,7 @@ func (u U44) Clamp(value uint64) U44 { return uclamp[U44](value) }
 
 // Clip masks u to a bits-wide low field.
 func (u U44) Clip(bits int) U44 {
-	b := 1 << (bits - 1)
-	m := U44(b*2 - 1)
+	m := U44(1<<bits) - 1
 	return u & m
 }
 
@@ -12307,8 +12263,7 @@ func (u U45) Clamp(value uint64) U45 { return uclamp[U45](value) }
 
 // Clip masks u to a bits-wide low field.
 func (u U45) Clip(bits int) U45 {
-	b := 1 << (bits - 1)
-	m := U45(b*2 - 1)
+	m := U45(1<<bits) - 1
 	return u & m
 }
 
@@ -12585,8 +12540,7 @@ func (u U46) Clamp(value uint64) U46 { return uclamp[U46](value) }
 
 // Clip masks u to a bits-wide low field.
 func (u U46) Clip(bits int) U46 {
-	b := 1 << (bits - 1)
-	m := U46(b*2 - 1)
+	m := U46(1<<bits) - 1
 	return u & m
 }
 
@@ -12863,8 +12817,7 @@ func (u U47) Clamp(value uint64) U47 { return uclamp[U47](value) }
 
 // Clip masks u to a bits-wide low field.
 func (u U47) Clip(bits int) U47 {
-	b := 1 << (bits - 1)
-	m := U47(b*2 - 1)
+	m := U47(1<<bits) - 1
 	return u & m
 }
 
@@ -13141,8 +13094,7 @@ func (u U48) Clamp(value uint64) U48 { return uclamp[U48](value) }
 
 // Clip masks u to a bits-wide low field.
 func (u U48) Clip(bits int) U48 {
-	b := 1 << (bits - 1)
-	m := U48(b*2 - 1)
+	m := U48(1<<bits) - 1
 	return u & m
 }
 
@@ -13419,8 +13371,7 @@ func (u U49) Clamp(value uint64) U49 { return uclamp[U49](value) }
 
 // Clip masks u to a bits-wide low field.
 func (u U49) Clip(bits int) U49 {
-	b := 1 << (bits - 1)
-	m := U49(b*2 - 1)
+	m := U49(1<<bits) - 1
 	return u & m
 }
 
@@ -13697,8 +13648,7 @@ func (u U50) Clamp(value uint64) U50 { return uclamp[U50](value) }
 
 // Clip masks u to a bits-wide low field.
 func (u U50) Clip(bits int) U50 {
-	b := 1 << (bits - 1)
-	m := U50(b*2 - 1)
+	m := U50(1<<bits) - 1
 	return u & m
 }
 
@@ -13975,8 +13925,7 @@ func (u U51) Clamp(value uint64) U51 { return uclamp[U51](value) }
 
 // Clip masks u to a bits-wide low field.
 func (u U51) Clip(bits int) U51 {
-	b := 1 << (bits - 1)
-	m := U51(b*2 - 1)
+	m := U51(1<<bits) - 1
 	return u & m
 }
 
@@ -14253,8 +14202,7 @@ func (u U52) Clamp(value uint64) U52 { return uclamp[U52](value) }
 
 // Clip masks u to a bits-wide low field.
 func (u U52) Clip(bits int) U52 {
-	b := 1 << (bits - 1)
-	m := U52(b*2 - 1)
+	m := U52(1<<bits) - 1
 	return u & m
 }
 
@@ -14531,8 +14479,7 @@ func (u U53) Clamp(value uint64) U53 { return uclamp[U53](value) }
 
 // Clip masks u to a bits-wide low field.
 func (u U53) Clip(bits int) U53 {
-	b := 1 << (bits - 1)
-	m := U53(b*2 - 1)
+	m := U53(1<<bits) - 1
 	return u & m
 }
 
@@ -14809,8 +14756,7 @@ func (u U54) Clamp(value uint64) U54 { return uclamp[U54](value) }
 
 // Clip masks u to a bits-wide low field.
 func (u U54) Clip(bits int) U54 {
-	b := 1 << (bits - 1)
-	m := U54(b*2 - 1)
+	m := U54(1<<bits) - 1
 	return u & m
 }
 
@@ -15087,8 +15033,7 @@ func (u U55) Clamp(value uint64) U55 { return uclamp[U55](value) }
 
 // Clip masks u to a bits-wide low field.
 func (u U55) Clip(bits int) U55 {
-	b := 1 << (bits - 1)
-	m := U55(b*2 - 1)
+	m := U55(1<<bits) - 1
 	return u & m
 }
 
@@ -15365,8 +15310,7 @@ func (u U56) Clamp(value uint64) U56 { return uclamp[U56](value) }
 
 // Clip masks u to a bits-wide low field.
 func (u U56) Clip(bits int) U56 {
-	b := 1 << (bits - 1)
-	m := U56(b*2 - 1)
+	m := U56(1<<bits) - 1
 	return u & m
 }
 
@@ -15643,8 +15587,7 @@ func (u U57) Clamp(value uint64) U57 { return uclamp[U57](value) }
 
 // Clip masks u to a bits-wide low field.
 func (u U57) Clip(bits int) U57 {
-	b := 1 << (bits - 1)
-	m := U57(b*2 - 1)
+	m := U57(1<<bits) - 1
 	return u & m
 }
 
@@ -15921,8 +15864,7 @@ func (u U58) Clamp(value uint64) U58 { return uclamp[U58](value) }
 
 // Clip masks u to a bits-wide low field.
 func (u U58) Clip(bits int) U58 {
-	b := 1 << (bits - 1)
-	m := U58(b*2 - 1)
+	m := U58(1<<bits) - 1
 	return u & m
 }
 
@@ -16199,8 +16141,7 @@ func (u U59) Clamp(value uint64) U59 { return uclamp[U59](value) }
 
 // Clip masks u to a bits-wide low field.
 func (u U59) Clip(bits int) U59 {
-	b := 1 << (bits - 1)
-	m := U59(b*2 - 1)
+	m := U59(1<<bits) - 1
 	return u & m
 }
 
@@ -16477,8 +16418,7 @@ func (u U60) Clamp(value uint64) U60 { return uclamp[U60](value) }
 
 // Clip masks u to a bits-wide low field.
 func (u U60) Clip(bits int) U60 {
-	b := 1 << (bits - 1)
-	m := U60(b*2 - 1)
+	m := U60(1<<bits) - 1
 	return u & m
 }
 
@@ -16755,8 +16695,7 @@ func (u U61) Clamp(value uint64) U61 { return uclamp[U61](value) }
 
 // Clip masks u to a bits-wide low field.
 func (u U61) Clip(bits int) U61 {
-	b := 1 << (bits - 1)
-	m := U61(b*2 - 1)
+	m := U61(1<<bits) - 1
 	return u & m
 }
 
@@ -17033,8 +16972,7 @@ func (u U62) Clamp(value uint64) U62 { return uclamp[U62](value) }
 
 // Clip masks u to a bits-wide low field.
 func (u U62) Clip(bits int) U62 {
-	b := 1 << (bits - 1)
-	m := U62(b*2 - 1)
+	m := U62(1<<bits) - 1
 	return u & m
 }
 
@@ -17311,8 +17249,7 @@ func (u U63) Clamp(value uint64) U63 { return uclamp[U63](value) }
 
 // Clip masks u to a bits-wide low field.
 func (u U63) Clip(bits int) U63 {
-	b := 1 << (bits - 1)
-	m := U63(b*2 - 1)
+	m := U63(1<<bits) - 1
 	return u & m
 }
 
@@ -17589,8 +17526,7 @@ func (u U64) Clamp(value uint64) U64 { return uclamp[U64](value) }
 
 // Clip masks u to a bits-wide low field.
 func (u U64) Clip(bits int) U64 {
-	b := 1 << (bits - 1)
-	m := U64(b*2 - 1)
+	m := U64(1<<bits) - 1
 	return u & m
 }
 
